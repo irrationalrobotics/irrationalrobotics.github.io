@@ -236,11 +236,11 @@ export default function ContactPage() {
                   If you prefer to reach out directly via email, you can contact us at:
                 </p>
                 <a
-                  href="mailto:contact@irrationalrobotics.org"
+                  href="mailto:irrationalvexrobotics@gmail.com"
                   className="flex items-center gap-2 text-primary hover:underline"
                 >
                   <Mail className="h-4 w-4" />
-                  contact@irrationalrobotics.org
+                  irrationalvexrobotics@gmail.com
                 </a>
               </CardContent>
             </Card>
