@@ -44,15 +44,22 @@ export default function ContactPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Message sent successfully! We'll get back to you soon.", {
-        description: "Thank you for contacting Irrational Robotics.",
-      });
-      form.reset();
-    }, 1500);
-  }
+  // Build the email body
+  const body = [
+    `Name: ${values.name}`,
+    `Email: ${values.email}`,
+    ``,
+    values.message
+  ].join("\n");
+
+  // Build and open the mailto: URL
+  const mailto = `mailto:irrationalvexrobotics@gmail.com`
+    + `?subject=${encodeURIComponent(values.subject)}`
+    + `&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailto;
+}
+
 
   return (
     <div className="py-12 md:py-20">
