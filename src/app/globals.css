@@ -34,7 +34,7 @@
     --axiom-dark: 221 39% 11%; /* #14142A equivalent */
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
