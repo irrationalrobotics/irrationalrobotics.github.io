@@ -1,0 +1,121 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 221 70% 55%; /* Light blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 8%; /* Near black */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 6%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 8%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 221 70% 55%;
+    --radius: 0.5rem;
+
+    /* Updated Axiom colors - removed purple, added proper blacks and blues */
+    --axiom-primary: 221 75% 50%; /* Light blue */
+    --axiom-secondary: 0 0% 8%; /* Near black */
+    --axiom-accent: 221 75% 60%; /* Lighter blue */
+    --axiom-dark: 221 39% 11%; /* #14142A equivalent */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+}
+
+/* Subtle hover transitions */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Minimal fade for section transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle text highlight for emphasis */
+.highlight-text {
+  @apply text-primary font-medium;
+}
+
+.gradient-text {
+  @apply font-medium;
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary)),
+    #3B82F6,
+    #8B5CF6,
+    hsl(var(--primary)),
+    #06B6D4
+  ) no-repeat;
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-cycle 8s ease-in-out infinite;
+}
+
+@keyframes gradient-cycle {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Updated Axiom theme styles - pure black and #14142A with light blue highlights */
+.axiom-theme {
+  --background: 0 0% 0%; /* Pure black */
+  --foreground: 0 0% 100%;
+  --card: 221 39% 11%; /* #14142A */
+  --card-foreground: 0 0% 100%;
+  --popover: 221 39% 11%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 221 75% 50%; /* Light blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 4%; /* Very dark */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 6%;
+  --muted-foreground: 0 0% 75%;
+  --accent: 221 75% 60%; /* Light blue accent */
+  --accent-foreground: 0 0% 100%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 221 75% 50%;
+}
