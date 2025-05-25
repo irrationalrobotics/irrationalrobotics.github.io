@@ -1,3 +1,73 @@
 {
-  "pages": {}
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/app/_not-found/page-522a48645bdd8098.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/css/4dcf722f4b5312bf.css",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/411-0d4e4e3d4954d449.js",
+      "static/chunks/904-25694249bcd70a79.js",
+      "static/chunks/814-71161a54f5655d13.js",
+      "static/chunks/567-3d4bbba88e464e8d.js",
+      "static/chunks/app/layout-b36cb0140e0b1053.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/411-0d4e4e3d4954d449.js",
+      "static/chunks/app/about/page-68feb7c04a504230.js"
+    ],
+    "/axiom/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/904-25694249bcd70a79.js",
+      "static/chunks/898-cccacfd0a1d73fc3.js",
+      "static/chunks/app/axiom/page-2e0149ce95908336.js"
+    ],
+    "/competitions/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/411-0d4e4e3d4954d449.js",
+      "static/chunks/904-25694249bcd70a79.js",
+      "static/chunks/898-cccacfd0a1d73fc3.js",
+      "static/chunks/app/competitions/page-a75d652d4b850233.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/814-71161a54f5655d13.js",
+      "static/chunks/932-4b27dfb7d5083abe.js",
+      "static/chunks/app/contact/page-bd1995fc57d288aa.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-727e0a39eb1de4db.js",
+      "static/chunks/4bd1b696-96c181ca1d9f5e7b.js",
+      "static/chunks/684-ad0a2487ea07df4b.js",
+      "static/chunks/main-app-268f248b9c039222.js",
+      "static/chunks/300-2b5fbceea30dd2a6.js",
+      "static/chunks/411-0d4e4e3d4954d449.js",
+      "static/chunks/app/page-47f5e4889b8c2402.js"
+    ]
+  }
 }
