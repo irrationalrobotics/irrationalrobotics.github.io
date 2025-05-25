@@ -1,4 +1,4 @@
-// File: /Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign/src/app/about/page.tsx
+// File: /Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign 2/src/app/about/page.tsx
 import * as entry from '../../../../src/app/about/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

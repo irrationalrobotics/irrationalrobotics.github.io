@@ -24,7 +24,12 @@
     "path": "/_next/image",
     "loader": "default",
     "loaderFile": "",
-    "domains": [],
+    "domains": [
+      "source.unsplash.com",
+      "images.unsplash.com",
+      "ext.same-assets.com",
+      "ugc.same-assets.com"
+    ],
     "disableStaticImages": false,
     "minimumCacheTTL": 60,
     "formats": [
@@ -33,8 +38,29 @@
     "dangerouslyAllowSVG": false,
     "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
     "contentDispositionType": "attachment",
-    "remotePatterns": [],
-    "unoptimized": false,
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:source\\.unsplash\\.com)$)$",
+        "pathname": "^(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?))$"
+      },
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:images\\.unsplash\\.com)$)$",
+        "pathname": "^(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?))$"
+      },
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:ext\\.same\\-assets\\.com)$)$",
+        "pathname": "^(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?))$"
+      },
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:ugc\\.same\\-assets\\.com)$)$",
+        "pathname": "^(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?))$"
+      }
+    ],
+    "unoptimized": true,
     "sizes": [
       640,
       750,

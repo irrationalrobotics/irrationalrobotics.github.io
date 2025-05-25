@@ -49,7 +49,12 @@
       "path": "/_next/image",
       "loader": "default",
       "loaderFile": "",
-      "domains": [],
+      "domains": [
+        "source.unsplash.com",
+        "images.unsplash.com",
+        "ext.same-assets.com",
+        "ugc.same-assets.com"
+      ],
       "disableStaticImages": false,
       "minimumCacheTTL": 60,
       "formats": [
@@ -58,8 +63,29 @@
       "dangerouslyAllowSVG": false,
       "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
       "contentDispositionType": "attachment",
-      "remotePatterns": [],
-      "unoptimized": false
+      "remotePatterns": [
+        {
+          "protocol": "https",
+          "hostname": "source.unsplash.com",
+          "pathname": "/**"
+        },
+        {
+          "protocol": "https",
+          "hostname": "images.unsplash.com",
+          "pathname": "/**"
+        },
+        {
+          "protocol": "https",
+          "hostname": "ext.same-assets.com",
+          "pathname": "/**"
+        },
+        {
+          "protocol": "https",
+          "hostname": "ugc.same-assets.com",
+          "pathname": "/**"
+        }
+      ],
+      "unoptimized": true
     },
     "devIndicators": {
       "position": "bottom-left"
@@ -97,7 +123,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign",
+    "outputFileTracingRoot": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign 2",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -280,10 +306,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign"
+      "root": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign 2"
     }
   },
-  "appDir": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign",
+  "appDir": "/Users/abhiramasonny/Developer/robotics/vex/Axiom-Page-Redesign 2",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

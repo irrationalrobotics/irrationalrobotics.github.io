@@ -1,7 +1,7 @@
 {
   "version": 4,
   "routes": {
-    "/competitions": {
+    "/contact": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -14,56 +14,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/competitions",
-      "dataRoute": "/competitions.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/axiom": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/axiom",
-      "dataRoute": "/axiom.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/contact",
+      "dataRoute": "/contact.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -97,7 +49,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/contact": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -110,8 +62,56 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/contact",
-      "dataRoute": "/contact.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/axiom": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/axiom",
+      "dataRoute": "/axiom.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/competitions": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/competitions",
+      "dataRoute": "/competitions.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -125,8 +125,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "f51b130a996f25d4ce32f8c6b703ba5d",
-    "previewModeSigningKey": "8ebc6afb8b08f550c1355691ae58e87463d75136d937641947cc3b80c94d0d5a",
-    "previewModeEncryptionKey": "e9ad62384761831654d6398c65e5acb342a90a74d499a5c8f97bc8a024779fc0"
+    "previewModeId": "a1bca3d0412f6a0c83028500f421a04c",
+    "previewModeSigningKey": "30b5692013480e80b12d8306498235bdcbf3cb85284abe67f34d9cc561c15fee",
+    "previewModeEncryptionKey": "96dc3d4b149992add10e08dfab57308dcde67b650a7edccded691583329b4fa8"
   }
 }
