@@ -32,6 +32,7 @@ export default function Home() {
 
   return (
     <div>
+      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
       {/* Hero Section */}
       <HeroSection
         title={
