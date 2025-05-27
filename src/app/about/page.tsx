@@ -31,6 +31,11 @@ export default function AboutPage() {
               Meet Team Axiom
             </Link>
           </Button>
+          <Button asChild>
+            <Link href="/theorem">
+              Meet Team Theorem
+            </Link>
+          </Button>
           <Button variant="outline">
             <Link href="/contact">
               Contact Us
@@ -123,8 +128,10 @@ export default function AboutPage() {
                   Our upcoming team (not yet registered), which will focus on
                   development.
                 </p>
-                <Button disabled variant="outline">
-                  Coming Soon
+                <Button asChild>
+                  <Link href="/theorem">
+                    Learn More
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

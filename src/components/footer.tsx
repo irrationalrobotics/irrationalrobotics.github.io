@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram } from "lucide-react";
+import { Instagram, Youtube} from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { HighlightText } from "./highlight-text";
 
@@ -40,6 +40,11 @@ export function Footer() {
                 </Link>
               </div>
               <div>
+                <Link href="/theorem" className="hover:text-primary transition-colors">
+                  Team 14142T Theorem
+                </Link>
+              </div>
+              <div>
                 <Link href="/competitions" className="hover:text-primary transition-colors">
                   Competitions
                 </Link>
@@ -62,6 +67,15 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
               >
                 <Instagram className="w-4 h-4" />
+                <span>@irrationalrobotics</span>
+              </Link>
+              <Link
+                href="https://www.youtube.com/@irrationalrobotics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
+              >
+                <Youtube className="w-4 h-4" />
                 <span>@irrationalrobotics</span>
               </Link>
               <div className="text-sm text-muted-foreground pt-1">

@@ -21,7 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { HighlightText } from "@/components/highlight-text";
 
-import { Instagram, Mail, Send } from "lucide-react";
+import { Instagram, Youtube, Mail, Send } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -212,19 +212,37 @@ export default function ContactPage() {
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="bg-primary/10 p-2 rounded-full">
-                      <Instagram className="h-5 w-5 text-primary" />
+                    <div>
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Instagram className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">Instagram</h3>
+                        <a
+                          href="https://instagram.com/irrationalrobotics"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          @irrationalrobotics
+                        </a>
+                      </div>
                     </div>
                     <div>
-                      <h3 className="font-medium">Instagram</h3>
-                      <a
-                        href="https://instagram.com/irrationalrobotics"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        @irrationalrobotics
-                      </a>
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Youtube className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">YouTube</h3>
+                        <a
+                          href="https://www.youtube.com/@irrationalrobotics"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          @irrationalrobotics
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -260,6 +278,9 @@ export default function ContactPage() {
               <div className="mt-4 flex justify-center">
                 <Button variant="outline" size="sm" asChild>
                   <a href="/axiom">Team 14142A Axiom</a>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <a href="/theorem">Team 14142T Theorem</a>
                 </Button>
               </div>
             </div>

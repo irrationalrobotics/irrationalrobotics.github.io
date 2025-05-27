@@ -33,6 +33,11 @@ export default function CompetitionsPage() {
               Team Axiom Results
             </Link>
           </Button>
+          <Button asChild>
+            <Link href="/theorem">
+              Team Theorem Results
+            </Link>
+          </Button>
         </div>
       </HeroSection>
 

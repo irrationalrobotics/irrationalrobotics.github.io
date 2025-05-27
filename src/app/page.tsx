@@ -9,7 +9,7 @@ import { HeroSection } from "@/components/hero-section";
 import { FeatureSection } from "@/components/feature-section";
 import { HighlightText } from "@/components/highlight-text";
 
-import { BookOpen, Award, Target, Users, Instagram, Mail, ArrowRight } from "lucide-react";
+import { BookOpen, Award, Target, Users, Instagram, Youtube, Mail, ArrowRight } from "lucide-react";
 
 export default function Home() {
   useEffect(() => {
@@ -46,6 +46,11 @@ export default function Home() {
           <Button asChild>
             <Link href="/axiom">
               Meet Team Axiom
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link href="/theorem">
+              Meet Team Theorem
             </Link>
           </Button>
           <Button variant="outline" size="lg">
@@ -174,12 +179,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center fade-in" style={{ transitionDelay: "0.1s" }}>
-            <Link
-              href="https://instagram.com/irrationalrobotics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group hover-lift"
-            >
+            
               <Card className="w-full max-w-sm border border-border/50 bg-card/60 group-hover:border-primary/50 transition-colors">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -187,17 +187,35 @@ export default function Home() {
                     Follow Us
                   </CardTitle>
                   <CardDescription>
-                    Keep up with our latest updates, competition results, and memes on our Instagram Page!
+                    Keep up with our latest updates, competition results, and memes on our Instagram and YouTube Page!
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <Instagram className="h-4 w-4" />
-                    @irrationalrobotics
+                    <Link
+                        href="https://instagram.com/irrationalrobotics"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group hover-lift"
+                    >
+                      @irrationalrobotics
+                    </Link>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-sm">
+                    <Youtube className="h-4 w-4" />
+                    <Link 
+                      href="https://youtube.com/@irrationalrobotics" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="group hover-lift"
+                    >
+                      @irrationalrobotics
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
-            </Link>
+            
 
             <Link href="/contact" className="group hover-lift">
               <Card className="w-full max-w-sm border border-border/50 bg-card/60 group-hover:border-primary/50 transition-colors">

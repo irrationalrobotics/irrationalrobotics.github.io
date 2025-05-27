@@ -140,11 +140,11 @@ export default function AxiomPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
             {[
-              { img: "images/abhirama.png", name: "Abhriama Sonny", role: "Programmer" },
-              { img: "/images/johnathan.webp", name: "Johanathan Luu", role: "Builder & Outreach" },
-              { img: "images/kevin.jpg", name: "Kevin Ye", role: "Builder & Driver" },
-              { img: "/images/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver" },
-              { img: "/images/shyam.jpg", name: "Shyam Devanathan", role: "Builder & Programmer" }
+              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer" },
+              { img: "/images/axiom/johnathan.webp", name: "Johanathan Luu", role: "Builder & Outreach" },
+              { img: "images/axiom/kevin.jpg", name: "Kevin Ye", role: "Builder & Driver" },
+              { img: "/images/axiom/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver" },
+              { img: "/images/axiom/shyam.jpg", name: "Shyam Devanathan", role: "Builder & Programmer" }
             ].map((member, index) => (
               <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
                 <div className="h-24 bg-blue-500/20"></div>
@@ -211,7 +211,7 @@ export default function AxiomPage() {
                     {/* Image placeholder */}
                     <div className="aspect-video rounded-lg overflow-hidden bg-blue-500/10">
                       <img
-                        src="/images/cad.png"
+                        src="/images/axiom/cad.png"
                         alt="Initial Cad"
                         className="w-full h-full object-cover"
                       />
@@ -232,7 +232,7 @@ export default function AxiomPage() {
                     {/* Image placeholder */}
                     <div className="aspect-video rounded-lg overflow-hidden bg-blue-500/10">
                       <img
-                        src="/images/dt.png"
+                        src="/images/axiom/dt.png"
                         alt="Initial Build"
                         className="w-full h-full object-cover"
                       />
