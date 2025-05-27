@@ -43,7 +43,7 @@ export default function CompetitionsPage() {
 
       {/* Current Season Section */}
       <FeatureSection
-        title="Current Season: 2024-2025"
+        title="Current Season: 2025-2026"
         description="This year's VEX Robotics Competition game is Push Back, where robots compete to gather and dispense objects into scoring zones."
       >
         <div className="w-full max-w-md aspect-video relative rounded-lg overflow-hidden bg-gradient-to-br from-primary/80 to-primary flex items-center justify-center">
@@ -260,7 +260,7 @@ export default function CompetitionsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CalendarDays className="h-5 w-5 text-blue-300" />
-                  2024-2025 Season
+                  2025-2026 Season
                 </CardTitle>
               </CardHeader>
               <CardContent>

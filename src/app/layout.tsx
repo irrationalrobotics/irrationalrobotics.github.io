@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Irrational Robotics | VEX Team 14142",
   description:
     "Irrational Robotics (14142) - Parent organization for Teams 14142A Axiom and 14142T Theorem from VEX Robotics in Allen, Texas",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -36,8 +39,12 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
         </div>
         <Footer />
-        <ScrollToTop />
-        <Toaster theme="dark" />
+        {typeof window !== "undefined" && (
+          <>
+            <ScrollToTop />
+            <Toaster theme="dark" />
+          </>
+        )}
       </body>
     </html>
   );

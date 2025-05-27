@@ -179,43 +179,41 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center fade-in" style={{ transitionDelay: "0.1s" }}>
-            
-              <Card className="w-full max-w-sm border border-border/50 bg-card/60 group-hover:border-primary/50 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Instagram className="h-5 w-5 text-primary" />
-                    Follow Us
-                  </CardTitle>
-                  <CardDescription>
-                    Keep up with our latest updates, competition results, and memes on our Instagram and YouTube Page!
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-center gap-2 text-sm">
-                    <Instagram className="h-4 w-4" />
-                    <Link
-                        href="https://instagram.com/irrationalrobotics"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group hover-lift"
-                    >
-                      @irrationalrobotics
-                    </Link>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 text-sm">
-                    <Youtube className="h-4 w-4" />
-                    <Link 
-                      href="https://youtube.com/@irrationalrobotics" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+            <Card className="w-full max-w-sm border border-border/50 bg-card/60 group-hover:border-primary/50 transition-colors group hover-lift">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Instagram className="h-5 w-5 text-primary" />
+                  Follow Us
+                </CardTitle>
+                <CardDescription>
+                  Keep up with our latest updates, competition results, and memes on our Instagram and YouTube Page!
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-center gap-2 text-sm">
+                  <Instagram className="h-4 w-4" />
+                  <Link
+                      href="https://instagram.com/irrationalrobotics"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group hover-lift"
-                    >
-                      @irrationalrobotics
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            
+                  >
+                    @irrationalrobotics
+                  </Link>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-sm">
+                  <Youtube className="h-4 w-4" />
+                  <Link 
+                    href="https://youtube.com/@irrationalrobotics" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="group hover-lift"
+                  >
+                    @irrationalrobotics
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
 
             <Link href="/contact" className="group hover-lift">
               <Card className="w-full max-w-sm border border-border/50 bg-card/60 group-hover:border-primary/50 transition-colors">

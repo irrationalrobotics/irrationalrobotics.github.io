@@ -505,7 +505,7 @@ function CompetitionsPage() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$feature$2d$section$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FeatureSection"], {
-                title: "Current Season: 2024-2025",
+                title: "Current Season: 2025-2026",
                 description: "This year's VEX Robotics Competition game is Push Back, where robots compete to gather and dispense objects into scoring zones.",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "w-full max-w-md aspect-video relative rounded-lg overflow-hidden bg-gradient-to-br from-primary/80 to-primary flex items-center justify-center",
@@ -1351,7 +1351,7 @@ function CompetitionsPage() {
                                                     lineNumber: 262,
                                                     columnNumber: 19
                                                 }, this),
-                                                "2024-2025 Season"
+                                                "2025-2026 Season"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/competitions/page.tsx",
