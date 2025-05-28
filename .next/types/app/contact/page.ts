@@ -1,4 +1,4 @@
-// File: D:\All Users\aks0302\Code\Robotoics\VEX\irrationalrobotics.github.io\src\app\contact\page.tsx
+// File: /Users/abhiramasonny/Developer/robotics/vex/irrationalrobotics.github.io/src/app/contact/page.tsx
 import * as entry from '../../../../src/app/contact/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

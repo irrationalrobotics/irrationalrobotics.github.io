@@ -645,7 +645,8 @@ function AxiomPage() {
                                 {
                                     img: "images/axiom/abhirama.png",
                                     name: "Abhriama Sonny",
-                                    role: "Programmer"
+                                    role: "Programmer",
+                                    link: "https://abhiramasonny.com"
                                 },
                                 {
                                     img: "/images/axiom/johnathan.webp",
@@ -653,7 +654,7 @@ function AxiomPage() {
                                     role: "Builder & Outreach"
                                 },
                                 {
-                                    img: "images/axiom/kevin.jpg",
+                                    img: "images/axiom/kevin.png",
                                     name: "Kevin Ye",
                                     role: "Builder & Driver"
                                 },
@@ -668,14 +669,19 @@ function AxiomPage() {
                                     role: "Builder & Programmer"
                                 }
                             ].map((member, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                    className: "overflow-hidden bg-[#14142A] border-white/10 hover-lift",
+                                    className: "overflow-hidden bg-[#14142A] border-white/10 hover-lift cursor-pointer",
+                                    onClick: ()=>{
+                                        if (member.link) {
+                                            window.open(member.link, "_blank");
+                                        }
+                                    },
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-24 bg-blue-500/20"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 150,
-                                            columnNumber: 17
+                                            lineNumber: 158,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                             className: "pt-6",
@@ -690,40 +696,40 @@ function AxiomPage() {
                                                             className: "w-full h-full object-cover"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 154,
-                                                            columnNumber: 23
+                                                            lineNumber: 162,
+                                                            columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 153,
-                                                        columnNumber: 21
+                                                        lineNumber: 161,
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                         className: "font-medium mt-3 text-white",
                                                         children: member.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 160,
-                                                        columnNumber: 21
+                                                        lineNumber: 168,
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-sm text-white/50",
                                                         children: member.role
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 161,
-                                                        columnNumber: 21
+                                                        lineNumber: 169,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/axiom/page.tsx",
-                                                lineNumber: 152,
-                                                columnNumber: 19
+                                                lineNumber: 160,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 151,
-                                            columnNumber: 17
+                                            lineNumber: 159,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, index, true, {
@@ -734,7 +740,7 @@ function AxiomPage() {
                         }, void 0, false, {
                             fileName: "[project]/src/app/axiom/page.tsx",
                             lineNumber: 141,
-                            columnNumber: 11
+                            columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
@@ -764,13 +770,13 @@ function AxiomPage() {
                                             children: "Notebook"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 175,
+                                            lineNumber: 183,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                    lineNumber: 174,
+                                    lineNumber: 182,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -778,13 +784,13 @@ function AxiomPage() {
                                     children: "Follow our engineering journey through interactive documentation of our robot's evolution"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/axiom/page.tsx",
-                            lineNumber: 173,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -800,7 +806,7 @@ function AxiomPage() {
                                             className: "absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-600"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 193,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -832,20 +838,20 @@ function AxiomPage() {
                                                                             children: "Week 1-2"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                                            lineNumber: 198,
+                                                                            lineNumber: 206,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                             className: "w-3 h-3 bg-blue-500 rounded-full"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                                            lineNumber: 199,
+                                                                            lineNumber: 207,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 197,
+                                                                    lineNumber: 205,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -853,7 +859,7 @@ function AxiomPage() {
                                                                     children: "Initial Drive CAD"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 201,
+                                                                    lineNumber: 209,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -861,30 +867,30 @@ function AxiomPage() {
                                                                     children: "Brainstorming possible designs and initial CAD models for the drivetrain and intake mechanisms."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 202,
+                                                                    lineNumber: 210,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 196,
+                                                            lineNumber: 204,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 195,
+                                                        lineNumber: 203,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 194,
+                                                    lineNumber: 202,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black z-10"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 208,
+                                                    lineNumber: 216,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -899,28 +905,28 @@ function AxiomPage() {
                                                                 className: "w-full h-full object-cover"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/axiom/page.tsx",
-                                                                lineNumber: 213,
+                                                                lineNumber: 221,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 212,
+                                                            lineNumber: 220,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 210,
+                                                        lineNumber: 218,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 209,
+                                                    lineNumber: 217,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 188,
+                                            lineNumber: 196,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -950,29 +956,29 @@ function AxiomPage() {
                                                                 className: "w-full h-full object-cover"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/axiom/page.tsx",
-                                                                lineNumber: 234,
+                                                                lineNumber: 242,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 233,
+                                                            lineNumber: 241,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 231,
+                                                        lineNumber: 239,
                                                         columnNumber: 20
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 230,
+                                                    lineNumber: 238,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-black z-10 animate-pulse"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 250,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -989,7 +995,7 @@ function AxiomPage() {
                                                                             className: "w-3 h-3 bg-blue-400 rounded-full animate-pulse"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                                            lineNumber: 247,
+                                                                            lineNumber: 255,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -997,13 +1003,13 @@ function AxiomPage() {
                                                                             children: "Week 2-3"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                                            lineNumber: 248,
+                                                                            lineNumber: 256,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 246,
+                                                                    lineNumber: 254,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1011,7 +1017,7 @@ function AxiomPage() {
                                                                     children: "Initial Prototypes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 250,
+                                                                    lineNumber: 258,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1019,35 +1025,35 @@ function AxiomPage() {
                                                                     children: "Built our first drivetrain, ran bearing-comparison tests (flat vs low-profile vs retainer) and tuned with lubricant."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 251,
+                                                                    lineNumber: 259,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 245,
+                                                            lineNumber: 253,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 244,
+                                                        lineNumber: 252,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 243,
+                                                    lineNumber: 251,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 232,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 192,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1072,7 +1078,7 @@ function AxiomPage() {
                                                     children: "Interactive Image Gallery"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 340,
+                                                    lineNumber: 348,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1080,13 +1086,13 @@ function AxiomPage() {
                                                     children: "Click through our build progress photos and technical drawings"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 341,
+                                                    lineNumber: 349,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 339,
+                                            lineNumber: 347,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1109,12 +1115,12 @@ function AxiomPage() {
                                                                         className: "h-4 w-4 text-blue-400"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                                        lineNumber: 354,
+                                                                        lineNumber: 362,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 353,
+                                                                    lineNumber: 361,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1125,51 +1131,51 @@ function AxiomPage() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                                    lineNumber: 356,
+                                                                    lineNumber: 364,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                                            lineNumber: 352,
+                                                            lineNumber: 360,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/axiom/page.tsx",
-                                                        lineNumber: 351,
+                                                        lineNumber: 359,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, index, false, {
                                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                                    lineNumber: 346,
+                                                    lineNumber: 354,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/axiom/page.tsx",
-                                            lineNumber: 344,
+                                            lineNumber: 352,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/axiom/page.tsx",
-                                    lineNumber: 333,
+                                    lineNumber: 341,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/axiom/page.tsx",
-                            lineNumber: 182,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/axiom/page.tsx",
-                    lineNumber: 172,
+                    lineNumber: 180,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/axiom/page.tsx",
-                lineNumber: 171,
+                lineNumber: 179,
                 columnNumber: 7
             }, this)
         ]

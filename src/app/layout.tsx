@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Irrational Robotics (14142) - Parent organization for Teams 14142A Axiom and 14142T Theorem from VEX Robotics in Allen, Texas",
   icons: {
-    icon: "/favicon.ico",
+    icon: "favicon.svg",
   },
 };
 

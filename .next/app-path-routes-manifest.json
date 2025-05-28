@@ -4,6 +4,6 @@
   "/axiom/page": "/axiom",
   "/contact/page": "/contact",
   "/competitions/page": "/competitions",
-  "/theorem/page": "/theorem",
-  "/page": "/"
+  "/page": "/",
+  "/theorem/page": "/theorem"
 }

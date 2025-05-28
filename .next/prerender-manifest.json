@@ -1,7 +1,7 @@
 {
   "version": 4,
   "routes": {
-    "/axiom": {
+    "/about": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -14,8 +14,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/axiom",
-      "dataRoute": "/axiom.rsc",
+      "srcRoute": "/about",
+      "dataRoute": "/about.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -25,7 +25,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/theorem": {
+    "/competitions": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -38,8 +38,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/theorem",
-      "dataRoute": "/theorem.rsc",
+      "srcRoute": "/competitions",
+      "dataRoute": "/competitions.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -73,7 +73,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/about": {
+    "/theorem": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -86,8 +86,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/about",
-      "dataRoute": "/about.rsc",
+      "srcRoute": "/theorem",
+      "dataRoute": "/theorem.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -121,7 +121,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/competitions": {
+    "/axiom": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -134,8 +134,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/competitions",
-      "dataRoute": "/competitions.rsc",
+      "srcRoute": "/axiom",
+      "dataRoute": "/axiom.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -149,8 +149,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "d10718c0d8b18224a2d0a36eace9dc9f",
-    "previewModeSigningKey": "bbd23e550d3b5f5f2629d8ac9afb61beb8456961027065b15e4baa0e9adc6989",
-    "previewModeEncryptionKey": "8c11d195b76da2e8a39b1a455a03a5dd612e8d9d32bff72802fefb98c2b3ec87"
+    "previewModeId": "a2996deedab284e14261cd5c8d470223",
+    "previewModeSigningKey": "75e1abecba033d8ffe34910f189c0ed43050485e2b59e9927796f6820a3b198f",
+    "previewModeEncryptionKey": "b9452ece256fdcc2cd1d929ea1f87ce3b07b9ea6e6300c837c473942e9d90a8f"
   }
 }

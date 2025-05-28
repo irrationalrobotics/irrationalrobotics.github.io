@@ -138,32 +138,40 @@ export default function AxiomPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
             {[
-              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer" },
+              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer", link: "https://abhiramasonny.com" },
               { img: "/images/axiom/johnathan.webp", name: "Johanathan Luu", role: "Builder & Outreach" },
-              { img: "images/axiom/kevin.jpg", name: "Kevin Ye", role: "Builder & Driver" },
-              { img: "/images/axiom/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver" },
+              { img: "images/axiom/kevin.png", name: "Kevin Ye", role: "Builder & Driver"},
+              { img: "/images/axiom/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver"},
               { img: "/images/axiom/shyam.jpg", name: "Shyam Devanathan", role: "Builder & Programmer" }
             ].map((member, index) => (
-              <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
-                <div className="h-24 bg-blue-500/20"></div>
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full overflow-hidden -mt-14 border-4 border-[#14142A]">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="font-medium mt-3 text-white">{member.name}</h3>
-                    <p className="text-sm text-white/50">{member.role}</p>
-                  </div>
-                </CardContent>
+              <Card
+              key={index}
+              className="overflow-hidden bg-[#14142A] border-white/10 hover-lift cursor-pointer"
+              onClick={() => {
+                if (member.link) {
+                window.open(member.link, "_blank");
+                }
+              }}
+              >
+              <div className="h-24 bg-blue-500/20"></div>
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full overflow-hidden -mt-14 border-4 border-[#14142A]">
+                  <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="font-medium mt-3 text-white">{member.name}</h3>
+                <p className="text-sm text-white/50">{member.role}</p>
+                </div>
+              </CardContent>
               </Card>
             ))}
-          </div>
+            </div>
         </div>
       </section>
 
