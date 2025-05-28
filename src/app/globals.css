@@ -119,3 +119,24 @@
   --input: 0 0% 15%;
   --ring: 221 75% 50%;
 }
+
+/* Theorem theme styles */
+.theorem-theme {
+  --background: 0 0% 0%; /* Pure black */
+  --foreground: 0 0% 100%;
+  --card: 137 41% 13%; /* Deep green */
+  --card-foreground: 0 0% 100%;
+  --popover: 137 41% 13%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 137 75% 40%; /* Main green */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 137 41% 8%; /* Very dark green */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 137 20% 10%; /* Muted green */
+  --muted-foreground: 137 20% 65%;
+  --accent: 137 75% 55%; /* Lighter green accent */
+  --accent-foreground: 0 0% 100%;
+  --border: 137 20% 18%;
+  --input: 137 20% 18%;
+  --ring: 137 75% 40%;
+}

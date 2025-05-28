@@ -234,7 +234,7 @@ export function MainNav() {
                     rel="noopener noreferrer"
                     className="flex items-center text-sm text-muted-foreground hover:text-primary"
                   >
-                    @irrationalrobotics
+                    Instagram
                   </Link>
                   <Link
                     href="https://youtube.com/@irrationalrobotics"
@@ -242,7 +242,7 @@ export function MainNav() {
                     rel="noopener noreferrer"
                     className="flex items-center text-sm text-muted-foreground hover:text-primary"
                   >
-                    @irrationalrobotics
+                    YouTube
                   </Link>
                 </div>
               </div>

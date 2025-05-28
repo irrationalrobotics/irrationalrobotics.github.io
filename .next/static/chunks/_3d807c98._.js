@@ -643,27 +643,27 @@ function AxiomPage() {
                             className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in",
                             children: [
                                 {
-                                    img: "images/abhirama.png",
+                                    img: "images/axiom/abhirama.png",
                                     name: "Abhriama Sonny",
                                     role: "Programmer"
                                 },
                                 {
-                                    img: "/images/johnathan.webp",
+                                    img: "/images/axiom/johnathan.webp",
                                     name: "Johanathan Luu",
                                     role: "Builder & Outreach"
                                 },
                                 {
-                                    img: "images/kevin.jpg",
+                                    img: "images/axiom/kevin.jpg",
                                     name: "Kevin Ye",
                                     role: "Builder & Driver"
                                 },
                                 {
-                                    img: "/images/shourya.jpg",
+                                    img: "/images/axiom/shourya.jpg",
                                     name: "Shourya Bhogireddi",
                                     role: "Programmer & Driver"
                                 },
                                 {
-                                    img: "/images/shyam.jpg",
+                                    img: "/images/axiom/shyam.jpg",
                                     name: "Shyam Devanathan",
                                     role: "Builder & Programmer"
                                 }
@@ -894,7 +894,7 @@ function AxiomPage() {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "aspect-video rounded-lg overflow-hidden bg-blue-500/10",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                src: "/images/cad.png",
+                                                                src: "/images/axiom/cad.png",
                                                                 alt: "Initial Cad",
                                                                 className: "w-full h-full object-cover"
                                                             }, void 0, false, {
@@ -945,7 +945,7 @@ function AxiomPage() {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "aspect-video rounded-lg overflow-hidden bg-blue-500/10",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                src: "/images/dt.png",
+                                                                src: "/images/axiom/dt.png",
                                                                 alt: "Initial Build",
                                                                 className: "w-full h-full object-cover"
                                                             }, void 0, false, {

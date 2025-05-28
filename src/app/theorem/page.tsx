@@ -30,7 +30,7 @@ export default function TheoremPage() {
   }, []);
 
   return (
-    <div className="axiom-theme min-h-screen bg-black">
+    <div className="theorem-theme min-h-screen bg-black">
       {/* Hero Section - Consolidated inline */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="relative container mx-auto px-4 text-center">
@@ -71,16 +71,16 @@ export default function TheoremPage() {
 
           <Tabs defaultValue="competitions" className="max-w-4xl mx-auto">
             <TabsList className="grid w-full grid-cols-2 bg-black/50">
-              <TabsTrigger value="competitions" className="text-white data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400">Competitions</TabsTrigger>
-              <TabsTrigger value="awards" className="text-white data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400">Awards</TabsTrigger>
+              <TabsTrigger value="competitions" className="text-white data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">Competitions</TabsTrigger>
+              <TabsTrigger value="awards" className="text-white data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">Awards</TabsTrigger>
             </TabsList>
 
             <TabsContent value="competitions" className="mt-8 fade-in">
               <Card className="bg-black/50 border-white/10">
                 <CardContent className="pt-6 p-6">
                   <div className="flex items-start gap-6">
-                    <div className="bg-blue-500/20 p-3 rounded-full h-fit">
-                      <CalendarDays className="h-5 w-5 text-blue-400" />
+                    <div className="bg-green-500/20 p-3 rounded-full h-fit">
+                      <CalendarDays className="h-5 w-5 text-green-400" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-medium mb-3 text-white">2024-2025 Season</h3>
@@ -90,7 +90,7 @@ export default function TheoremPage() {
                       <div className="space-y-4">
                         <div className="flex justify-between border-b border-white/10 pb-4">
                           <span className="text-white">Regional Qualifier</span>
-                          <span className="text-blue-400">Coming Soon</span>
+                          <span className="text-green-400">Coming Soon</span>
                         </div>
                         <div className="flex justify-between border-b border-white/10 pb-4">
                           <span className="text-white">State Championship</span>
@@ -107,7 +107,7 @@ export default function TheoremPage() {
               <Card className="bg-black/50 border-white/10">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-white">
-                    <Trophy className="h-5 w-5 text-blue-400" />
+                    <Trophy className="h-5 w-5 text-green-400" />
                     Team Achievements
                   </CardTitle>
                 </CardHeader>
@@ -147,7 +147,7 @@ export default function TheoremPage() {
               { img: "/images/theorem/brian.jpg", name: "Brian Suh", role: "Builder" }
             ].map((member, index) => (
               <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
-                <div className="h-24 bg-blue-500/20"></div>
+                <div className="h-24 bg-green-500/20"></div>
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden -mt-14 border-4 border-[#14142A]">
@@ -172,7 +172,7 @@ export default function TheoremPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 fade-in">
             <h2 className="text-3xl font-light tracking-tight mb-4 text-white">
-              Robot Development <span className="text-blue-400 font-medium">Notebook</span>
+              Robot Development <span className="text-green-400 font-medium">Notebook</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               Follow our engineering journey through interactive documentation of our robot's evolution
@@ -182,7 +182,7 @@ export default function TheoremPage() {
           <div className="max-w-6xl mx-auto">
             {/* Progress Timeline */}
             <div className="relative mb-12" style={{marginBottom: "5rem"}}>
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-600"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-green-400 to-green-600"></div>
 
               {/* Progress Entry 1 */}
               <motion.div
@@ -192,11 +192,11 @@ export default function TheoremPage() {
                 className="relative flex items-center mb-16"
               >
                 <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-[#14142A] border-blue-500/30 hover:border-blue-400/50 transition-colors">
+                  <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-colors">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-end gap-3 mb-3">
-                        <span className="text-blue-400 font-medium">Week 1-2</span>
-                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <span className="text-green-400 font-medium">Week 1-2</span>
+                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                       </div>
                       <h3 className="text-lg font-semibold text-white mb-2">Initial Drive CAD</h3>
                       <p className="text-white/70 text-sm">
@@ -205,11 +205,11 @@ export default function TheoremPage() {
                     </CardContent>
                   </Card>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black z-10"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-black z-10"></div>
                 <div className="w-1/2 pl-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-blue-500/30">
+                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
                     {/* Image placeholder */}
-                    <div className="aspect-video rounded-lg overflow-hidden bg-blue-500/10">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-green-500/10">
                       <img
                         src="/images/theorem/cad.png"
                         alt="Initial Cad"
@@ -229,8 +229,8 @@ export default function TheoremPage() {
                 className="relative flex items-center"
               >
                 <div className="w-1/2 pr-8">
-                   <div className="bg-[#14142A] rounded-lg p-4 border border-blue-500/30">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-blue-500/10">
+                   <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-green-500/10">
                     {/* Image placeholder *//*}  
                     <img
                         src="/images/theorem/dt.png"
@@ -240,13 +240,13 @@ export default function TheoremPage() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
                 <div className="w-1/2 pl-8">
-                  <Card className="bg-[#14142A] border-blue-400/50 hover:border-blue-400/70 transition-colors">
+                  <Card className="bg-[#14142A] border-green-400/50 hover:border-green-400/70 transition-colors">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                        <span className="text-blue-400 font-medium">Week 2-3</span>
+                        <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-green-400 font-medium">Week 2-3</span>
                       </div>
                       <h3 className="text-lg font-semibold text-white mb-2">Initial Prototypes</h3>
                       <p className="text-white/70 text-sm">
@@ -265,11 +265,11 @@ export default function TheoremPage() {
                 className="relative flex items-center mb-16"
                 >
                 <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-[#14142A] border-blue-500/30 hover:border-blue-400/50 transition-colors">
+                  <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-colors">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-end gap-3 mb-3">
-                    <span className="text-blue-400 font-medium">Week 5-6</span>
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="text-green-400 font-medium">Week 5-6</span>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">Programming & Testing</h3>
                     <p className="text-white/70 text-sm">
@@ -278,13 +278,13 @@ export default function TheoremPage() {
                   </CardContent>
                   </Card>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black z-10"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-black z-10"></div>
                 <div className="w-1/2 pl-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-blue-500/30">
-                  <div className="aspect-video bg-blue-500/10 rounded-lg flex items-center justify-center">
+                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
+                  <div className="aspect-video bg-green-500/10 rounded-lg flex items-center justify-center">
                     <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Code className="h-6 w-6 text-blue-400" />
+                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Code className="h-6 w-6 text-green-400" />
                     </div>
                     <p className="text-white/50 text-sm">Code Testing</p>
                     </div>
@@ -301,24 +301,24 @@ export default function TheoremPage() {
                 className="relative flex items-center"
                 >
                 <div className="w-1/2 pr-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-blue-500/30">
-                  <div className="aspect-video bg-blue-500/10 rounded-lg flex items-center justify-center">
+                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
+                  <div className="aspect-video bg-green-500/10 rounded-lg flex items-center justify-center">
                     <div className="text-center">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <CircuitBoard className="h-6 w-6 text-blue-400" />
+                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <CircuitBoard className="h-6 w-6 text-green-400" />
                     </div>
                     <p className="text-white/50 text-sm">Final Assembly</p>
                     </div>
                   </div>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
                 <div className="w-1/2 pl-8">
-                  <Card className="bg-[#14142A] border-blue-400/50 hover:border-blue-400/70 transition-colors">
+                  <Card className="bg-[#14142A] border-green-400/50 hover:border-green-400/70 transition-colors">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-3">
-                    <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span className="text-blue-400 font-medium">Current</span>
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 font-medium">Current</span>
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">Competition Ready</h3>
                     <p className="text-white/70 text-sm">
@@ -335,7 +335,7 @@ export default function TheoremPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-[#14142A] rounded-2xl p-8 border border-blue-500/30"
+              className="bg-[#14142A] rounded-2xl p-8 border border-green-500/30"
             >
               <div className="text-center mb-6">
                 <h3 className="text-xl font-semibold text-white mb-2">Interactive Image Gallery</h3>
@@ -347,12 +347,12 @@ export default function TheoremPage() {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05 }}
-                    className="aspect-square bg-blue-500/10 rounded-lg border border-blue-500/20 hover:border-blue-400/40 transition-all cursor-pointer group"
+                    className="aspect-square bg-green-500/10 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all cursor-pointer group"
                   >
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-center">
-                        <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-400/30 transition-colors">
-                          <Target className="h-4 w-4 text-blue-400" />
+                        <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-400/30 transition-colors">
+                          <Target className="h-4 w-4 text-green-400" />
                         </div>
                         <p className="text-white/50 text-xs">Build Photo {index + 1}</p>
                       </div>
@@ -370,7 +370,7 @@ export default function TheoremPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 fade-in">
             <h2 className="text-3xl font-light tracking-tight mb-3 text-white">Team Goals</h2>
-            <p className="text-blue-200/80 max-w-2xl mx-auto">
+            <p className="text-green-200/80 max-w-2xl mx-auto">
               What drives us forward in our robotics journey.
             </p>
           </div>
@@ -379,11 +379,11 @@ export default function TheoremPage() {
             <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover-lift">
               <div className="flex gap-4 items-start">
                 <div className="bg-white/10 p-3 rounded-full">
-                  <Trophy className="h-5 w-5 text-blue-400" />
+                  <Trophy className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-medium mb-2 text-white">Competition Excellence</h3>
-                  <p className="text-blue-200/80">
+                  <p className="text-green-200/80">
                     Our goal is to excel in VEX competitions through strategic thinking, innovative design, and effective teamwork.
                   </p>
                 </div>
@@ -393,11 +393,11 @@ export default function TheoremPage() {
             <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover-lift">
               <div className="flex gap-4 items-start">
                 <div className="bg-white/10 p-3 rounded-full">
-                  <Users className="h-5 w-5 text-blue-400" />
+                  <Users className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-medium mb-2 text-white">Skill Development</h3>
-                  <p className="text-blue-200/80">
+                  <p className="text-green-200/80">
                     We're committed to continuously improving our programming, engineering, and problem-solving abilities.
                   </p>
                 </div>
@@ -407,11 +407,11 @@ export default function TheoremPage() {
             <div className="bg-white/5 border border-white/10 rounded-lg p-6 md:col-span-2 hover-lift">
               <div className="flex gap-4 items-start">
                 <div className="bg-white/10 p-3 rounded-full">
-                  <Target className="h-5 w-5 text-blue-400" />
+                  <Target className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-medium mb-2 text-white">Long-term Vision</h3>
-                  <p className="text-blue-200/80">
+                  <p className="text-green-200/80">
                     We aim to establish a legacy of excellence within Irrational Robotics, inspiring future team members and contributing to the growth of STEM in our community.
                   </p>
                 </div>

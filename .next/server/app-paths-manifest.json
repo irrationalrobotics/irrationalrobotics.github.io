@@ -1,5 +1,6 @@
 {
-  "/competitions/page": "app/competitions/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/axiom/page": "app/axiom/page.js",
+  "/page": "app/page.js",
+  "/theorem/page": "app/theorem/page.js"
 }
