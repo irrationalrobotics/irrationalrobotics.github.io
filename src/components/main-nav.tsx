@@ -236,6 +236,14 @@ export function MainNav() {
                   >
                     @irrationalrobotics
                   </Link>
+                  <Link
+                    href="https://youtube.com/@irrationalrobotics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm text-muted-foreground hover:text-primary"
+                  >
+                    @irrationalrobotics
+                  </Link>
                 </div>
               </div>
             </div>
