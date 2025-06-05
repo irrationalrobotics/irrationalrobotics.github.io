@@ -210,6 +210,50 @@ export default function ContactPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Instagram className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">Instagram</h3>
+                      <a
+                        href="https://instagram.com/irrationalrobotics"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        @irrationalrobotics
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Youtube className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">YouTube</h3>
+                        <a
+                          href="https://www.youtube.com/@irrationalrobotics"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          @irrationalrobotics
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            {/* <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Instagram className="h-5 w-5 text-primary" />
+                  Social Media
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div>
@@ -247,7 +291,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
 
             <Card>
               <CardHeader>
