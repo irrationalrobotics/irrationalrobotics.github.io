@@ -51,6 +51,10 @@ const navItems = [
     href: "/competitions",
   },
   {
+    name: "Donate",
+    href: "/donate",
+  },
+  {
     name: "Contact",
     href: "/contact",
   },

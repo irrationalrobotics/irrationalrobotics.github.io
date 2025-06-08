@@ -27,7 +27,7 @@ export default function CompetitionsPage() {
         }
         subtitle="Where robotics engineering meets competitive challenge"
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
           <Button asChild>
             <Link href="/axiom">
               Team Axiom Results
@@ -70,10 +70,9 @@ export default function CompetitionsPage() {
 
           <div className="max-w-4xl mx-auto">
             <Tabs defaultValue="local" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="local">Local Events</TabsTrigger>
                 <TabsTrigger value="regional">Regional</TabsTrigger>
-                <TabsTrigger value="state">State</TabsTrigger>
                 <TabsTrigger value="world">World</TabsTrigger>
               </TabsList>
 
@@ -127,34 +126,6 @@ export default function CompetitionsPage() {
                       </ul>
                       <p className="text-muted-foreground text-sm">
                         Success at regional events demonstrates a team's growth and competitive abilities within their region.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-
-              <TabsContent value="state" className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Map className="h-5 w-5 text-primary" />
-                      State/Provincial Championships
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <p>
-                        State championships represent the highest level of competition within a state or province:
-                      </p>
-                      <ul className="list-disc pl-6 space-y-2">
-                        <li>Feature the best teams from throughout the state/province</li>
-                        <li>Higher stakes with limited World Championship qualification spots</li>
-                        <li>More rigorous judging and technical inspections</li>
-                        <li>Typically hosted at larger venues with multiple competition fields</li>
-                        <li>Often include opening/closing ceremonies and special events</li>
-                      </ul>
-                      <p className="text-muted-foreground text-sm">
-                        Qualifying for World Championships is a primary goal for many teams at this level.
                       </p>
                     </div>
                   </CardContent>
@@ -282,6 +253,52 @@ export default function CompetitionsPage() {
                     <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 text-white">
                       <Link href="/axiom">
                         More About Team Axiom
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+      <div className="h-10"/> {/* Added space for Theorem section below */ }  
+      <section className="py-16 bg-[#132D1F] text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Team Theorem Competition History</h2>
+            <p className="text-emerald-200/80 max-w-2xl mx-auto">
+              Follow Team 14142T Theorem's journey through VEX Robotics competitions.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-[#1A3D2A]/80 text-white border-emerald-600/20">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CalendarDays className="h-5 w-5 text-emerald-400" />
+                  2025-2026 Season
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <p>
+                    Team Theorem is preparing for its first competitive season in the VEX Robotics Competition.
+                    Stay tuned for upcoming competition results and highlights!
+                  </p>
+
+                  <div className="p-6 bg-emerald-950/40 rounded-lg text-center border border-emerald-600/10">
+                    <Target className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2">Upcoming Competitions</h3>
+                    <p className="text-emerald-200/80">
+                      Our competition schedule will be announced soon. Check back for updates!
+                    </p>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <Button asChild variant="outline" className="border-emerald-600/30 hover:bg-emerald-950/40 text-white">
+                      <Link href="/theorem">
+                        More About Team Theorem
                       </Link>
                     </Button>
                   </div>

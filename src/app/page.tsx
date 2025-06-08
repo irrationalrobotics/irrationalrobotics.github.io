@@ -53,7 +53,13 @@ export default function Home() {
               Meet Team Theorem
             </Link>
           </Button>
-          <Button variant="outline" size="lg">
+          {/* Wanted to make the button secondary but add borders*/}
+          <Button variant="outline" className="px-8 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80" asChild>
+            <Link href="/donate">
+              Donate
+            </Link>
+          </Button>
+          <Button variant="outline" className="px-8" asChild>
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>

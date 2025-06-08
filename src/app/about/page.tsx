@@ -201,6 +201,30 @@ export default function AboutPage() {
         </div>
       </FeatureSection>
 
+      {/* Support Us Section*/}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="py-16"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl mb-4">
+              Feeling Inspired?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              If our story and mission resonate with you, consider supporting us! Your donation helps us continue innovating and inspiring the next generation of engineers.
+            </p>
+            <Button asChild size="lg">
+              <Link href="/donate">
+                Donate to Irrational Robotics
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </motion.div>
+
       {/* About VEX Section - Simplified and less text-heavy */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">

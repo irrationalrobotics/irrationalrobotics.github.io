@@ -50,6 +50,11 @@ export function Footer() {
                 </Link>
               </div>
               <div>
+                <Link href="/donate" className="hover:text-primary transition-colors">
+                  Donate
+                </Link>
+              </div>
+              <div>
                 <Link href="/contact" className="hover:text-primary transition-colors">
                   Contact
                 </Link>
