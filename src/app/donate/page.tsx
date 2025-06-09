@@ -42,7 +42,7 @@ export default function DonatePage() {
       donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?monthly=true&amount=2500"
     },
     {
-      title: "PI Level Sponsor",
+      title: "Pi Level Sponsor",
       amount: "$314+",
       description: "Make a real impact",
       benefits: [
@@ -62,7 +62,7 @@ export default function DonatePage() {
       amount: "$610+",
       description: "Become our hero",
       benefits: [
-        "Everything in PI Level Sponsor",
+        "Everything in Pi Level Sponsor",
         "Large logo on robot",
         "Social media shoutouts",
         "Competition photos",
@@ -75,7 +75,7 @@ export default function DonatePage() {
       donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=61000"
     },
     {
-      title: "Irrational Level Sponsor",
+      title: "Pythagoras Level Sponsor",
       amount: "$1,414+",
       description: "Change everything",
       benefits: [
