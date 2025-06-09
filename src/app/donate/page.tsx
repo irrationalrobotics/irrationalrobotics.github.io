@@ -23,6 +23,9 @@ import {
 } from "lucide-react";
 
 export default function DonatePage() {
+  const moneyearened = 0; // Enter money we have earned
+  const percentFunded = moneyearened/120; // Use to calculate progress
+
   const donationTiers = [
     {
       title: "Supporter",
@@ -35,7 +38,8 @@ export default function DonatePage() {
       icon: Heart,
       color: "bg-gradient-to-br from-blue-500/10 to-purple-500/10",
       borderColor: "border-blue-500/20",
-      popular: false
+      popular: false,
+      donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?monthly=true&amount=2500"
     },
     {
       title: "PI Level Sponsor",
@@ -50,7 +54,8 @@ export default function DonatePage() {
       icon: Star,
       color: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
       borderColor: "border-purple-500/20",
-      popular: true
+      popular: true,
+      donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=31400"
     },
     {
       title: "Golden Level Sponsor",
@@ -66,7 +71,8 @@ export default function DonatePage() {
       icon: Trophy,
       color: "bg-gradient-to-br from-amber-500/10 to-orange-500/10",
       borderColor: "border-amber-500/20",
-      popular: false
+      popular: false,
+      donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=61000"
     },
     {
       title: "Irrational Level Sponsor",
@@ -83,7 +89,8 @@ export default function DonatePage() {
       icon: Crown,
       color: "bg-gradient-to-br from-emerald-500/10 to-teal-500/10",
       borderColor: "border-emerald-500/20",
-      popular: false
+      popular: false,
+      donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=141400"
     }
   ];
 
@@ -93,6 +100,7 @@ export default function DonatePage() {
     { label: "Robot Parts Funded", value: "200+", icon: Zap },
     { label: "Community Events", value: "8", icon: Sparkles }
   ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20">
@@ -128,11 +136,11 @@ export default function DonatePage() {
               <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Season Goal</span>
-                  <span className="text-sm text-muted-foreground">$0 / $12,000</span>
+                  <span className="text-sm text-muted-foreground">${moneyearened} / $12,000</span>
                 </div>
-                <Progress value={0} className="mb-2" />
+                <Progress value={percentFunded} className="mb-2" />
                 <p className="text-xs text-muted-foreground">
-                  0% funded • Help us reach the World Championships!
+                  {Math.round(percentFunded)}% funded • Help us reach the World Championships!
                 </p>
               </div>
             </motion.div>
@@ -217,7 +225,7 @@ export default function DonatePage() {
                       className="w-full mt-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
                       asChild
                     >
-                      <a href="https://hcb.hackclub.com/donations/start/irrationalrobotics" target="_blank" rel="noopener noreferrer">
+                      <a href={tier.donationlink} target="_blank" rel="noopener noreferrer">
                         Choose {tier.title}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </a>
