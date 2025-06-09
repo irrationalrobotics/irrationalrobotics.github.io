@@ -83,7 +83,7 @@ export default function AxiomPage() {
                       <CalendarDays className="h-5 w-5 text-blue-400" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-medium mb-3 text-white">2024-2025 Season</h3>
+                      <h3 className="text-xl font-medium mb-3 text-white">2025-2026 Season</h3>
                       <p className="text-white/70 mb-6">
                         VEX Robotics Competition: Push Back
                       </p>
