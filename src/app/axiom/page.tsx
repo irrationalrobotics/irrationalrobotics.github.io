@@ -140,7 +140,7 @@ export default function AxiomPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
             {[
-              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer", link: "https://abhiramasonny.com" },
+              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer", link: "https://abhiramasonny.com" }, // Raami you can't be serious :skull:
               { img: "/images/axiom/johnathan.webp", name: "Johanathan Luu", role: "Builder & Outreach" },
               { img: "images/axiom/kevin.png", name: "Kevin Ye", role: "Builder & Driver"},
               { img: "/images/axiom/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver"},

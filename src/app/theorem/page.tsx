@@ -141,10 +141,10 @@ export default function TheoremPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
             {[
               { img: "images/theorem/adi.jpg", name: "Aditya \"Adi\" Sriram", role: "Programmer & Outreach" },
-              { img: "/images/theorem/alex.webp", name: "Alexander Richards", role: "Builder" },
+              { img: "/images/theorem/alex.jpg", name: "Alexander Richards", role: "Builder" },
               { img: "images/theorem/cheng.jpg", name: "Chenghao Huang", role: "Builder & Programmer" },
               { img: "/images/theorem/aryan.jpg", name: "Aryan Paddarthi", role: "Programmer & Outreach" },
-              { img: "/images/theorem/arnesh.jpg", name: "Member Coming Soon!", role: "N/A" }
+              { img: "/images/theorem/arnesh.jpg", name: "Arnesh Jayaram", role: "Builder & Outreach" }
             ].map((member, index) => (
               <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
                 <div className="h-24 bg-green-500/20"></div>

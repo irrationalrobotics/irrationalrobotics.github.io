@@ -1,10 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/axiom/page": "app/axiom/page.js",
-  "/about/page": "app/about/page.js",
-  "/competitions/page": "app/competitions/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/donate/page": "app/donate/page.js",
-  "/page": "app/page.js",
   "/theorem/page": "app/theorem/page.js"
 }
