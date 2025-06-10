@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 export default function DonatePage() {
-  const moneyearened = 0; // Enter money we have earned
+  const moneyearened = 1.41; // Enter money we have earned
   const percentFunded = moneyearened/120; // Use to calculate progress
 
   const donationTiers = [
@@ -140,7 +140,7 @@ export default function DonatePage() {
                 </div>
                 <Progress value={percentFunded} className="mb-2" />
                 <p className="text-xs text-muted-foreground">
-                  {Math.round(percentFunded)}% funded • Help us reach the World Championships!
+                  {Math.round(percentFunded*100)/100}% funded • Help us reach the World Championships!
                 </p>
               </div>
             </motion.div>
