@@ -143,7 +143,7 @@ export default function TheoremPage() {
               { img: "images/theorem/adi.jpg", name: "Aditya \"Adi\" Sriram", role: "Programmer & Outreach" },
               { img: "/images/theorem/alex.jpg", name: "Alexander Richards", role: "Builder" },
               { img: "images/theorem/cheng.jpg", name: "Chenghao Huang", role: "Builder & Programmer" },
-              { img: "/images/theorem/aryan.jpg", name: "Aryan Paddarthi", role: "Programmer & Outreach" },
+              { img: "/images/theorem/aryan.png", name: "Aryan Paddarthi", role: "Programmer & Outreach" },
               { img: "/images/theorem/arnesh.jpg", name: "Arnesh Jayaram", role: "Builder & Outreach" }
             ].map((member, index) => (
               <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
