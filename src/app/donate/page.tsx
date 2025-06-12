@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 export default function DonatePage() {
-  const moneyearened = 1.41; // Enter money we have earned
+  const moneyearened = 8.88; // Enter money we have earned
   const percentFunded = moneyearened/120; // Use to calculate progress
 
   const donationTiers = [
