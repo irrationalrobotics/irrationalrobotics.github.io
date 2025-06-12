@@ -99,30 +99,37 @@ export default function ContactPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    // TODO: Replace with your own Formspree endpoint.
+    const formspreeEndpoint = "https://formspree.io/f/xanjopjr";
 
-    // Build the email body
-    const body = [
-      `Name: ${values.name}`,
-      `Email: ${values.email}`,
-      "",
-      values.message
-    ].join("\n");
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-    // Build and open the mailto: URL
-    const mailto = `mailto:irrationalvexrobotics@gmail.com`
-      + `?subject=${encodeURIComponent(values.subject)}`
-      + `&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailto;
-
-    // Show success message
-    toast.success("Email client opened! Thank you for reaching out.");
-
-    // Reset form
-    form.reset();
-    setIsSubmitting(false);
+      if (response.ok) {
+        toast.success("Your message has been sent successfully!");
+        form.reset();
+      } else {
+        const responseData = await response.json();
+        if (responseData.errors) {
+          const errorMessage = responseData.errors.map((error: { message: string }) => error.message).join(", ");
+          toast.error(`An error occurred: ${errorMessage}`);
+        } else {
+          toast.error("An error occurred while sending your message.");
+        }
+      }
+    } catch (error) {
+      toast.error("An error occurred while sending your message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
