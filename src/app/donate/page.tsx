@@ -226,8 +226,7 @@ export default function DonatePage() {
                       asChild
                     >
                       <a href={tier.donationlink} target="_blank" rel="noopener noreferrer">
-                        Choose {tier.title}
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        {tier.title}<ArrowRight className="w-4 h-4 ml-2" />
                       </a>
                     </Button>
                   </CardContent>
