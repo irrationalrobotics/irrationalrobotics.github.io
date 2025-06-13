@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 import {
   NavigationMenu,
@@ -67,7 +68,14 @@ export function MainNav() {
 
   return (
     <div className="flex items-center justify-between py-6">
-      <Link href="/" className="flex items-center gap-2">
+      <Link href="/" className="flex items-center gap-3">
+        <Image
+          src="/logo.jpg"
+          alt="Irrational Robotics Logo"
+          width={40}
+          height={40}
+          className="rounded-lg"
+        />
         <span className="text-2xl font-light tracking-tight">
           Irrational<HighlightText type="gradient">Robotics</HighlightText>
         </span>
@@ -146,9 +154,16 @@ export function MainNav() {
               <div className="flex items-center justify-between mb-8 pt-2">
                 <Link
                   href="/"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-3"
                   onClick={() => setOpen(false)}
                 >
+                  <Image
+                    src="/logo.png"
+                    alt="Irrational Robotics Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg"
+                  />
                   <span className="font-medium">IrrationalRobotics</span>
                 </Link>
                 <SheetTrigger asChild>

@@ -65,7 +65,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Enhanced Hero Section */}
-      <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="relative overflow-hidden py-24 md:py-32">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
@@ -130,134 +130,17 @@ export default function AboutPage() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg">
-                <Link href="/contact">
+                <div className="flex items-center gap-2">
+                  <Link href="/contact" className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   Contact Us
-                </Link>
+                  </Link>
+                </div>
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/* Our Story Timeline */}
-      {/* <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From a group of passionate students to a competitive robotics organization
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary opacity-30"></div>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="relative flex items-center mb-16"
-              >
-                <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-end gap-3 mb-3">
-                        <span className="text-primary font-medium">2023</span>
-                        <div className="w-3 h-3 bg-primary rounded-full"></div>
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">The Beginning</h3>
-                      <p className="text-muted-foreground text-sm">
-                        A group of select students from various FIRST and VEX teams came together with a shared vision of competitive excellence.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"></div>
-                <div className="w-1/2 pl-8">
-                  <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-primary/5 flex items-center justify-center">
-                      <div className="text-center">
-                        <Users className="h-12 w-12 text-primary/40 mx-auto mb-2" />
-                        <p className="text-muted-foreground text-sm">Formation</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative flex items-center mb-16"
-              >
-                <div className="w-1/2 pr-8">
-                  <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-primary/5 flex items-center justify-center">
-                      <div className="text-center">
-                        <Rocket className="h-12 w-12 text-primary/40 mx-auto mb-2" />
-                        <p className="text-muted-foreground text-sm">First Teams</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"></div>
-                <div className="w-1/2 pl-8">
-                  <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-3 h-3 bg-primary rounded-full"></div>
-                        <span className="text-primary font-medium">2024</span>
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">Team Formation</h3>
-                      <p className="text-muted-foreground text-sm">
-                        We established Team Axiom and Team Theorem, each with unique identities and specialized focuses in VEX Robotics.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="relative flex items-center"
-              >
-                <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-end gap-3 mb-3">
-                        <span className="text-primary font-medium">Present</span>
-                        <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">Competitive Excellence</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Continuing our mission to excel in VEX competitions while inspiring the next generation of engineers in Allen, Texas.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 animate-pulse"></div>
-                <div className="w-1/2 pl-8">
-                  <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-primary/5 flex items-center justify-center">
-                      <div className="text-center">
-                        <Trophy className="h-12 w-12 text-primary/40 mx-auto mb-2" />
-                        <p className="text-muted-foreground text-sm">Growing Strong</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Enhanced Mission & Values */}
       <FeatureSection

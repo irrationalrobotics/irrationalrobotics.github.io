@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Instagram,
   Youtube,
@@ -16,7 +17,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.jpg"
+                alt="Irrational Robotics Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
               <span className="text-xl font-bold">
                 Irrational
                 <HighlightText type="gradient">Robotics</HighlightText>

@@ -373,194 +373,171 @@ export default function TheoremPage() {
 
 
 
-      {/* Robot Progress Showcase - Digital Notebook */}
+      {/* Robot Development Gallery */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-light tracking-tight mb-4 text-white">
-              Robot Development <span className="text-green-400 font-medium">Notebook</span>
+              Robot Development <span className="text-green-400 font-medium">Gallery</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Follow our engineering journey through interactive documentation of our robot's evolution
+              Explore our engineering journey through CAD designs, build progress, and technical achievements
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            {/* Progress Timeline */}
-            <div className="relative mb-12" style={{marginBottom: "5rem"}}>
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-green-400 to-green-600"></div>
-
-              {/* Progress Entry 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="relative flex items-center mb-16"
-              >
-                <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-end gap-3 mb-3">
-                        <span className="text-green-400 font-medium">Week 1-2</span>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Initial Drive CAD</h3>
-                      <p className="text-white/70 text-sm">
-                        After having a general idea of what we want to build, we CADed our robot
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-black z-10"></div>
-                <div className="w-1/2 pl-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
-                    {/* Image placeholder */}
-                    <div className="aspect-video rounded-lg overflow-hidden bg-green-500/10">
-                      <img
-                        src="/images/theorem/cad.png"
-                        alt="Initial Cad"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Progress Entry 2*/}
-              {/*
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="relative flex items-center"
-              >
-                <div className="w-1/2 pr-8">
-                   <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-green-500/10">
-                    {/* Image placeholder *//*}
-                    <img
-                        src="/images/theorem/dt.png"
-                        alt="Initial Build"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
-                <div className="w-1/2 pl-8">
-                  <Card className="bg-[#14142A] border-green-400/50 hover:border-green-400/70 transition-colors">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                        <span className="text-green-400 font-medium">Week 2-3</span>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Initial Prototypes</h3>
-                      <p className="text-white/70 text-sm">
-                       Built our first drivetrain, ran bearing-comparison tests (flat vs low-profile vs retainer) and tuned with lubricant.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </motion.div>
-              */}
-                {/* Progress Entry 3 */}
-                {/* <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="relative flex items-center mb-16"
-                >
-                <div className="w-1/2 pr-8 text-right">
-                  <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-end gap-3 mb-3">
-                    <span className="text-green-400 font-medium">Week 5-6</span>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Programming & Testing</h3>
-                    <p className="text-white/70 text-sm">
-                    Implemented autonomous routines and driver control programs. Conducted extensive testing and optimization.
-                    </p>
-                  </CardContent>
-                  </Card>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-black z-10"></div>
-                <div className="w-1/2 pl-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
-                  <div className="aspect-video bg-green-500/10 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Code className="h-6 w-6 text-green-400" />
-                    </div>
-                    <p className="text-white/50 text-sm">Code Testing</p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-                </motion.div> */}
-
-                {/* Progress Entry 4 - Current */}
-                {/* <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="relative flex items-center"
-                >
-                <div className="w-1/2 pr-8">
-                  <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
-                  <div className="aspect-video bg-green-500/10 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <CircuitBoard className="h-6 w-6 text-green-400" />
-                    </div>
-                    <p className="text-white/50 text-sm">Final Assembly</p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-400 rounded-full border-4 border-black z-10 animate-pulse"></div>
-                <div className="w-1/2 pl-8">
-                  <Card className="bg-[#14142A] border-green-400/50 hover:border-green-400/70 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-green-400 font-medium">Current</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Competition Ready</h3>
-                    <p className="text-white/70 text-sm">
-                    Final robot assembly complete with optimized autonomous programs and driver control ready for competition.
-                    </p>
-                  </CardContent>
-                  </Card>
-                </div>
-                </motion.div> */}
-            </div>
-
-            {/* Interactive Gallery Placeholder */}
+          <div className="max-w-7xl mx-auto">
+            {/* Main Featured Image */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-[#14142A] rounded-2xl p-8 border border-green-500/30"
+              className="mb-12"
             >
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold text-white mb-2">Interactive Image Gallery</h3>
-                <p className="text-white/70">Click through our build progress photos and technical drawings</p>
+              <Card className="bg-[#14142A] border-green-500/30 overflow-hidden hover:border-green-400/50 transition-colors group">
+                <div className="relative">
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <img
+                      src="/images/theorem/cad.png"
+                      alt="Robot CAD Design"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <Badge className="mb-3 bg-green-500/20 text-green-300 border-green-500/30">
+                      <CircuitBoard className="w-4 h-4 mr-2" />
+                      CAD Design
+                    </Badge>
+                    <h3 className="text-2xl font-semibold text-white mb-2">Initial Robot Design</h3>
+                    <p className="text-white/80">
+                      Our comprehensive CAD model showcasing the mechanical systems and design philosophy
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {/* Process Cards */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-all group h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <Wrench className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">Design Process</h3>
+                        <p className="text-green-400 text-sm">Planning & CAD</p>
+                      </div>
+                    </div>
+                    <p className="text-white/70 text-sm mb-4">
+                      Systematic approach to robot design using advanced CAD software and engineering principles
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        SolidWorks
+                      </Badge>
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        Analysis
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-all group h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <Code className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">Programming</h3>
+                        <p className="text-green-400 text-sm">Autonomous & Driver</p>
+                      </div>
+                    </div>
+                    <p className="text-white/70 text-sm mb-4">
+                      Advanced programming for autonomous operation and precise driver control systems
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        C++
+                      </Badge>
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        VEXcode
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Card className="bg-[#14142A] border-green-500/30 hover:border-green-400/50 transition-all group h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <Target className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">Testing</h3>
+                        <p className="text-green-400 text-sm">Optimization & Tuning</p>
+                      </div>
+                    </div>
+                    <p className="text-white/70 text-sm mb-4">
+                      Rigorous testing protocols to optimize performance and ensure competition readiness
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        Performance
+                      </Badge>
+                      <Badge variant="secondary" className="text-xs bg-green-500/10 text-green-300 border-green-500/30">
+                        Metrics
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+
+            {/* Team Photos Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-semibold text-white mb-2">Build Progress</h3>
+                <p className="text-white/70">Our journey from concept to competition</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {Array.from({ length: 6 }).map((_, index) => (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {Array.from({ length: 8 }).map((_, index) => (
                   <motion.div
                     key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="aspect-square bg-green-500/10 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all cursor-pointer group"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="aspect-square bg-green-500/10 rounded-lg border border-green-500/20 hover:border-green-400/40 transition-all cursor-pointer group overflow-hidden"
                   >
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-center">
                         <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-green-400/30 transition-colors">
-                          <Target className="h-4 w-4 text-green-400" />
+                          <CircuitBoard className="h-4 w-4 text-green-400" />
                         </div>
-                        <p className="text-white/50 text-xs">Build Photo {index + 1}</p>
+                        <p className="text-white/50 text-xs">Photo {index + 1}</p>
                       </div>
                     </div>
                   </motion.div>
