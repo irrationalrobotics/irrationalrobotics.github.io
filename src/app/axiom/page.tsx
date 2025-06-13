@@ -1,17 +1,60 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
-import { Trophy, Users, Target, CalendarDays, ArrowLeft, BookOpen, Award, Wrench, Code, CircuitBoard } from "lucide-react";
+import {
+  Trophy, Users, Target, CalendarDays, ArrowLeft, BookOpen, Award,
+  Wrench, Code, CircuitBoard, Star, Zap, ExternalLink, User,
+  Github, Linkedin, Mail, Clock, TrendingUp
+} from "lucide-react";
 import { HighlightText } from "@/components/highlight-text";
 
 export default function AxiomPage() {
+  const [stats, setStats] = useState({
+    competitions: 0,
+    awards: 0,
+    codeCommits: 0,
+    hoursWorked: 0
+  });
+
   useEffect(() => {
+    // Animate counters
+    const targetStats = {
+      competitions: 0,
+      awards: 0,
+      codeCommits: 7,
+      hoursWorked: 15
+    };
+
+    const duration = 2000;
+    const steps = 60;
+    const stepTime = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+
+      setStats({
+        competitions: Math.round(targetStats.competitions * easedProgress),
+        awards: Math.round(targetStats.awards * easedProgress),
+        codeCommits: Math.round(targetStats.codeCommits * easedProgress),
+        hoursWorked: Math.round(targetStats.hoursWorked * easedProgress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setStats(targetStats);
+      }
+    }, stepTime);
+
     const fadeElements = document.querySelectorAll(".fade-in");
 
     const observer = new IntersectionObserver(
@@ -26,13 +69,67 @@ export default function AxiomPage() {
     );
 
     fadeElements.forEach((el) => observer.observe(el));
-    return () => fadeElements.forEach((el) => observer.unobserve(el));
+    return () => {
+      fadeElements.forEach((el) => observer.unobserve(el));
+      clearInterval(timer);
+    };
   }, []);
+
+  const teamMembers = [
+    {
+      img: "/images/axiom/abhirama.png",
+      name: "Abhirama Sonny",
+      role: "Programmer & Outreach Coordinator",
+      specialty: "Autonomous Programming",
+      link: "https://abhiramasonny.com",
+      description: "I am a 16-year-old high school student with 6 years of competitive robotics experience. I am a programmer on the team, and I want to develop a highly ranked autonomous this season.",
+      skills: ["C++", "Python", "AI/ML"]
+    },
+    {
+      img: "/images/axiom/johnathan.webp",
+      name: "Jonathan Luu",
+      role: "Builder & Outreach Coordinator",
+      specialty: "Pneumatic Expert",
+      link: "https://www.instagram.com/ed.two?igsh=MXBlOTNzdnU1YnMxMQ%3D%3D&utm_source=qr",
+      description: "Robot developmment and community engagement.",
+      skills: ["CAD Design", "Marketing", "Design"]
+    },
+    {
+      img: "/images/axiom/kevin.png",
+      name: "Kevin Ye",
+      role: "Builder & Primary Driver",
+      specialty: "Robot Operation",
+      description: "Expert in robot operation and mechanical assembly.",
+      skills: ["Driver Control", "Mechanical Assembly", "Strategy"]
+    },
+    {
+      img: "/images/axiom/shourya.jpg",
+      name: "Shourya Bhogireddi",
+      role: "Programmer & Secondary Driver",
+      specialty: "Software Development",
+      description: "Develops control systems and serves as backup driver.",
+      skills: ["C++", "Control Systems", "Driver Training", "Code Review"]
+    },
+    {
+      img: "/images/axiom/shyam.jpg",
+      name: "Shyam Devanathan",
+      role: "Builder & Programmer",
+      specialty: "Hardware Integration",
+      description: "Bridges mechanical and software systems for optimal performance.",
+      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Debugging"]
+    }
+  ];
 
   return (
     <div className="axiom-theme min-h-screen bg-black">
-      {/* Hero Section - Consolidated inline */}
+      {/* Enhanced Hero Section */}
       <section className="relative overflow-hidden py-24 md:py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
         <div className="relative container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,21 +137,170 @@ export default function AxiomPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
+            <Badge className="mb-6 bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-blue-500/30">
+              <Star className="w-4 h-4 mr-2" />
+              Team 14142A
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 text-white">
-              Team <HighlightText type="gradient">14142A Axiom!</HighlightText>
+              Team <HighlightText type="gradient">Axiom</HighlightText>
             </h1>
+            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+              Building the future through mathematical precision and innovative engineering solutions.
+            </p>
+
+            {/* Team Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-2xl mx-auto"
+            >
+              <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
+                <div className="text-2xl font-bold text-blue-400">{stats.competitions}</div>
+                <div className="text-xs text-white/60">Competitions</div>
+              </div>
+              <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
+                <div className="text-2xl font-bold text-blue-400">{stats.awards}</div>
+                <div className="text-xs text-white/60">Awards</div>
+              </div>
+              <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
+                <div className="text-2xl font-bold text-blue-400">{stats.codeCommits}</div>
+                <div className="text-xs text-white/60">Commits</div>
+              </div>
+              <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
+                <div className="text-2xl font-bold text-blue-400">{stats.hoursWorked}+</div>
+                <div className="text-xs text-white/60">Hours</div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* About the Team Section - Consolidated inline */}
+      {/* Enhanced About Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-[#14142A]/20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-light tracking-tight mb-6 text-white">About Team Axiom</h2>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-white/70 text-lg leading-relaxed mb-6">
+                Team 14142A, known as Team Axiom, is a dedicated group of high school students passionate about robotics and engineering. We are part of the VEX Robotics Competition, where we design, build, and program robots to compete in various challenges. Our team is the flaghip team of Irrational Robotics, where we are focused on winning as many competations as we can.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
+                  <Zap className="h-8 w-8 text-blue-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Innovation First</h3>
+                  <p className="text-white/60 text-sm">Pushing boundaries with creative solutions</p>
+                </div>
+                <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
+                  <Users className="h-8 w-8 text-blue-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Team Unity</h3>
+                  <p className="text-white/60 text-sm">Collaboration drives our success</p>
+                </div>
+                <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
+                  <Trophy className="h-8 w-8 text-blue-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Excellence</h3>
+                  <p className="text-white/60 text-sm">Striving for perfection in every detail</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Enhanced Team Members Section */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">About Team Axiom</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">Meet Our Team</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Team 14142A Axiom is a competitive VEX Robotics team from Allen, Texas. Our name represents our foundation in mathematical principles and logical thinking.
+              The brilliant minds behind Team Axiom's success
             </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group"
+              >
+                <Card className="overflow-hidden bg-gradient-to-br from-[#14142A] to-[#1a1a3a] border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 h-full">
+                  {/* Header with gradient */}
+                  <div className="h-32 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <Badge className="bg-white/20 text-white border-white/30">
+                        {member.specialty}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <CardContent className="p-6 -mt-8 relative">
+                    {/* Profile Image */}
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-[#14142A] bg-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {member.img ? (
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                      ) : null}
+                      <User className="h-8 w-8 text-blue-400 hidden" />
+                    </div>
+
+                    {/* Member Info */}
+                    <h3 className="font-semibold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-blue-400 text-sm font-medium mb-2">{member.role}</p>
+                    <p className="text-white/60 text-xs mb-4 leading-relaxed">{member.description}</p>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {member.skills?.slice(0, 3).map((skill, skillIndex) => (
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="text-xs bg-blue-500/10 text-blue-300 border-blue-500/30"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Action Button */}
+                    {member.link && (
+                      <Button
+                        onClick={() => window.open(member.link, '_blank')}
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400/50"
+                      >
+                        <ExternalLink className="h-3 w-3 mr-2" />
+                        View Profile
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -128,52 +374,7 @@ export default function AxiomPage() {
         </div>
       </section>
 
-      {/* Team Members Section */}
-      <section className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">Our Team</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Meet the people behind Team Axiom.
-            </p>
-          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
-            {[
-              { img: "images/axiom/abhirama.png", name: "Abhriama Sonny", role: "Programmer", link: "https://abhiramasonny.com" }, // Raami you can't be serious :skull:
-              { img: "/images/axiom/johnathan.webp", name: "Johanathan Luu", role: "Builder & Outreach" },
-              { img: "images/axiom/kevin.png", name: "Kevin Ye", role: "Builder & Driver"},
-              { img: "/images/axiom/shourya.jpg", name: "Shourya Bhogireddi", role: "Programmer & Driver"},
-              { img: "/images/axiom/shyam.jpg", name: "Shyam Devanathan", role: "Builder & Programmer" }
-            ].map((member, index) => (
-              <Card
-              key={index}
-              className="overflow-hidden bg-[#14142A] border-white/10 hover-lift cursor-pointer"
-              onClick={() => {
-                if (member.link) {
-                window.open(member.link, "_blank");
-                }
-              }}
-              >
-              <div className="h-24 bg-blue-500/20"></div>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full overflow-hidden -mt-14 border-4 border-[#14142A]">
-                  <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-medium mt-3 text-white">{member.name}</h3>
-                <p className="text-sm text-white/50">{member.role}</p>
-                </div>
-              </CardContent>
-              </Card>
-            ))}
-            </div>
-        </div>
-      </section>
 
       {/* Robot Progress Showcase - Digital Notebook */}
       <section className="py-20 bg-black">
@@ -336,7 +537,7 @@ export default function AxiomPage() {
                 </div>
                 </motion.div> */}
             </div>
-                
+
             {/* Interactive Gallery Placeholder */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -372,7 +573,7 @@ export default function AxiomPage() {
         </div>
       </section>
 
-      {/* Goals Section 
+      {/* Goals Section
       <section className="py-20 bg-[#14142A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 fade-in">
@@ -426,7 +627,7 @@ export default function AxiomPage() {
             </div>
           </div>
         </div>
-        
+
       </section>
       */}
     </div>

@@ -1,17 +1,60 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
-import { Trophy, Users, Target, CalendarDays, ArrowLeft, BookOpen, Award, Wrench, Code, CircuitBoard } from "lucide-react";
+import {
+  Trophy, Users, Target, CalendarDays, ArrowLeft, BookOpen, Award,
+  Wrench, Code, CircuitBoard, Star, Zap, ExternalLink, User,
+  Github, Linkedin, Mail, Clock, TrendingUp, Lightbulb, Cpu, Rocket
+} from "lucide-react";
 import { HighlightText } from "@/components/highlight-text";
 
 export default function TheoremPage() {
+  const [stats, setStats] = useState({
+    competitions: 0,
+    designIterations: 0,
+    codeCommits: 0,
+    hoursWorked: 0
+  });
+
   useEffect(() => {
+    // Animate counters with different values from Axiom
+    const targetStats = {
+      competitions: 0,
+      designIterations: 0,
+      codeCommits: 0,
+      hoursWorked: 0
+    };
+
+    const duration = 2000;
+    const steps = 60;
+    const stepTime = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+
+      setStats({
+        competitions: Math.round(targetStats.competitions * easedProgress),
+        designIterations: Math.round(targetStats.designIterations * easedProgress),
+        codeCommits: Math.round(targetStats.codeCommits * easedProgress),
+        hoursWorked: Math.round(targetStats.hoursWorked * easedProgress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setStats(targetStats);
+      }
+    }, stepTime);
+
     const fadeElements = document.querySelectorAll(".fade-in");
 
     const observer = new IntersectionObserver(
@@ -26,13 +69,66 @@ export default function TheoremPage() {
     );
 
     fadeElements.forEach((el) => observer.observe(el));
-    return () => fadeElements.forEach((el) => observer.unobserve(el));
+    return () => {
+      fadeElements.forEach((el) => observer.unobserve(el));
+      clearInterval(timer);
+    };
   }, []);
+
+  const teamMembers = [
+    {
+      img: "/images/theorem/adi.jpg",
+      name: "Aditya \"Adi\" Sriram",
+      role: "Lead Programmer & Strategy",
+      specialty: "AI & Algorithms",
+      description: "Develops intelligent autonomous systems and strategic game analysis.",
+      skills: ["Python", "C++", "Machine Learning", "Game Theory"]
+    },
+    {
+      img: "/images/theorem/alex.jpg",
+      name: "Alexander Richards",
+      role: "Master Builder",
+      specialty: "Mechanical Systems",
+      description: "Designs and constructs robust mechanical systems for optimal performance.",
+      skills: ["CAD Design", "3D Modeling", "Prototyping", "Assembly"]
+    },
+    {
+      img: "/images/theorem/cheng.jpg",
+      name: "Chenghao Huang",
+      role: "Builder & Programmer",
+      specialty: "Hardware-Software Integration",
+      description: "Bridges the gap between mechanical design and software implementation.",
+      skills: ["Embedded Systems", "Sensor Integration", "C++", "Electronics"]
+    },
+    {
+      img: "/images/theorem/aryan.png",
+      name: "Aryan Paddarthi",
+      role: "Programmer & Research Lead",
+      specialty: "Innovation & R&D",
+      description: "Researches cutting-edge techniques and implements experimental features.",
+      skills: ["Research", "Algorithm Design", "Documentation", "Testing"]
+    },
+    {
+      img: "/images/theorem/arnesh.jpg",
+      name: "Arnesh Jayaram",
+      role: "Builder & Community Manager",
+      specialty: "Design & Outreach",
+      description: "Creates compelling designs and manages team's external relationships.",
+      skills: ["Design", "Communication", "Project Management", "Networking"]
+    }
+  ];
 
   return (
     <div className="theorem-theme min-h-screen bg-black">
-      {/* Hero Section - Consolidated inline */}
+      {/* Enhanced Hero Section with unique green theme */}
       <section className="relative overflow-hidden py-24 md:py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-600/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+
         <div className="relative container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,21 +136,168 @@ export default function TheoremPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
+            <Badge className="mb-6 bg-green-500/20 text-green-300 border-green-500/30 hover:bg-green-500/30">
+              <Lightbulb className="w-4 h-4 mr-2" />
+              Team 14142T
+            </Badge>
             <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 text-white">
-              Team <HighlightText type="gradient">14142T Theorem!</HighlightText>
+              Team <HighlightText type="gradient">Theorem</HighlightText>
             </h1>
+            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+              Proving excellence through systematic innovation and relentless pursuit of perfection.
+            </p>
+
+            {/* Team Stats with unique metrics */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-2xl mx-auto"
+            >
+              <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/20">
+                <div className="text-2xl font-bold text-green-400">{stats.competitions}</div>
+                <div className="text-xs text-white/60">Competitions</div>
+              </div>
+              <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/20">
+                <div className="text-2xl font-bold text-green-400">{stats.designIterations}</div>
+                <div className="text-xs text-white/60">Iterations</div>
+              </div>
+              <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/20">
+                <div className="text-2xl font-bold text-green-400">{stats.codeCommits}</div>
+                <div className="text-xs text-white/60">Commits</div>
+              </div>
+              <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/20">
+                <div className="text-2xl font-bold text-green-400">{stats.hoursWorked}+</div>
+                <div className="text-xs text-white/60">Hours</div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* About the Team Section - Consolidated inline */}
+      {/* Enhanced About Section with unique identity */}
+      <section className="py-20 bg-gradient-to-b from-black to-[#14142A]/20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-light tracking-tight mb-6 text-white">About Team Theorem</h2>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-white/70 text-lg leading-relaxed mb-6">
+                Team Theorem is a group of passionate students dedicated to pushing the boundaries of robotics through mathematical precision and innovative design. Team Theorem is the research and development team of Irrational Robotics, focused on creating innovative and new systems that excel in VEX Robotics competitions. Our mission is to prove excellence through systematic innovation and relentless pursuit of perfection.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-green-500/10 rounded-xl p-6 border border-green-500/20">
+                  <Rocket className="h-8 w-8 text-green-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Rapid Iteration</h3>
+                  <p className="text-white/60 text-sm">Fast prototyping and continuous improvement</p>
+                </div>
+                <div className="bg-green-500/10 rounded-xl p-6 border border-green-500/20">
+                  <Cpu className="h-8 w-8 text-green-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Smart Systems</h3>
+                  <p className="text-white/60 text-sm">Intelligent automation and optimization</p>
+                </div>
+                <div className="bg-green-500/10 rounded-xl p-6 border border-green-500/20">
+                  <Target className="h-8 w-8 text-green-400 mb-3 mx-auto" />
+                  <h3 className="font-semibold text-white mb-2">Precision</h3>
+                  <p className="text-white/60 text-sm">Mathematical accuracy in every solution</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Enhanced Team Members Section */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">About Team Theorem</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">Our Proof Team</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Team 14142T Theorem is goal-achieving VEX Robotics team that will prove to others their place in the community.
+              The mathematical minds proving excellence in every challenge
             </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group"
+              >
+                <Card className="overflow-hidden bg-gradient-to-br from-[#14142A] to-[#1a3a1a] border-green-500/20 hover:border-green-400/40 transition-all duration-300 h-full">
+                  {/* Header with green gradient */}
+                  <div className="h-32 bg-gradient-to-br from-green-600 via-green-500 to-emerald-700 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <Badge className="bg-white/20 text-white border-white/30">
+                        {member.specialty}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <CardContent className="p-6 -mt-8 relative">
+                    {/* Profile Image with better fallback */}
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-[#14142A] bg-green-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {member.img ? (
+                        <img
+                          src={member.img}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                      ) : null}
+                      <User className="h-8 w-8 text-green-400 hidden" />
+                    </div>
+
+                    {/* Member Info */}
+                    <h3 className="font-semibold text-white mb-1 group-hover:text-green-400 transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-green-400 text-sm font-medium mb-2">{member.role}</p>
+                    <p className="text-white/60 text-xs mb-4 leading-relaxed">{member.description}</p>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {member.skills?.slice(0, 3).map((skill, skillIndex) => (
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="text-xs bg-green-500/10 text-green-300 border-green-500/30"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Contact placeholder */}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10 hover:border-green-400/50"
+                      disabled
+                    >
+                      <Mail className="h-3 w-3 mr-2" />
+                      Contact Member
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -128,44 +371,7 @@ export default function TheoremPage() {
         </div>
       </section>
 
-      {/* Team Members Section */}
-      <section className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-in">
-            <h2 className="text-3xl font-light tracking-tight mb-4 text-white">Our Team</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Meet the people behind Team Theorem.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl mx-auto fade-in">
-            {[
-              { img: "images/theorem/adi.jpg", name: "Aditya \"Adi\" Sriram", role: "Programmer & Outreach" },
-              { img: "/images/theorem/alex.jpg", name: "Alexander Richards", role: "Builder" },
-              { img: "images/theorem/cheng.jpg", name: "Chenghao Huang", role: "Builder & Programmer" },
-              { img: "/images/theorem/aryan.png", name: "Aryan Paddarthi", role: "Programmer & Outreach" },
-              { img: "/images/theorem/arnesh.jpg", name: "Arnesh Jayaram", role: "Builder & Outreach" }
-            ].map((member, index) => (
-              <Card key={index} className="overflow-hidden bg-[#14142A] border-white/10 hover-lift">
-                <div className="h-24 bg-green-500/20"></div>
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full overflow-hidden -mt-14 border-4 border-[#14142A]">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="font-medium mt-3 text-white">{member.name}</h3>
-                    <p className="text-sm text-white/50">{member.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Robot Progress Showcase - Digital Notebook */}
       <section className="py-20 bg-black">
@@ -231,7 +437,7 @@ export default function TheoremPage() {
                 <div className="w-1/2 pr-8">
                    <div className="bg-[#14142A] rounded-lg p-4 border border-green-500/30">
                     <div className="aspect-video rounded-lg overflow-hidden bg-green-500/10">
-                    {/* Image placeholder *//*}  
+                    {/* Image placeholder *//*}
                     <img
                         src="/images/theorem/dt.png"
                         alt="Initial Build"
@@ -365,7 +571,7 @@ export default function TheoremPage() {
         </div>
       </section>
 
-      {/* Goals Section
+      {/* Goals Section */}
       <section className="py-20 bg-[#14142A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 fade-in">
@@ -421,7 +627,6 @@ export default function TheoremPage() {
         </div>
 
       </section>
-      */}
     </div>
   );
 }
