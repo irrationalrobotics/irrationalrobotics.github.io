@@ -39,14 +39,15 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.56.4",
     "sonner": "^2.0.3",
+    "swr": "^2.3.3",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
     "zod": "^3.25.28"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@biomejs/biome": "1.9.4",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import useSWR from "swr";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,23 +10,28 @@ import { Progress } from "@/components/ui/progress";
 import { HighlightText } from "@/components/highlight-text";
 import Link from "next/link";
 import {
-  DollarSign,
-  Heart,
-  Trophy,
-  Users,
-  Star,
-  Gift,
-  Target,
-  ArrowRight,
-  CheckCircle,
-  Sparkles,
-  Zap,
-  Crown
+  Heart, Star, Trophy, Users, Gift,
+  Target, ArrowRight, CheckCircle,
+  Sparkles, Zap, Crown
 } from "lucide-react";
 
+const fetcher = (url: string) => fetch(url).then(r => r.json());
+
 export default function DonatePage() {
-  const moneyearened = 8.88; // Enter money we have earned
-  const percentFunded = moneyearened/120; // Use to calculate progress
+  const slug = "irrationalrobotics";
+  const { data, error } = useSWR<{
+    amount_cents: number; amount: number 
+}[]>(
+    `https://hcb.hackclub.com/api/v3/organizations/irrationalrobotics/donations`,
+    fetcher,
+    { refreshInterval: 60_000 }
+  );
+
+  const moneyEarned = data
+    ? data.map(d => d.amount_cents / 100).reduce((a, b) => a + b, 0)
+    : 0;
+  const seasonGoal = 12_000;
+  const percentFunded = seasonGoal ? moneyEarned / seasonGoal : 0;
 
   const donationTiers = [
     {
@@ -136,12 +143,14 @@ export default function DonatePage() {
               <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Season Goal</span>
-                  <span className="text-sm text-muted-foreground">${moneyearened} / $12,000</span>
+<span className="text-sm text-muted-foreground">
+                ${moneyEarned.toLocaleString()} / ${seasonGoal.toLocaleString()}
+              </span>
                 </div>
-                <Progress value={percentFunded} className="mb-2" />
-                <p className="text-xs text-muted-foreground">
-                  {Math.round(percentFunded*100)/100}% funded • Help us reach the World Championships!
-                </p>
+                <Progress value={percentFunded * 100} className="mb-2" />
+            <p className="text-xs text-muted-foreground">
+              {((percentFunded * 100).toFixed(2))}% funded • Help us reach the World Championships!
+            </p>
               </div>
             </motion.div>
 
