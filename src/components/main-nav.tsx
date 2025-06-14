@@ -158,7 +158,7 @@ export function MainNav() {
                   onClick={() => setOpen(false)}
                 >
                   <Image
-                    src="/logo.png"
+                    src="/logo.jpg"
                     alt="Irrational Robotics Logo"
                     width={32}
                     height={32}
