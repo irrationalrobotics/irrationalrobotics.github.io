@@ -484,36 +484,6 @@ export default function AxiomPage() {
               </motion.div>
             </div>
 
-            {/* Team Photos Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-semibold text-white mb-2">Build Journey</h3>
-                <p className="text-white/70">From conception to competition-ready robot</p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {Array.from({ length: 8 }).map((_, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="aspect-square bg-blue-500/10 rounded-lg border border-blue-500/20 hover:border-blue-400/40 transition-all cursor-pointer group overflow-hidden"
-                  >
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-400/30 transition-colors">
-                          <CircuitBoard className="h-4 w-4 text-blue-400" />
-                        </div>
-                        <p className="text-white/50 text-xs">Photo {index + 1}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </div>
         <motion.div
