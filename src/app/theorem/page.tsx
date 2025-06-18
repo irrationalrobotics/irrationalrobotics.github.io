@@ -604,6 +604,27 @@ export default function TheoremPage() {
         </div>
 
       </section>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="container mx-auto px-12 py-12 text-center relative fade-in"
+      >
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-muted-foreground text-2xl mb-4 hover:text-green-400 transition-colors">Like what you see?</p>
+        </div>
+        <p className="text-sm text-muted-foreground mt-2">
+          You can donate to support Theorem and help us continue building amazing robots!
+        </p>
+        <Button asChild size="sm" variant="donateoutline" className="mt-4">
+          <Link href="/donate">
+            Donate Here!
+          </Link>
+        </Button>
+        {/* Floating accent elements */}
+        <div className="absolute top-12 right-40 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-300 pointer-events-none" />
+        <div className="absolute bottom-8 left-40 w-6 h-6 bg-primary/30 rounded-full animate-bounce delay-700 pointer-events-none" />
+      </motion.div>
     </div>
   );
 }

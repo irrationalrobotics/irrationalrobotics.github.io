@@ -486,7 +486,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground mb-8">
               If our story and mission resonate with you, consider supporting us! Your donation helps us continue innovating and inspiring the next generation of engineers.
             </p>
-            <Button asChild size="lg">
+            <Button asChild variant="donate" size="lg">
               <Link href="/donate">
                 Donate to Irrational Robotics
               </Link>

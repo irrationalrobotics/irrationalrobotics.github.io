@@ -109,14 +109,21 @@ export default function CompetitionsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+              <Link
+                href="https://www.vexrobotics.com/v5/competition/vrc-current-game"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group relative focus:outline-none"
+                tabIndex={0}
+              >
               <div className="relative">
-                <div className="aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 border border-primary/20">
+                <div className="aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 border border-primary/20 transition-shadow duration-200 group-hover:shadow-2xl group-hover:border-primary/40 cursor-pointer">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center p-8">
-                      <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform duration-200 group-hover:scale-110">
                         <Gamepad2 className="w-8 h-8 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold text-foreground mb-2">VRC Push Back</h3>
+                      <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">VRC Push Back</h3>
                       <p className="text-muted-foreground">
                         Strategic gameplay meets mechanical precision in this year's challenge
                       </p>
@@ -124,9 +131,10 @@ export default function CompetitionsPage() {
                   </div>
                 </div>
                 {/* Floating accent elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-300" />
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/30 rounded-full animate-bounce delay-700" />
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-300 pointer-events-none" />
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/30 rounded-full animate-bounce delay-700 pointer-events-none" />
               </div>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -333,7 +341,7 @@ export default function CompetitionsPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span className="text-sm">Dallas, Texas venue</span>
+                        <span className="text-sm">St. Louis, Missouri venue</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-primary rounded-full" />

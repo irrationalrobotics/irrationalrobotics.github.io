@@ -143,7 +143,7 @@ export default function DonatePage() {
               <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Season Goal</span>
-<span className="text-sm text-muted-foreground">
+                    <span className="text-sm text-muted-foreground">
                 ${moneyEarned.toLocaleString()} / ${seasonGoal.toLocaleString()}
               </span>
                 </div>
