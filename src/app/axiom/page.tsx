@@ -116,7 +116,7 @@ export default function AxiomPage() {
       role: "Builder & Programmer",
       specialty: "Hardware Integration",
       description: "Bridges mechanical and software systems for optimal performance.",
-      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Debugging"]
+      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Computer Aided Design"]
     }
   ];
 
