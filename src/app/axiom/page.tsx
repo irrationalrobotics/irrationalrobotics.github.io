@@ -77,6 +77,14 @@ export default function AxiomPage() {
 
   const teamMembers = [
     {
+      img: "/images/axiom/kevin.png",
+      name: "Kevin Ye",
+      role: "Builder & Primary Driver",
+      specialty: "Robot Operation",
+      description: "Expert in robot operation and mechanical assembly.",
+      skills: ["Driver Control", "Mechanical Assembly", "Strategy"]
+    },
+    {
       img: "/images/axiom/abhirama.png",
       name: "Abhirama Sonny",
       role: "Programmer & Outreach Coordinator",
@@ -84,6 +92,14 @@ export default function AxiomPage() {
       link: "https://abhiramasonny.com",
       description: "I am a 16-year-old high school student with 6 years of competitive robotics experience. I am a programmer on the team, and I want to develop a highly ranked autonomous this season.",
       skills: ["C++", "Python", "AI/ML"]
+    },
+    {
+      img: "/images/axiom/shyam.jpg",
+      name: "Shyam Devanathan",
+      role: "Builder & Programmer",
+      specialty: "Hardware Integration",
+      description: "Bridges mechanical and software systems for optimal performance.",
+      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Computer Aided Design"]
     },
     {
       img: "/images/axiom/johnathan.webp",
@@ -95,28 +111,12 @@ export default function AxiomPage() {
       skills: ["CAD Design", "Marketing", "Design"]
     },
     {
-      img: "/images/axiom/kevin.png",
-      name: "Kevin Ye",
-      role: "Builder & Primary Driver",
-      specialty: "Robot Operation",
-      description: "Expert in robot operation and mechanical assembly.",
-      skills: ["Driver Control", "Mechanical Assembly", "Strategy"]
-    },
-    {
       img: "/images/axiom/shourya.jpg",
       name: "Shourya Bhogireddi",
       role: "Programmer & Secondary Driver",
       specialty: "Software Development",
       description: "Develops control systems and serves as backup driver.",
       skills: ["C++", "Control Systems", "Driver Training", "Code Review"]
-    },
-    {
-      img: "/images/axiom/shyam.jpg",
-      name: "Shyam Devanathan",
-      role: "Builder & Programmer",
-      specialty: "Hardware Integration",
-      description: "Bridges mechanical and software systems for optimal performance.",
-      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Computer Aided Design"]
     }
   ];
 
