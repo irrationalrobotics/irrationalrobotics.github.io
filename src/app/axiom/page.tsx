@@ -111,7 +111,7 @@ export default function AxiomPage() {
       skills: ["C++", "Control Systems", "Driver Training", "Code Review"]
     },
     {
-      img: "/images/axiom/shyam.png",
+      img: "/images/axiom/shyam.jpg",
       name: "Shyam Devanathan",
       role: "Builder & Programmer",
       specialty: "Hardware Integration",
