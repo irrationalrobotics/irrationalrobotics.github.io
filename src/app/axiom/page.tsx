@@ -82,7 +82,7 @@ export default function AxiomPage() {
       role: "Builder & Primary Driver",
       specialty: "Robot Operation",
       description: "Expert in robot operation and mechanical assembly.",
-      skills: ["Driver Control", "Mechanical Assembly", "Strategy"]
+      skills: ["Driver Control", "Mechanical Assembly", "Strategy Lead"]
     },
     {
       img: "/images/axiom/abhirama.png",
@@ -98,17 +98,17 @@ export default function AxiomPage() {
       name: "Shyam Devanathan",
       role: "Builder & Programmer",
       specialty: "Hardware Integration",
-      description: "Bridges mechanical and software systems for optimal performance.",
-      skills: ["Hardware Integration", "Sensor Programming", "Assembly", "Computer Aided Design"]
+      description: "I am a sophomore in high school with over 4 seasons of competitive robotics and 1 world championship qualification under my belt so far. I am both a lead robot designer and assistant programmer, and I want to ensure optimal hardware and software performance this season.",
+      skills: ["Hardware Integration", "Computer Aided Design", "Strategic Analysis"]
     },
     {
       img: "/images/axiom/johnathan.webp",
-      name: "Jonathan Luu",
+      name: "Johnathan Luu",
       role: "Builder & Outreach Coordinator",
       specialty: "Pneumatic Expert",
       link: "https://www.instagram.com/ed.two?igsh=MXBlOTNzdnU1YnMxMQ%3D%3D&utm_source=qr",
       description: "Robot developmment and community engagement.",
-      skills: ["CAD Design", "Marketing", "Design"]
+      skills: ["Specialized Assembly", "Marketing", "Branding"]
     },
     {
       img: "/images/axiom/shourya.jpg",
@@ -116,7 +116,7 @@ export default function AxiomPage() {
       role: "Programmer & Secondary Driver",
       specialty: "Software Development",
       description: "Develops control systems and serves as backup driver.",
-      skills: ["C++", "Control Systems", "Driver Training", "Code Review"]
+      skills: ["C++", "Control Systems", "Code Review"]
     }
   ];
 
