@@ -335,11 +335,15 @@ export default function AxiomPage() {
                       </p>
                       <div className="space-y-4">
                         <div className="flex justify-between border-b border-white/10 pb-4">
-                          <span className="text-white">Regional Qualifier</span>
-                          <span className="text-blue-400">Coming Soon</span>
+                          <span className="text-white">For the Love of Bots @ Lovejoy HS</span>
+                          <span className="text-blue-400">November 1st</span>
                         </div>
                         <div className="flex justify-between border-b border-white/10 pb-4">
-                          <span className="text-white">State Championship</span>
+                          <span className="text-white">Garland ISD Blended @ North Garland HS</span>
+                          <span className="text-blue-400">November 22nd</span>
+                        </div>
+                        <div className="flex justify-between border-b border-white/10 pb-4">
+                          <span className="text-white">Texas Region 5 Championship</span>
                           <span className="text-white/50">TBD</span>
                         </div>
                       </div>
