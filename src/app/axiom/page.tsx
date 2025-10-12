@@ -343,6 +343,10 @@ export default function AxiomPage() {
                           <span className="text-blue-400">November 22nd</span>
                         </div>
                         <div className="flex justify-between border-b border-white/10 pb-4">
+                          <span className="text-white">Robot Rodeo Signature Event @ Las Colinas</span>
+                          <span className="text-blue-400">January 17-18</span>
+                        </div>
+                        <div className="flex justify-between border-b border-white/10 pb-4">
                           <span className="text-white">Texas Region 5 Championship</span>
                           <span className="text-white/50">TBD</span>
                         </div>
