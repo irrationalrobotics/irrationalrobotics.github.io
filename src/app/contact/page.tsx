@@ -81,7 +81,7 @@ const contactMethods = [
 
 const quickInfo = [
   { icon: MapPin, label: "Location", value: "Allen, Texas" },
-  { icon: Users, label: "Team Size", value: "10 Members" },
+  { icon: Users, label: "Team Size", value: "8 Members" },
   { icon: Globe, label: "Competition", value: "VEX V5" },
   { icon: Clock, label: "Response Time", value: "< 24 hours" }
 ];
@@ -415,12 +415,12 @@ export default function ContactPage() {
                   Team 14142A Axiom
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="border-emerald-500/30 hover:bg-emerald-500/10" asChild>
+              {/*<Button variant="outline" size="lg" className="border-emerald-500/30 hover:bg-emerald-500/10" asChild>
                 <a href="/theorem">
                   <Users className="w-5 h-5 mr-2" />
                   Team 14142T Theorem
                 </a>
-              </Button>
+              </Button>*/}
             </div>
           </motion.div>
         </div>

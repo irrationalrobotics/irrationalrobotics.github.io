@@ -40,11 +40,11 @@ const navItems = [
         href: "/axiom",
         description: "Meet Team Axiom and learn about their achievements"
       },
-      {
+      /*{
         name: "14142T Theorem",
         href: "/theorem",
         description: "Meet Team Theorem and learn about their achievements"
-      }
+      }*/
     ]
   },
   {

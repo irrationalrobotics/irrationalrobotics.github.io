@@ -69,13 +69,13 @@ export default function CompetitionsPage() {
                   <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="group">
+              {/*<Button asChild size="lg" variant="outline" className="group">
                 <Link href="/theorem">
                   <CircuitBoard className="w-4 h-4 mr-2" />
                   Team Theorem Results
                   <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </Button>
+              </Button>*/}
             </div>
           </motion.div>
         </div>
@@ -558,7 +558,10 @@ export default function CompetitionsPage() {
           </div>
         </div>
       </section>
-      <div className="h-10"/> {/* Added space for Theorem section below */ }
+      
+      {/* Theorem Competition card 
+      
+      <div className="h-10"/> Added space for Theorem section below
       <section className="py-16 bg-[#132D1F] text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -568,6 +571,7 @@ export default function CompetitionsPage() {
             </p>
           </div>
 
+          
           <div className="max-w-4xl mx-auto">
             <Card className="bg-[#1A3D2A]/80 text-white border-emerald-600/20">
               <CardHeader>
@@ -603,7 +607,7 @@ export default function CompetitionsPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section>*/}
     </div>
   );
 }

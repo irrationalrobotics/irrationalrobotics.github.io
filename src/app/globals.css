@@ -26,6 +26,7 @@
     --input: 0 0% 12%;
     --ring: 221 70% 55%;
     --radius: 0.5rem;
+    --donate: 42.12 100% 50%;
 
     /* Updated Axiom colors - removed purple, added proper blacks and blues */
     --axiom-primary: 221 75% 50%; /* Light blue */
@@ -118,6 +119,7 @@
   --border: 0 0% 15%;
   --input: 0 0% 15%;
   --ring: 221 75% 50%;
+  --donate: 42.12 100% 50%;
 }
 
 /* Theorem theme styles */
@@ -139,4 +141,13 @@
   --border: 137 20% 18%;
   --input: 137 20% 18%;
   --ring: 137 75% 40%;
+}
+
+/*Failed attempt at adding hover for donation related elements */
+.amber-gradient .bg-primary {
+  background: linear-gradient(90deg, #f59e42 0%, #fbbf24 100%);
+  transition: background 0.3s;
+}
+.amber-gradient:hover .bg-primary {
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e42 100%);
 }

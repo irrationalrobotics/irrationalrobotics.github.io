@@ -76,12 +76,12 @@ export default function Home() {
                 Meet Team Axiom
               </Link>
               </Button>
-              <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-lg" asChild>
+              {/*<Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-lg" asChild>
               <Link href="/theorem">
                 <Code className="w-5 h-5 mr-2" />
                 Meet Team Theorem
               </Link>
-              </Button>
+              </Button>*/}
               <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10" asChild>
               <Link href="/donate">
                 <Zap className="w-5 h-5 mr-2" />
@@ -135,7 +135,7 @@ export default function Home() {
                 About Us
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Irrational Robotics is a VEX Robotics organization from Allen, Texas. We are home to Team 14142A Axiom and Team 14142T Theorem, two teams competing in the VEX Robotics Competition.
+                Irrational Robotics is a VEX Robotics organization from Allen, Texas. We are home to Team 14142A Axiom, competing in the VEX Robotics Competition.
               </p>
             </div>
 

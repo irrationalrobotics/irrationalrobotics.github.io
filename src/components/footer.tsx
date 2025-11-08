@@ -116,7 +116,7 @@ export function Footer() {
                   <span>Team 14142A Axiom</span>
                 </Link>
               </div>
-              <div>
+              {/*<div>
                 <Link
                   href="/theorem"
                   className="text-muted-foreground hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2 group"
@@ -124,7 +124,7 @@ export function Footer() {
                   <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
                   <span>Team 14142T Theorem</span>
                 </Link>
-              </div>
+              </div>*/}
               <div className="pt-2">
                 <Link
                   href="https://www.robotevents.com/teams/V5RC/14142A"

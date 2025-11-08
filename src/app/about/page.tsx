@@ -31,9 +31,9 @@ export default function AboutPage() {
     // Animate organization stats
     const targetStats = {
       yearsActive: 1,
-      totalMembers: 10,
+      totalMembers: 8,
       projectsCompleted: 0,
-      hoursLogged: 15
+      hoursLogged: 30
     };
 
     const duration = 2500;
@@ -123,12 +123,12 @@ export default function AboutPage() {
                   Meet Team Axiom
                 </Link>
               </Button>
-              <Button asChild size="lg">
-                <Link href="/theorem">
+              {/*<Button variant="outline" asChild size="lg">
+                <Link href="/theorem" className="flex items-center">
                   <Lightbulb className="w-4 h-4 mr-2" />
                   Meet Team Theorem
                 </Link>
-              </Button>
+              </Button>*/}
               <Button variant="outline" size="lg">
                 <div className="flex items-center gap-2">
                   <Link href="/contact" className="flex items-center">
@@ -210,7 +210,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-6xl mx-auto">
             {/* Team Axiom */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -250,7 +250,7 @@ export default function AboutPage() {
                       <div className="text-xs text-muted-foreground">Members</div>
                     </div>
                     <div className="bg-blue-500/10 rounded-lg p-3 text-center border border-blue-500/20">
-                      <div className="text-lg font-bold text-blue-600">15+</div>
+                      <div className="text-lg font-bold text-blue-600">30+</div>
                       <div className="text-xs text-muted-foreground">Hours</div>
                     </div>
                   </div>
@@ -279,6 +279,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Team Theorem */}
+            {/* 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -308,9 +309,10 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                       Our Innovation team, focused on experimental approaches and rapid iteration.
-                  </p>
+                  </p>*/}
 
                   {/* Team Stats */}
+                  {/* 
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="bg-green-500/10 rounded-lg p-3 text-center border border-green-500/20">
                       <div className="text-lg font-bold text-green-600">5</div>
@@ -320,9 +322,10 @@ export default function AboutPage() {
                       <div className="text-lg font-bold text-green-600">0+</div>
                       <div className="text-xs text-muted-foreground">Hours</div>
                     </div>
-                  </div>
+                  </div>*/}
 
                   {/* Specialties */}
+                  {/* 
                   <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="secondary" className="bg-green-500/10 text-green-600 border-green-500/30">
                       Rapid Prototyping
@@ -343,7 +346,7 @@ export default function AboutPage() {
                   </Button>
                 </CardContent>
               </Card>
-            </motion.div>
+            </motion.div>*/}
           </div>
 
           {/* Team Comparison */}
@@ -361,7 +364,7 @@ export default function AboutPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                   <div className="space-y-4">
                     <h4 className="font-semibold text-blue-600 flex items-center gap-2">
                       <Star className="h-4 w-4" />
@@ -382,6 +385,7 @@ export default function AboutPage() {
                       </li>
                     </ul>
                   </div>
+                  {/* 
                   <div className="space-y-4">
                     <h4 className="font-semibold text-green-600 flex items-center gap-2">
                       <Lightbulb className="h-4 w-4" />
@@ -401,7 +405,7 @@ export default function AboutPage() {
                         Research-based problem solving
                       </li>
                     </ul>
-                  </div>
+                  </div>*/}
                 </div>
               </CardContent>
             </Card>

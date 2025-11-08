@@ -12,8 +12,10 @@ import Link from "next/link";
 import {
   Heart, Star, Trophy, Users, Gift,
   Target, ArrowRight, CheckCircle,
-  Sparkles, Zap, Crown
+  Sparkles, Zap, Crown,
+  Car, ExternalLink
 } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "@/components/ui/carousel";
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
@@ -39,8 +41,9 @@ export default function DonatePage() {
       amount: "$25+",
       description: "Help us get started",
       benefits: [
-        "Digital thank you",
-        "Recognition on website"
+        "Tax deductable donation",
+        "Thank You email",
+        "Support our mission"
       ],
       icon: Heart,
       color: "bg-gradient-to-br from-blue-500/10 to-purple-500/10",
@@ -54,9 +57,9 @@ export default function DonatePage() {
       description: "Make a real impact",
       benefits: [
         "Everything in Supporter",
-        "Name on team shirts",
-        "Competition updates",
-        "Small logo on robot"
+        "Name or Small Logo on our website",
+        "Social Media Shoutout",
+        "Recognition in Competition Materials"
       ],
       icon: Star,
       color: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
@@ -67,13 +70,13 @@ export default function DonatePage() {
     {
       title: "Golden Level Sponsor",
       amount: "$610+",
-      description: "Become our hero",
+      description: "Major structural impact",
       benefits: [
-        "Everything in Pi Level Sponsor",
-        "Large logo on robot",
-        "Social media shoutouts",
-        "Competition photos",
-        "Recognition at events"
+        "Everything in Supporter",
+        "A Medium Logo on all our team materials",
+        "2 Social Media shoutouts",
+        "Thank You card",
+        "Recognition in Competition Materials",
       ],
       icon: Trophy,
       color: "bg-gradient-to-br from-amber-500/10 to-orange-500/10",
@@ -84,14 +87,14 @@ export default function DonatePage() {
     {
       title: "Pythagoras Level Sponsor",
       amount: "$1,414+",
-      description: "Change everything",
+      description: "Full sponsor recognition",
       benefits: [
-        "Everything in Golden Level Sponsor",
-        "Premium logo placement",
-        "Personal team visit",
-        "Custom recognition",
-        "VIP competition access"
-
+        "Everything in Supporter",
+        "The Best Logo placement on all materials",
+        "A Featured Post on all our channels",
+        "Thank You letter",
+        "Featured in end-of-season sponsor spotlight",
+        "Recognition in Competition Materials",
       ],
       icon: Crown,
       color: "bg-gradient-to-br from-emerald-500/10 to-teal-500/10",
@@ -100,7 +103,31 @@ export default function DonatePage() {
       donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=141400"
     }
   ];
-
+  const Sponsors = [
+    {
+      title: "Pythagoras Level Sponsor",
+      sponsors: [],
+      imghrefs: [],
+      imgsize: "md:h-32 md:w-64",
+      txtsize: "md:text-4xl",
+    },
+    {
+      title: "Golden Level Sponsor",
+      sponsors: ["EnLiSense",],
+      imghrefs: ["images/sponsors/enlisense_logo_bonw.svg"],
+      imgsize: "md:h-24 md:w-48",
+      txtsize: "md:text-3xl",
+    },
+    {
+      title: "Pi Level Sponsor",
+      sponsors: [],
+      imghrefs: [],
+      imgsize: "md:h-18 md:w-32",
+      txtsize: "md:text-2xl",
+    },
+    
+    
+  ];
   const impactStats = [
     { label: "Competition Entries", value: "12+", icon: Target },
     { label: "Team Members Supported", value: "15", icon: Users },
@@ -160,7 +187,8 @@ export default function DonatePage() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg">
+              {/* bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70*/}
+              <Button variant="donate" size="lg" className="text-lg px-8 py-6 shadow-lg">
                 <a href="https://hcb.hackclub.com/donations/start/irrationalrobotics" target="_blank" rel="noopener noreferrer" className="flex items-center">
                   <Heart className="w-5 h-5 mr-2" />
                   Donate Now
@@ -242,10 +270,58 @@ export default function DonatePage() {
                 </Card>
               </motion.div>
             ))}
+            <p className="col-span-full text-sm text-muted-foreground mt-4 text-center">
+              Interested in the deets? Contact us <a href="/contact" className="text-primary hover:text-primary/90">here</a>
+            </p>
           </div>
         </div>
       </section>
-
+      {/*Supporters Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                Current Supporters
+              </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A heartfelt thank you to all our supporters who make our journey possible.
+            </p>
+            <div className="flex flex-col gap-8 mt-12 items-center">
+              {Sponsors.map((tier) => (
+              <div key={tier.title} className="w-full max-w-md">
+                <h3 className={`text-xl font-semibold mb-4 text-center ${tier.txtsize}`}>{tier.title}</h3>
+                <div className="flex flex-col items-center gap-4">
+                {tier.imghrefs.length > 0 ? (
+                  tier.imghrefs.map((img, idx) => (
+                  <div key={img} className={`flex items-center justify-center bg-white rounded-lg shadow p-2 ${tier.imgsize}`}>
+                    <img
+                    src={img}
+                    alt={tier.sponsors[idx] || "Sponsor"}
+                    className={`rounded-lg`}
+                    />
+                  </div>
+                  ))
+                ) : (
+                  <span className="text-muted-foreground text-sm italic">No sponsors yet</span>
+                )}
+                {tier.sponsors.length > tier.imghrefs.length &&
+                  tier.sponsors.slice(tier.imghrefs.length).map((name, idx) => (
+                  <div key={name} className={`flex items-center justify-center bg-white rounded-lg shadow p-2 ${tier.imgsize}`}>
+                    <span className="font-medium">{name}</span>
+                  </div>
+                  ))}
+                </div>
+              </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
       {/* Why Donate Section */}
       <section className="py-24 bg-card/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
@@ -326,7 +402,7 @@ export default function DonatePage() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="space-y-6"
               >
-                <Card className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-500/20">
+                <Card className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-emerald-500/20">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-amber-500/20 p-3 rounded-full">
@@ -398,9 +474,10 @@ export default function DonatePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg"
+                className="text-lg px-8 py-6 shadow-lg"
+                variant="donate"
                 asChild
-              >
+              >{/*bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70*/}
                 <a href="https://hcb.hackclub.com/donations/start/irrationalrobotics" target="_blank" rel="noopener noreferrer">
                   <Heart className="w-5 h-5 mr-2" />
                   Donate Now
