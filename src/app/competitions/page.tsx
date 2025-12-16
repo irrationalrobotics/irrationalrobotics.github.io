@@ -257,7 +257,6 @@ export default function CompetitionsPage() {
               </Card>
             </motion.div>
 
-            {/* Regional Level */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -307,7 +306,6 @@ export default function CompetitionsPage() {
               </Card>
             </motion.div>
 
-            {/* World Level */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -360,7 +358,6 @@ export default function CompetitionsPage() {
         </div>
       </section>
 
-      {/* Match Structure Section - Enhanced */}
       <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -512,45 +509,114 @@ export default function CompetitionsPage() {
         </div>
       </section>
 
-      {/* Team Axiom Competition History */}
+      {/* Team Axiom Competition Results */}
       <section className="py-16 bg-[#14142A] text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Team Axiom Competition History</h2>
+            <h2 className="text-3xl font-bold mb-4">Team Axiom 2025-2026 Season Results</h2>
             <p className="text-blue-200/80 max-w-2xl mx-auto">
-              Follow Team 14142A Axiom's journey through VEX Robotics competitions.
+              Team 14142A Axiom's performance across VEX Robotics competitions this season
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-white/10 text-white border-none">
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* For the Love of Bots Tournament */}
+            <Card className="bg-white/10 text-white border-blue-500/30">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Trophy className="h-5 w-5 text-blue-300" />
+                  For the Love of Bots I - Lovejoy HS
+                </CardTitle>
+                <p className="text-blue-200/80 text-sm">August 25th, 2025</p>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">Rank</div>
+                    <div className="text-2xl font-bold">18th</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">Record</div>
+                    <div className="text-2xl font-bold">4W - 2L</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">WP</div>
+                    <div className="text-2xl font-bold">8</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">AP</div>
+                    <div className="text-2xl font-bold">25</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">SP</div>
+                    <div className="text-2xl font-bold">105</div>
+                  </div>
+                </div>
+                <p className="text-blue-200/80">
+                  Strong performance in our first competitive outing, demonstrating competitive drive across all categories.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Garland ISD Tournament */}
+            <Card className="bg-white/10 text-white border-blue-500/30">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Trophy className="h-5 w-5 text-blue-300" />
+                  Garland ISD Mixed Tournament - North Garland HS
+                </CardTitle>
+                <p className="text-blue-200/80 text-sm">August 20th, 2025</p>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">Rank</div>
+                    <div className="text-2xl font-bold">21st</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">Record</div>
+                    <div className="text-2xl font-bold">4W - 3L</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">WP</div>
+                    <div className="text-2xl font-bold">8</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">AP</div>
+                    <div className="text-2xl font-bold">20</div>
+                  </div>
+                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="text-sm text-blue-200/60 mb-1">SP</div>
+                    <div className="text-2xl font-bold">71</div>
+                  </div>
+                </div>
+                <p className="text-blue-200/80">
+                  Solid performance building momentum toward future competitions with improved strategy execution.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Upcoming Events */}
+            <Card className="bg-white/10 text-white border-blue-500/30">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CalendarDays className="h-5 w-5 text-blue-300" />
-                  2025-2026 Season
+                  Upcoming Events
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-6">
-                  <p>
-                    Team Axiom is preparing for its first competitive season in the VEX Robotics Competition.
-                    Stay tuned for upcoming competition results and highlights!
-                  </p>
-
-                  <div className="p-6 bg-white/5 rounded-lg text-center">
-                    <Target className="h-12 w-12 text-blue-300 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Upcoming Competitions</h3>
-                    <p className="text-blue-200/80">
-                      Our competition schedule will be announced soon. Check back for updates!
-                    </p>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center pb-4 border-b border-blue-500/20">
+                    <span>Robot Rodeo Signature Event @ Las Colinas</span>
+                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">January 17-18</Badge>
                   </div>
-
-                  <div className="flex justify-center">
-                    <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 text-white">
-                      <Link href="/axiom">
-                        More About Team Axiom
-                      </Link>
-                    </Button>
+                  <div className="flex justify-between items-center pb-4 border-b border-blue-500/20">
+                    <span>CFBISD V5RC Push Back Winter Challenge</span>
+                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">TBD</Badge>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span>Texas Region Championship</span>
+                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">Spring 2026</Badge>
                   </div>
                 </div>
               </CardContent>

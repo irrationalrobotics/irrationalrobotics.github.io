@@ -104,29 +104,27 @@ export default function DonatePage() {
     }
   ];
   const Sponsors = [
-    {
-      title: "Pythagoras Level Sponsor",
-      sponsors: [],
-      imghrefs: [],
-      imgsize: "md:h-32 md:w-64",
-      txtsize: "md:text-4xl",
-    },
+    // {
+    //   title: "Pythagoras Level Sponsor",
+    //   sponsors: [],
+    //   imghrefs: [],
+    //   imgsize: "md:h-32 md:w-64",
+    //   txtsize: "md:text-4xl",
+    // },
     {
       title: "Golden Level Sponsor",
       sponsors: ["EnLiSense",],
       imghrefs: ["images/sponsors/enlisense_logo_bonw.svg"],
-      imgsize: "md:h-24 md:w-48",
+      imgsize: "md:h-40 md:w-80",
       txtsize: "md:text-3xl",
     },
-    {
-      title: "Pi Level Sponsor",
-      sponsors: [],
-      imghrefs: [],
-      imgsize: "md:h-18 md:w-32",
-      txtsize: "md:text-2xl",
-    },
-    
-    
+    // {
+    //   title: "Pi Level Sponsor",
+    //   sponsors: [],
+    //   imghrefs: [],
+    //   imgsize: "md:h-18 md:w-32",
+    //   txtsize: "md:text-2xl",
+    // },
   ];
   const impactStats = [
     { label: "Competition Entries", value: "12+", icon: Target },
@@ -138,7 +136,6 @@ export default function DonatePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20">
-      {/* Hero Section */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/10" />
         <div className="container mx-auto px-4 relative z-10">
@@ -160,7 +157,6 @@ export default function DonatePage() {
               Every donation brings us closer to our goals. Help us compete, innovate, and inspire the next generation of engineers.
             </p>
 
-            {/* Progress Indicator */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -205,9 +201,7 @@ export default function DonatePage() {
         </div>
       </section>
 
-
-      {/* Donation Tiers */}
-      <section id="tiers" className="py-24 bg-gradient-to-b from-transparent to-secondary/10">
+      <section id="tiers" className="py-24 bg-gradient-to-b from-transparent to-primary/5">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,10 +210,10 @@ export default function DonatePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Choose Your Impact Level
+              Support at Your Level
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Every contribution makes a difference. Select the tier that feels right for you.
+              Choose a sponsorship tier and become part of our journey to excellence. Every level includes meaningful recognition.
             </p>
           </motion.div>
 
@@ -230,54 +224,63 @@ export default function DonatePage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="relative"
+                className="relative h-full"
               >
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1">
-                      <Star className="w-3 h-3 mr-1" />
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white px-4 py-1.5 shadow-lg">
+                      <Star className="w-3 h-3 mr-1.5" />
                       Most Popular
                     </Badge>
                   </div>
                 )}
-                <Card className={`h-full ${tier.color} ${tier.borderColor} border-2 transition-all duration-300 hover:scale-105 hover:shadow-xl group`}>
-                  <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <tier.icon className="w-8 h-8 text-primary" />
+                <Card className={`h-full ${tier.color} ${tier.borderColor} border-2 transition-all duration-300 ${tier.popular ? "lg:scale-105 shadow-2xl" : "hover:scale-105 hover:shadow-xl"} group`}>
+                  <CardHeader className="text-center pb-6">
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
+                      tier.popular 
+                        ? "bg-gradient-to-br from-primary/40 to-primary/20" 
+                        : "bg-gradient-to-br from-primary/20 to-primary/10"
+                    }`}>
+                      <tier.icon className={`w-8 h-8 ${tier.popular ? "text-primary" : "text-primary/80"}`} />
                     </div>
                     <CardTitle className="text-2xl font-bold mb-2">{tier.title}</CardTitle>
-                    <div className="text-3xl font-bold text-primary mb-2">{tier.amount}</div>
-                    <p className="text-muted-foreground">{tier.description}</p>
+                    <div className={`text-3xl font-bold mb-2 ${tier.popular ? "text-primary" : "text-primary/80"}`}>{tier.amount}</div>
+                    <p className="text-muted-foreground text-sm">{tier.description}</p>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <ul className="space-y-2">
+                  <CardContent className="space-y-6 pb-6">
+                    <ul className="space-y-3">
                       {tier.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">{benefit}</span>
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tier.popular ? "text-primary" : "text-primary/60"}`} />
+                          <span className="text-sm leading-relaxed">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <Button
-                      className="w-full mt-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                      className={`w-full mt-4 ${tier.popular ? "bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg" : "bg-gradient-to-r from-primary/70 to-primary/60 hover:from-primary/80 hover:to-primary/70"}`}
                       asChild
                     >
                       <a href={tier.donationlink} target="_blank" rel="noopener noreferrer">
-                        {tier.title}<ArrowRight className="w-4 h-4 ml-2" />
+                        Donate {tier.amount} <ArrowRight className="w-4 h-4 ml-2" />
                       </a>
                     </Button>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
-            <p className="col-span-full text-sm text-muted-foreground mt-4 text-center">
-              Interested in the deets? Contact us <a href="/contact" className="text-primary hover:text-primary/90">here</a>
-            </p>
           </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-sm text-muted-foreground mt-8 text-center"
+          >
+            Questions about sponsorship? <Link href="/contact" className="text-primary hover:text-primary/90 font-medium">Contact our partnership team</Link>
+          </motion.p>
         </div>
       </section>
-      {/*Supporters Section */}
-      <section className="py-24">
+      <section className="py-24 bg-gradient-to-b from-background via-secondary/5 to-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -286,43 +289,67 @@ export default function DonatePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                Current Supporters
-              </h2>
+              Meet Our Partners
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A heartfelt thank you to all our supporters who make our journey possible.
+              We're grateful to our sponsors who believe in our mission and make innovation possible.
             </p>
-            <div className="flex flex-col gap-8 mt-12 items-center">
-              {Sponsors.map((tier) => (
-              <div key={tier.title} className="w-full max-w-md">
-                <h3 className={`text-xl font-semibold mb-4 text-center ${tier.txtsize}`}>{tier.title}</h3>
-                <div className="flex flex-col items-center gap-4">
-                {tier.imghrefs.length > 0 ? (
-                  tier.imghrefs.map((img, idx) => (
-                  <div key={img} className={`flex items-center justify-center bg-white rounded-lg shadow p-2 ${tier.imgsize}`}>
-                    <img
-                    src={img}
-                    alt={tier.sponsors[idx] || "Sponsor"}
-                    className={`rounded-lg`}
-                    />
-                  </div>
-                  ))
-                ) : (
-                  <span className="text-muted-foreground text-sm italic">No sponsors yet</span>
-                )}
-                {tier.sponsors.length > tier.imghrefs.length &&
-                  tier.sponsors.slice(tier.imghrefs.length).map((name, idx) => (
-                  <div key={name} className={`flex items-center justify-center bg-white rounded-lg shadow p-2 ${tier.imgsize}`}>
-                    <span className="font-medium">{name}</span>
-                  </div>
-                  ))}
-                </div>
-              </div>
-              ))}
-            </div>
           </motion.div>
+
+          <div className="space-y-16">
+            {Sponsors.map((tier, tierIdx) => (
+              <motion.div
+                key={tier.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: tierIdx * 0.1, duration: 0.6 }}
+              >
+                <div className="text-center mb-8">
+                  <div className="inline-block">
+                    <Badge className={`${tier.title === "Golden Level Sponsor" ? "bg-amber-500/20 text-amber-400 border-amber-500/30" : "bg-primary/10 text-primary border-primary/20"} px-4 py-2 text-sm font-semibold`}>
+                      {tier.title}
+                    </Badge>
+                  </div>
+                </div>
+
+                {tier.imghrefs.length > 0 || tier.sponsors.length > 0 ? (
+                  <div className="flex items-center justify-center max-w-6xl mx-auto">
+                    {tier.imghrefs.map((img, idx) => (
+                      <motion.div
+                        key={img}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.05, duration: 0.4 }}
+                        className="flex items-center justify-center"
+                      >
+                        <img
+                          src={img}
+                          alt={tier.sponsors[idx] || "Sponsor"}
+                          style={{ width: "45vw", maxWidth: "100%" }}
+                          className="object-contain"
+                        />
+                      </motion.div>
+                    ))}
+                    {tier.sponsors.length > tier.imghrefs.length &&
+                      tier.sponsors.slice(tier.imghrefs.length).map((name, idx) => (
+                        <motion.div
+                          key={name}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: (tier.imghrefs.length + idx) * 0.05, duration: 0.4 }}
+                          className="flex items-center justify-center"
+                        >
+                          <span className="font-semibold text-center text-4xl md:text-6xl">{name}</span>
+                        </motion.div>
+                      ))}
+                  </div>
+                ) : null}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-      {/* Why Donate Section */}
+
       <section className="py-24 bg-card/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <motion.div
@@ -455,7 +482,6 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10">
         <div className="container mx-auto px-4">
           <motion.div

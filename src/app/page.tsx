@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { HeroSection } from "@/components/hero-section";
-import { FeatureSection } from "@/components/feature-section";
 import { HighlightText } from "@/components/highlight-text";
-
-import { BookOpen, Award, Target, Users, Instagram, Youtube, Mail, ArrowRight, Zap, Sparkles, Code, Trophy } from "lucide-react";
+import { Users, Zap, Trophy, Target, Code, ArrowRight } from "lucide-react";
 
 export default function Home() {
+  const Sponsors = [
+    {
+      title: "Golden Level Sponsor",
+      sponsors: ["EnLiSense",],
+      imghrefs: ["images/sponsors/enlisense_logo_bonw.svg"],
+      imgsize: "md:h-40 md:w-80",
+      txtsize: "md:text-3xl",
+    },
+  ];
   useEffect(() => {
     const fadeElements = document.querySelectorAll(".fade-in");
 
@@ -31,389 +37,274 @@ export default function Home() {
     return () => fadeElements.forEach((el) => observer.unobserve(el));
   }, []);
 
-  const achievements = [
-    { icon: Trophy, label: "Competition Wins", value: "0", color: "text-amber-400" },
-    { icon: Target, label: "Season Goals", value: "0/4", color: "text-blue-400" },
-    { icon: Users, label: "Team Members", value: "10", color: "text-purple-400" },
-    { icon: Code, label: "Teams", value: "2", color: "text-emerald-400" },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20">
-      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <div className="min-h-screen bg-black overflow-x-hidden">
+      <section
+        className="relative w-screen flex items-center justify-center overflow-hidden -mx-4 md:-mx-0 md:w-full"
+        style={{ height: "calc(100vh - 88px)" }}
+      >
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+          <div
+            className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "2s" }}
+          />
+        </div>
 
-      {/* Enhanced Hero Section */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/10" />
-        <div className="container mx-auto px-4 relative z-10">
-            <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center"
+            transition={{ duration: 1 }}
+            className="text-center w-full"
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.8 }}
+              className="font-bold mb-6 md:mb-8 text-white tracking-tighter leading-tight whitespace-nowrap md:whitespace-normal"
+              style={{ fontSize: "clamp(2.5rem, 12vw, 120px)" }}
             >
-            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
-              <Sparkles className="w-3 h-3 mr-1" />
-              Allen, Texas • VEX Robotics
-            </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              Welcome to{" "}
-              <HighlightText type="gradient">Irrational Robotics</HighlightText>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Home of Team 14142A Axiom and Team 14142T Theorem • Engineering the Future
-            </p>
+              <span className="inline-block">
+                <HighlightText type="gradient">Irrational</HighlightText>
+              </span>
+              <span className="hidden md:inline-block text-white ml-4 md:ml-6">
+                Robotics
+              </span>
+              <br className="md:hidden" />
+              <span className="md:hidden text-white">Robotics</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-lg md:text-xl lg:text-2xl text-white/70 max-w-2xl md:max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2"
+            ></motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              transition={{ delay: 0.45, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center"
             >
-              <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg" asChild>
-              <Link href="/axiom">
-                <Users className="w-5 h-5 mr-2" />
-                Meet Team Axiom
-              </Link>
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-base md:text-lg px-6 md:px-8 py-5 md:py-6 group w-full sm:w-auto"
+                asChild
+              >
+                <Link
+                  href="/axiom"
+                  className="flex items-center gap-2 justify-center"
+                >
+                  Meet Axiom
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
-              {/*<Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-lg" asChild>
-              <Link href="/theorem">
-                <Code className="w-5 h-5 mr-2" />
-                Meet Team Theorem
-              </Link>
-              </Button>*/}
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/10" asChild>
-              <Link href="/donate">
-                <Zap className="w-5 h-5 mr-2" />
-                Support Us
-              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 w-full sm:w-auto"
+                asChild
+              >
+                <Link href="/donate">Support Our Mission</Link>
               </Button>
             </motion.div>
-
-            {/* Achievement Stats */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
-            >
-              {achievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                className="text-center"
-              >
-                <div className="bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50 hover:border-primary/30 transition-colors">
-                <achievement.icon className={`w-6 h-6 mx-auto mb-2 ${achievement.color}`} />
-                <div className={`text-xl font-bold ${achievement.color} mb-1`}>
-                  {achievement.value}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {achievement.label}
-                </div>
-                </div>
-              </motion.div>
-              ))}
-            </motion.div>
-            </motion.div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section className="py-24 bg-card/20 backdrop-blur-sm border-y border-border/50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
-          >
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                About Us
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Irrational Robotics is a VEX Robotics organization from Allen, Texas. We are home to Team 14142A Axiom, competing in the VEX Robotics Competition.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="space-y-6"
-              >
-                <Card className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-blue-500/20 p-3 rounded-full">
-                        <Users className="w-6 h-6 text-blue-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-2">Our Team</h3>
-                        <p className="text-muted-foreground text-sm">
-                          We're a group of high school students who love robotics, programming, and problem-solving. We developed this team to compete in VEX Robotics competitions and to learn Engineering Skills.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="space-y-6"
-              >
-                <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-purple-500/20 p-3 rounded-full">
-                        <Target className="w-6 h-6 text-purple-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-2">Our Philosophy</h3>
-                        <p className="text-muted-foreground text-sm">
-                          Our name "Irrational Robotics" reflects our approach. Our number 14142 is the square root of 2, showing how there are always 2 solutions to every problem. We believe in thinking outside the box and embracing creativity in engineering.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
+
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-center justify-center">
+            <div className="w-1 h-2 bg-white/50 rounded-full" />
+          </div>
+        </motion.div>
       </section>
 
-      {/* What is VEX Section */}
-      <section className="py-24 bg-gradient-to-b from-transparent to-secondary/10">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-black to-blue-950/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                  What is VEX Robotics?
-                </h2>
-                <p className="text-xl text-muted-foreground mb-8">
-                  VEX Robotics is an educational robotics program that allows students to design, build, and program robots for a competitive robotics tournament.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Annual challenges combining strategy, engineering, and programming</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Innovative hardware and software solutions</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Global competition with world championship</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                <Card className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-8">
-                    <div className="text-center mb-6">
-                      <div className="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Trophy className="w-8 h-8 text-amber-400" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-2">VEX V5 Competition</h3>
-                    </div>
-                    <p className="text-muted-foreground text-center mb-6">
-                      Teams build robots to compete in annual challenges, combining strategy, engineering, and programming skills. Each year has a unique game that tests your abilities to develop innovative hardware and software solutions.
-                    </p>
-                    <div className="flex justify-center">
-                      <Button variant="outline" className="border-amber-500/30 text-amber-400 hover:bg-amber-500/10" asChild>
-                        <Link href="/competitions">
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Goals Section */}
-      <section className="py-24 bg-card/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                Our Goals
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                At Irrational Robotics, we have ambitious goals that drive our innovation and competition strategy.
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Our Philosophy
+            </h2>
+            <p className="text-base md:text-lg text-white/70 leading-relaxed mb-8">
+              We aim for creativity, collaboration, and excellence in everything we do.
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
               {[
                 {
-                  icon: Trophy,
-                  title: "World's Finalist",
-                  description: "Become a finalist at the VEX Robotics World Championship. Our goal is to win throughout the season.",
-                  color: "from-amber-500/10 to-yellow-500/10",
-                  borderColor: "border-amber-500/20",
-                  iconColor: "text-amber-400"
-                },
-                {
-                  icon: Target,
-                  title: "Top 10 Skills Bot at State",
-                  description: "Rank our skills robot in the top 10 at the state-level competition.",
-                  color: "from-emerald-500/10 to-teal-500/10",
-                  borderColor: "border-emerald-500/20",
-                  iconColor: "text-emerald-400"
+                  icon: Code,
+                  title: "Innovation",
                 },
                 {
                   icon: Users,
-                  title: "Spread VEX in Our Community",
-                  description: "Promote VEX Robotics and inspire new teams in our local area.",
-                  color: "from-blue-500/10 to-indigo-500/10",
-                  borderColor: "border-blue-500/20",
-                  iconColor: "text-blue-400"
-                }
-              ].map((goal, index) => (
+                  title: "Collaboration",
+                },
+                {
+                  icon: Zap,
+                  title: "Excellence",
+                },
+              ].map((value, index) => (
                 <motion.div
-                  key={goal.title}
+                  key={value.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                 >
-                  <Card className={`h-full bg-gradient-to-br ${goal.color} ${goal.borderColor} border transition-all duration-300 hover:scale-105 hover:shadow-xl`}>
-                    <CardContent className="p-6 text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <goal.icon className={`w-8 h-8 ${goal.iconColor}`} />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-3">{goal.title}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {goal.description}
+                  <Card className="bg-white/5 backdrop-blur border-white/10 hover:border-blue-500/30 transition-colors h-full">
+                    <CardContent className="p-4 md:p-6">
+                      <value.icon className="w-8 h-8 md:w-10 md:h-10 text-blue-400 mb-3" />
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
+                        {value.title}
+                      </h3>
+                      <p className="text-white/60 text-sm">
+                        {value.description}
                       </p>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
             </div>
+
+            <div className="bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 rounded-xl p-6 md:p-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                2025-2026 Goals
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "Reach VEX World Championship",
+                  "Top 10 ranking in Skills Challenge",
+                  "Build strong community partnerships",
+                  "Mentor next generation of engineers",
+                  "Innovate robot design & programming",
+                  "Lead by example in STEM education",
+                ].map((goal, index) => (
+                  <motion.div
+                    key={goal}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.4 }}
+                    className="flex items-center gap-3"
+                  >
+                    <Target className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                    <span className="text-white/80">{goal}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Connect Section */}
-      <section className="py-24 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10">
+      <section className="py-24 bg-black border-t border-white/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-6xl mx-auto"
+            className="text-center mb-16"
           >
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Connect With Us</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Have questions about Irrational Robotics or interested in learning more? Reach out to us through our social media or send us an email.
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white">
+              Meet Our Partners
+            </h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
+              We're grateful to our sponsors who believe in our mission and make innovation possible.
+            </p>
+          </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="space-y-16">
+            {Sponsors.map((tier, tierIdx) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                key={tier.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: tierIdx * 0.1, duration: 0.6 }}
               >
-                <Card className="h-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105 group">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Instagram className="h-5 w-5 text-purple-400" />
-                      Follow Us
-                    </CardTitle>
-                    <CardDescription>
-                      Keep up with our latest updates, competition results, and memes on our Instagram and YouTube Page!
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Instagram className="h-4 w-4 text-purple-400" />
-                      <Link
-                          href="https://instagram.com/irrationalrobotics"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-purple-400 transition-colors"
-                      >
-                        @irrationalrobotics
-                      </Link>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Youtube className="h-4 w-4 text-red-400" />
-                      <Link
-                        href="https://youtube.com/@irrationalrobotics"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-red-400 transition-colors"
-                      >
-                        @irrationalrobotics
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                <div className="text-center mb-8">
+                  <div className="inline-block">
+                    <Badge className={`${tier.title === "Golden Level Sponsor" ? "bg-amber-500/20 text-amber-400 border-amber-500/30" : "bg-blue-500/20 text-blue-300 border-blue-500/30"} px-4 py-2 text-sm font-semibold`}>
+                      {tier.title}
+                    </Badge>
+                  </div>
+                </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-                <Link href="/contact" className="block h-full">
-                  <Card className="h-full bg-gradient-to-br from-blue-500/10 to-indigo-500/10 border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:scale-105 group">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Mail className="h-5 w-5 text-blue-400" />
-                        Contact Us
-                      </CardTitle>
-                      <CardDescription>
-                        For official inquiries, collaboration, sponsorship, or just to say hello... Click here for our contact form!
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-center gap-2 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
-                        <Mail className="h-4 w-4" />
-                        Get in Touch
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                {tier.imghrefs.length > 0 || tier.sponsors.length > 0 ? (
+                  <div className="flex items-center justify-center max-w-6xl mx-auto">
+                    {tier.imghrefs.map((img, idx) => (
+                      <motion.div
+                        key={img}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.05, duration: 0.4 }}
+                        className="flex items-center justify-center"
+                      >
+                        <img
+                          src={img}
+                          alt={tier.sponsors[idx] || "Sponsor"}
+                          style={{ width: "45vw", maxWidth: "100%" }}
+                          className="object-contain"
+                        />
+                      </motion.div>
+                    ))}
+                    {tier.sponsors.length > tier.imghrefs.length &&
+                      tier.sponsors.slice(tier.imghrefs.length).map((name, idx) => (
+                        <motion.div
+                          key={name}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: (tier.imghrefs.length + idx) * 0.05, duration: 0.4 }}
+                          className="flex items-center justify-center"
+                        >
+                          <span className="font-semibold text-center text-4xl md:text-6xl text-white">{name}</span>
+                        </motion.div>
+                      ))}
+                  </div>
+                ) : null}
               </motion.div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-black border-t border-white/10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
+              Ready to Support Innovation?
+            </h2>
+            <p className="text-base md:text-lg text-white/70 mb-8">
+              Join us in supporting the next generation of engineers and
+              innovators. Every contribution makes a difference.
+            </p>
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-base md:text-lg px-6 md:px-10 py-5 md:py-6 group"
+              asChild
+            >
+              <Link href="/donate" className="flex items-center gap-2">
+                <Zap className="w-5 h-5" />
+                Donate Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>
