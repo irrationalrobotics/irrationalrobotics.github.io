@@ -15,19 +15,22 @@ export default function AxiomPage() {
       name: "Kevin Ye",
       role: "Driver & Builder",
       description: "Primary driver and builder",
-      image: "/images/axiom/kevin.png"
+      image: "/images/axiom/kevin.png",
+      link: undefined
     },
     {
       name: "Abhirama Sonny",
       role: "Programmer",
       description: "Autonomous and driver control programming",
-      image: "/images/axiom/abhirama.png"
+      image: "/images/axiom/abhirama.png",
+      link: "https://abhiramasonny.com"
     },
     {
       name: "Shyam Devanathan",
       role: "Builder & Programmer",
       description: "Mechanical design & integration",
-      image: "/images/axiom/shyam.jpg"
+      image: "/images/axiom/shyam.jpg",
+      link: undefined
     }
   ];
 
