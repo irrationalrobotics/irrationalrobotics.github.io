@@ -148,14 +148,17 @@ export default function Home() {
                 {
                   icon: Code,
                   title: "Innovation",
+                  description: "We design creative solutions through engineering and code.",
                 },
                 {
                   icon: Users,
                   title: "Collaboration",
+                  description: "Teamwork and mentorship drive our success on and off the field.",
                 },
                 {
                   icon: Zap,
                   title: "Excellence",
+                  description: "We pursue high performance, reliability, and continuous improvement.",
                 },
               ].map((value, index) => (
                 <motion.div
