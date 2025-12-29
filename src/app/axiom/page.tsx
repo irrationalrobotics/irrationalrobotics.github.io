@@ -14,22 +14,57 @@ export default function AxiomPage() {
     {
       name: "Kevin Ye",
       role: "Driver & Builder",
-      description: "Primary driver and builder",
-      image: "/images/axiom/kevin.png",
+      description: "Main Builder & Designer",
+      image: "/images/axiom/kev.png",
       link: undefined
     },
     {
       name: "Abhirama Sonny",
       role: "Programmer",
-      description: "Autonomous and driver control programming",
+      description: "Autonomous & Strategy",
       image: "/images/axiom/abhirama.png",
       link: "https://abhiramasonny.com"
     },
     {
       name: "Shyam Devanathan",
       role: "Builder & Programmer",
-      description: "Mechanical design & integration",
+      description: "Design & Builder",
       image: "/images/axiom/shyam.jpg",
+      link: undefined
+    },
+    {
+      name: "Johnathan Luu",
+      role: "Builder",
+      description: "Pneumatics & Design",
+      image: "/images/axiom/johnathan.webp",
+      link: undefined
+    },
+    {
+      name: "Chenghao Huang",
+      role: "Builder",
+      description: "Pneumatics & Design",
+      image: "/images/theorem/cheng.jpg",
+      link: undefined
+    },
+    {
+      name: "Aditya Sriram",
+      role: "Builder & Programmer",
+      description: "Finance & Design",
+      image: "/images/axiom/adi.jpg",
+      link: undefined
+    },
+    {
+      name: "Alex Richards",
+      role: "Builder",
+      description: "Building the Robot",
+      image: "/images/axiom/alex.jpg",
+      link: undefined
+    },
+    {
+      name: "Aryan Pradharthi",
+      role: "Programmer",
+      description: "Driver Control",
+      image: "/images/axiom/aryan.png",
       link: undefined
     }
   ];
