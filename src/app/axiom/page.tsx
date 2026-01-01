@@ -43,7 +43,7 @@ export default function AxiomPage() {
       name: "Chenghao Huang",
       role: "Builder",
       description: "Pneumatics & Design",
-      image: "/images/theorem/cheng.jpg",
+      image: "/images/theorem/cheng.webp",
       link: undefined
     },
     {
@@ -61,7 +61,7 @@ export default function AxiomPage() {
       link: undefined
     },
     {
-      name: "Aryan Pradharthi",
+      name: "Aryan Padarthi",
       role: "Programmer",
       description: "Driver Control",
       image: "/images/axiom/aryan.png",
