@@ -4,18 +4,56 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import useSWR from "swr";
 import {
   Trophy, Users, Code, CircuitBoard, Heart, ExternalLink
 } from "lucide-react";
 import { HighlightText } from "@/components/highlight-text";
+const token = "filler value";
+const headers = { Authorization: `Bearer ${token}` };
+const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json());
 
 export default function AxiomPage() {
+  // const slug = 1846463; // RobotEvents Slug for Team Axiom
+  // const season_slug = 197;
+  
+
+  // const { data: events, error: eventsError } = useSWR<{
+  //   id: number; name: string; start: string; end: string; awards_finalized: boolean;
+  // }[]>(
+  //   `https://www.robotevents.com/api/v2/teams/${slug}/events?season%5B%5D=${season_slug}`,
+  //   fetcher,
+  //   { refreshInterval: 60_000 }
+  // );
+
+  // const { data: rankings, error: rankingsError } = useSWR<{
+  //   event: { id: number };
+  //   wins: number;
+  //   losses: number;
+  //   ties: number;
+  //   wp: number;
+  //   ap: number;
+  //   sp: number;
+  //   rank: number;
+  // }[]>(
+  //   `https://www.robotevents.com/api/v2/teams/${slug}/rankings?season%5B%5D=${season_slug}`,
+  //   fetcher,
+  //   { refreshInterval: 60_000 }
+  // );
+
+  // const completed_comps = events?.filter(event => event.awards_finalized).map(event => ({
+  //   ...event,
+  //   ...rankings?.find(r => r.event.id === event.id)
+  // }));
+
+  // const uncompleted_comps = events?.filter(event => !event.awards_finalized);
+
   const teamMembers = [
     {
       name: "Kevin Ye",
       role: "Driver & Builder",
       description: "Main Builder & Designer",
-      image: "/images/axiom/kev.png",
+      image: "/images/axiom/kevin.jpg",
       link: undefined
     },
     {
@@ -57,21 +95,21 @@ export default function AxiomPage() {
       name: "Alex Richards",
       role: "Builder",
       description: "Building the Robot",
-      image: "/images/axiom/alex.jpg",
+      image: "/images/theorem/alex.jpg",
       link: undefined
     },
     {
       name: "Aryan Padarthi",
       role: "Programmer",
       description: "Driver Control",
-      image: "/images/axiom/aryan.png",
+      image: "/images/theorem/aryan.png",
       link: undefined
     }
   ];
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <section className="relative w-screen flex items-center justify-center overflow-hidden" style={{ height: "calc(100vh - 88px)" }}>
+      <section className="flex items-center justify-center overflow-hidden" style={{ height: "calc(100vh - 88px)" }}>
         <div className="absolute inset-0">
           <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
@@ -105,7 +143,7 @@ export default function AxiomPage() {
                 className="grid grid-cols-3 gap-4 md:gap-8 max-w-xl mx-auto mb-12"
               >
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">3</div>
+                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">8</div>
                   <p className="text-sm text-white/60">Team Members</p>
                 </div>
                 <div className="text-center">

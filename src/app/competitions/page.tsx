@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import useSWR from "swr";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -29,7 +30,44 @@ import {
   Rocket
 } from "lucide-react";
 
+const token = "filler value";
+const headers = { Authorization: `Bearer ${token}` };
+const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json());
 export default function CompetitionsPage() {
+  // const slug = 1846463; // RobotEvents Slug for Team Axiom
+  // const season_slug = 197;
+  
+
+  // const { data: events, error: eventsError } = useSWR<{
+  //   id: number; name: string; start: string; end: string; awards_finalized: boolean;
+  // }[]>(
+  //   `https://www.robotevents.com/api/v2/teams/${slug}/events?season%5B%5D=${season_slug}`,
+  //   fetcher,
+  //   { refreshInterval: 60_000 }
+  // );
+
+  // const { data: rankings, error: rankingsError } = useSWR<{
+  //   event: { id: number };
+  //   wins: number;
+  //   losses: number;
+  //   ties: number;
+  //   wp: number;
+  //   ap: number;
+  //   sp: number;
+  //   rank: number;
+  // }[]>(
+  //   `https://www.robotevents.com/api/v2/teams/${slug}/rankings?season%5B%5D=${season_slug}`,
+  //   fetcher,
+  //   { refreshInterval: 60_000 }
+  // );
+
+  // const completed_comps = events?.filter(event => event.awards_finalized).map(event => ({
+  //   ...event,
+  //   ...rankings?.find(r => r.event.id === event.id)
+  // }));
+
+  // const uncompleted_comps = events?.filter(event => !event.awards_finalized);
+  
   const [activeTab, setActiveTab] = useState("current");
 
   return (

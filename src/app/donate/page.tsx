@@ -20,17 +20,17 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "@/compone
 const fetcher = (url: string) => fetch(url).then(r => r.json());
 
 export default function DonatePage() {
-  const slug = "irrationalrobotics";
+  const slug = "org_dkupJZ";
   const { data, error } = useSWR<{
     amount_cents: number; amount: number 
 }[]>(
-    `https://hcb.hackclub.com/api/v3/organizations/irrationalrobotics/donations`,
+    `https://hcb.hackclub.com/api/v3/organizations/${slug}/transactions`,
     fetcher,
     { refreshInterval: 60_000 }
   );
 
   const moneyEarned = data
-    ? data.map(d => d.amount_cents / 100).reduce((a, b) => a + b, 0)
+    ? data.filter(d => d.amount_cents > 0).map(d => d.amount_cents / 100).reduce((a, b) => a + b, 0)
     : 0;
   const seasonGoal = 12_000;
   const percentFunded = seasonGoal ? moneyEarned / seasonGoal : 0;
@@ -73,7 +73,7 @@ export default function DonatePage() {
       description: "Major structural impact",
       benefits: [
         "Everything in Supporter",
-        "A Medium Logo on all our team materials",
+        "A Medium Logo on most of our team materials",
         "2 Social Media shoutouts",
         "Thank You card",
         "Recognition in Competition Materials",
@@ -104,26 +104,32 @@ export default function DonatePage() {
     }
   ];
   const Sponsors = [
-    // {
-    //   title: "Pythagoras Level Sponsor",
-    //   sponsors: [],
-    //   imghrefs: [],
-    //   imgsize: "md:h-32 md:w-64",
-    //   txtsize: "md:text-4xl",
-    // },
+    {
+      title: "Pythagoras Level Sponsor",
+      sponsors: ["EnLiSense"],
+      imghrefs: ["images/sponsors/enlisense_logo_white.svg"],
+      imglinks: ["https://enlisense.com/"],
+      imgwidth: "65vw",
+      txtsize: "md:text-4xl",
+      color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+    },
     {
       title: "Golden Level Sponsor",
-      sponsors: ["EnLiSense",],
-      imghrefs: ["images/sponsors/enlisense_logo_bonw.svg"],
-      imgsize: "md:h-40 md:w-80",
+      sponsors: ["Contextra"],
+      imghrefs: ["images/sponsors/contextra.svg"],
+      imglinks: ["https://contextra.org/"],
+      imgwidth: "25vw",
       txtsize: "md:text-3xl",
+      color: "bg-amber-500/20 text-amber-400 border-amber-500/30"
     },
     // {
     //   title: "Pi Level Sponsor",
     //   sponsors: [],
     //   imghrefs: [],
-    //   imgsize: "md:h-18 md:w-32",
+    //   imglinks: [],
+    //   imgwidth: "25vw",
     //   txtsize: "md:text-2xl",
+    //   color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     // },
   ];
   const impactStats = [
@@ -306,7 +312,7 @@ export default function DonatePage() {
               >
                 <div className="text-center mb-8">
                   <div className="inline-block">
-                    <Badge className={`${tier.title === "Golden Level Sponsor" ? "bg-amber-500/20 text-amber-400 border-amber-500/30" : "bg-primary/10 text-primary border-primary/20"} px-4 py-2 text-sm font-semibold`}>
+                    <Badge className={`${tier.color} px-4 py-2 text-sm font-semibold`}>
                       {tier.title}
                     </Badge>
                   </div>
@@ -322,12 +328,14 @@ export default function DonatePage() {
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
                         className="flex items-center justify-center"
                       >
-                        <img
-                          src={img}
-                          alt={tier.sponsors[idx] || "Sponsor"}
-                          style={{ width: "45vw", maxWidth: "100%" }}
-                          className="object-contain"
-                        />
+                        <a href={tier.imglinks && tier.imglinks[idx] ? tier.imglinks[idx] : "#"} target="_blank" rel="noopener noreferrer">
+                          <img
+                            src={img}
+                            alt={tier.sponsors[idx] || "Sponsor"}
+                            style={{ width: tier.imgwidth, maxWidth: "100%" }}
+                            className={"object-contain " + (tier.imglinks && tier.imglinks[idx] ? "hover:scale-105 transition-transform duration-300" : "")}
+                          />
+                        </a>
                       </motion.div>
                     ))}
                     {tier.sponsors.length > tier.imghrefs.length &&

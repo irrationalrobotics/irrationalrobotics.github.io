@@ -8,16 +8,37 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HighlightText } from "@/components/highlight-text";
 import { Users, Zap, Trophy, Target, Code, ArrowRight } from "lucide-react";
+import DonatePage from "./donate/page";
 
 export default function Home() {
   const Sponsors = [
     {
-      title: "Golden Level Sponsor",
-      sponsors: ["EnLiSense",],
-      imghrefs: ["images/sponsors/enlisense_logo_bonw.svg"],
-      imgsize: "md:h-40 md:w-80",
-      txtsize: "md:text-3xl",
+      title: "Pythagoras Level Sponsor",
+      sponsors: ["EnLiSense"],
+      imghrefs: ["images/sponsors/enlisense_logo_white.svg"],
+      imglinks: ["https://enlisense.com/"],
+      imgwidth: "65vw",
+      txtsize: "md:text-4xl",
+      color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
     },
+    {
+      title: "Golden Level Sponsor",
+      sponsors: ["Contextra"],
+      imghrefs: ["images/sponsors/contextra.svg"],
+      imglinks: ["https://contextra.org/"],
+      imgwidth: "25vw",
+      txtsize: "md:text-3xl",
+      color: "bg-amber-500/20 text-amber-400 border-amber-500/30"
+    },
+    // {
+    //   title: "Pi Level Sponsor",
+    //   sponsors: [],
+    //   imghrefs: [],
+    //   imglinks: [],
+    //   imgwidth: "25vw",
+    //   txtsize: "md:text-2xl",
+    //   color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+    // },
   ];
   useEffect(() => {
     const fadeElements = document.querySelectorAll(".fade-in");
@@ -238,7 +259,7 @@ export default function Home() {
               >
                 <div className="text-center mb-8">
                   <div className="inline-block">
-                    <Badge className={`${tier.title === "Golden Level Sponsor" ? "bg-amber-500/20 text-amber-400 border-amber-500/30" : "bg-blue-500/20 text-blue-300 border-blue-500/30"} px-4 py-2 text-sm font-semibold`}>
+                    <Badge className={`${tier.color} px-4 py-2 text-sm font-semibold`}>
                       {tier.title}
                     </Badge>
                   </div>
@@ -254,12 +275,14 @@ export default function Home() {
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
                         className="flex items-center justify-center"
                       >
-                        <img
-                          src={img}
-                          alt={tier.sponsors[idx] || "Sponsor"}
-                          style={{ width: "45vw", maxWidth: "100%" }}
-                          className="object-contain"
-                        />
+                        <a href={tier.imglinks && tier.imglinks[idx] ? tier.imglinks[idx] : "#"} target="_blank" rel="noopener noreferrer">
+                          <img
+                            src={img}
+                            alt={tier.sponsors[idx] || "Sponsor"}
+                            style={{ width: tier.imgwidth, maxWidth: "100%" }}
+                            className={"object-contain " + (tier.imglinks && tier.imglinks[idx] ? "hover:scale-105 transition-transform duration-300" : "")}
+                          />
+                        </a>
                       </motion.div>
                     ))}
                     {tier.sponsors.length > tier.imghrefs.length &&
@@ -271,7 +294,7 @@ export default function Home() {
                           transition={{ delay: (tier.imghrefs.length + idx) * 0.05, duration: 0.4 }}
                           className="flex items-center justify-center"
                         >
-                          <span className="font-semibold text-center text-4xl md:text-6xl text-white">{name}</span>
+                          <span className="font-semibold text-center text-4xl md:text-6xl">{name}</span>
                         </motion.div>
                       ))}
                   </div>
@@ -299,7 +322,8 @@ export default function Home() {
             </p>
             <Button
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white text-base md:text-lg px-6 md:px-10 py-5 md:py-6 group"
+              variant="donate"
+              className="text-white text-base md:text-lg px-6 md:px-10 py-5 md:py-6 group" // bg-blue-600 hover:bg-blue-700
               asChild
             >
               <Link href="/donate" className="flex items-center gap-2">
