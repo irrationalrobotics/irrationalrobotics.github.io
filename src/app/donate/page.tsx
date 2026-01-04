@@ -28,7 +28,7 @@ export default function DonatePage() {
     fetcher,
     { refreshInterval: 60_000 }
   );
-
+  console.log(data);
   const moneyEarned = data
     ? data.filter(d => d.amount_cents > 0).map(d => d.amount_cents / 100).reduce((a, b) => a + b, 0)
     : 0;

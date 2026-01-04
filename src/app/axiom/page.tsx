@@ -9,99 +9,146 @@ import {
   Trophy, Users, Code, CircuitBoard, Heart, ExternalLink
 } from "lucide-react";
 import { HighlightText } from "@/components/highlight-text";
-const token = "filler value";
+const token = process.env.NEXT_PUBLIC_ROBOTEVENTS_API_TOKEN || "";
 const headers = { Authorization: `Bearer ${token}` };
-const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json());
+const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json()).then(data => data.data);
 
 export default function AxiomPage() {
-  // const slug = 1846463; // RobotEvents Slug for Team Axiom
-  // const season_slug = 197;
+  const slug = 184646; // RobotEvents Slug for Team Axiom
+  const season_slug = 197;
+
+  const { data: events } = useSWR<{
+    id: number;
+    name: string;
+    start: string;
+    end: string;
+    awards_finalized: boolean;
+    season: { id: number };
+    sku: string;
+  }[]>(
+    `https://www.robotevents.com/api/v2/teams/${slug}/events`,
+    fetcher,
+    { refreshInterval: 86_400_000 }
+  );
+
+
+  const { data: rankings } = useSWR<{
+      event: { id: number };
+      wins: number;
+      losses: number;
+      ties: number;
+      wp: number;
+      ap: number;
+      sp: number;
+      rank: number;
+    }[]>(
+    `https://www.robotevents.com/api/v2/teams/${slug}/rankings`,
+    fetcher,
+    { refreshInterval: 86_400_000 }
+  );
   
+  const completed_comps = events
+    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === true).map(e => {
+      const ranking = rankings?.find(r => r.event.id === e.id);
+      return {
+        ...e,
+        ...(ranking)
+      };
+    })
+    : [];
+  
+  function formatDate(dateStr: string, removeYear = false) {
+    const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: removeYear ? 'numeric' : undefined, month: 'long', day: 'numeric' };
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, options);
+  }
 
-  // const { data: events, error: eventsError } = useSWR<{
-  //   id: number; name: string; start: string; end: string; awards_finalized: boolean;
-  // }[]>(
-  //   `https://www.robotevents.com/api/v2/teams/${slug}/events?season%5B%5D=${season_slug}`,
-  //   fetcher,
-  //   { refreshInterval: 60_000 }
-  // );
-
-  // const { data: rankings, error: rankingsError } = useSWR<{
-  //   event: { id: number };
-  //   wins: number;
-  //   losses: number;
-  //   ties: number;
-  //   wp: number;
-  //   ap: number;
-  //   sp: number;
-  //   rank: number;
-  // }[]>(
-  //   `https://www.robotevents.com/api/v2/teams/${slug}/rankings?season%5B%5D=${season_slug}`,
-  //   fetcher,
-  //   { refreshInterval: 60_000 }
-  // );
-
-  // const completed_comps = events?.filter(event => event.awards_finalized).map(event => ({
-  //   ...event,
-  //   ...rankings?.find(r => r.event.id === event.id)
-  // }));
-
-  // const uncompleted_comps = events?.filter(event => !event.awards_finalized);
+  function formatDateRange(startStr: string, endStr: string, removeYear = false) {
+    const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: removeYear ? 'numeric' : undefined, month: 'long', day: 'numeric' };
+    const startDate = new Date(startStr);
+    const endDate = new Date(endStr);
+    
+    const startFormatted = startDate.toLocaleDateString(undefined, options);
+    const endFormatted = endDate.toLocaleDateString(undefined, options);
+    
+    // Extract day and month/year from formatted dates
+    const [startMonth, startDay, startYear] = startFormatted.split(' ');
+    const [endMonth, endDay, endYear] = endFormatted.split(' ');
+    
+    // Add ordinal suffix to days
+    const addOrdinal = (day: string) => {
+      const d = parseInt(day);
+      const suffixIndex = (d % 100 > 3 && d % 100 < 21) ? 0 : (d % 10 > 3 ? 0 : d % 10);
+      const suffix = ['th', 'st', 'nd', 'rd'][suffixIndex];
+      return d + suffix;
+    };
+    
+    if (startMonth === endMonth && startYear === endYear) {
+      // Same month and year
+      return `${startMonth} ${addOrdinal(startDay)}-${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+    } else if (startYear === endYear) {
+      // Same year, different months
+      return `${startMonth} ${addOrdinal(startDay)}-${endMonth} ${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+    } else {
+      // Different years
+      return `${startMonth} ${addOrdinal(startDay)}, ${startYear}-${endMonth} ${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+    }
+  }
 
   const teamMembers = [
     {
       name: "Kevin Ye",
-      role: "Driver & Builder",
+      role: "Team Lead & Driver & Fabrication",
       description: "Main Builder & Designer",
       image: "/images/axiom/kevin.jpg",
       link: undefined
     },
     {
       name: "Abhirama Sonny",
-      role: "Programmer",
-      description: "Autonomous & Strategy",
+      role: "Programming",
+      description: "Main Autonomous & Strategy",
       image: "/images/axiom/abhirama.png",
       link: "https://abhiramasonny.com"
     },
     {
       name: "Shyam Devanathan",
-      role: "Builder & Programmer",
-      description: "Design & Builder",
+      role: "Fabrication & Programming",
+      description: "Design & Prototyping",
       image: "/images/axiom/shyam.jpg",
       link: undefined
     },
     {
       name: "Johnathan Luu",
-      role: "Builder",
+      role: "Fabrication & Marketing",
       description: "Pneumatics & Design",
-      image: "/images/axiom/johnathan.webp",
+      image: "/images/axiom/johnathan.jpeg",
       link: undefined
     },
     {
       name: "Chenghao Huang",
-      role: "Builder",
+      role: "Fabrication",
       description: "Pneumatics & Design",
       image: "/images/theorem/cheng.webp",
       link: undefined
     },
     {
       name: "Aditya Sriram",
-      role: "Builder & Programmer",
+      role: "Fabrication & Programming & Marketing",
       description: "Finance & Design",
       image: "/images/axiom/adi.jpg",
       link: undefined
     },
     {
       name: "Alex Richards",
-      role: "Builder",
-      description: "Building the Robot",
-      image: "/images/theorem/alex.jpg",
+      role: "Fabrication",
+      description: "Build & Design",
+      image: "/images/axiom/alex.jpg",
       link: undefined
     },
     {
       name: "Aryan Padarthi",
-      role: "Programmer",
-      description: "Driver Control",
+      role: "Marketing",
+      description: "Team Outreach & Branding",
       image: "/images/theorem/aryan.png",
       link: undefined
     }
@@ -212,7 +259,7 @@ export default function AxiomPage() {
                       />
                     )}
                   </div>
-                  
+
                   <CardContent className="p-6 flex flex-col justify-between h-full">
                     <div>
                       <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
@@ -250,7 +297,7 @@ export default function AxiomPage() {
                   alt="Team Axiom"
                   className="w-full h-full object-cover"
                 />
-    
+
               </div>
             </Card>
           </motion.div>
@@ -270,22 +317,7 @@ export default function AxiomPage() {
           </motion.h2>
 
           <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                name: "For the Love of Bots I",
-                date: "August 25, 2025",
-                rank: "18th",
-                record: "4W - 2L",
-                wp: "8", ap: "25", sp: "105"
-              },
-              {
-                name: "Garland ISD Mixed",
-                date: "August 20, 2025",
-                rank: "21st",
-                record: "4W - 3L",
-                wp: "8", ap: "20", sp: "71"
-              }
-            ].map((comp, idx) => (
+            {completed_comps.map((comp, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
@@ -295,8 +327,10 @@ export default function AxiomPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
                     <h3 className="font-semibold text-lg">{comp.name}</h3>
-                    <p className="text-white/50 text-sm">{comp.date}</p>
+                    </a>
+                    <p className="text-white/50 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, true)}` : formatDate(comp.start, true)}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -306,7 +340,7 @@ export default function AxiomPage() {
                   </div>
                   <div>
                     <p className="text-white/50 text-xs mb-1">Record</p>
-                    <p className="text-blue-400 font-semibold">{comp.record}</p>
+                    <p className="text-blue-400 font-semibold">{comp.wins}W-{comp.losses}L</p>
                   </div>
                   <div>
                     <p className="text-white/50 text-xs mb-1">WP</p>

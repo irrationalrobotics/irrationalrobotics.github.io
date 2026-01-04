@@ -29,45 +29,108 @@ import {
   CircuitBoard,
   Rocket
 } from "lucide-react";
+import { format } from "path";
 
-const token = "filler value";
+const token = process.env.NEXT_PUBLIC_ROBOTEVENTS_API_TOKEN || "";
 const headers = { Authorization: `Bearer ${token}` };
-const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json());
+const fetcher = (url: string) => fetch(url, { headers }).then(r => r.json()).then(data => data.data);
+// ...["Strong performance in our first competitive outing, demonstrating competitive drive across all categories.","Solid performance building momentum toward future competitions with improved strategy execution"]
 export default function CompetitionsPage() {
-  // const slug = 1846463; // RobotEvents Slug for Team Axiom
-  // const season_slug = 197;
+  const slug = 184646; // RobotEvents Slug for Team Axiom
+  const season_slug = 197;
+
+  const { data: events } = useSWR<{
+    id: number;
+    name: string;
+    start: string;
+    end: string;
+    awards_finalized: boolean;
+    season: { id: number };
+    sku: string;
+  }[]>( 
+    `https://www.robotevents.com/api/v2/teams/${slug}/events`, 
+    fetcher, 
+    { refreshInterval: 86_400_000 } // 1 day in milliseconds
+  );
+
+
+  const { data: rankings } = useSWR<{
+      event: { id: number };
+      wins: number;
+      losses: number;
+      ties: number;
+      wp: number;
+      ap: number;
+      sp: number;
+      rank: number;
+    }[]>(
+    `https://www.robotevents.com/api/v2/teams/${slug}/rankings`,
+    fetcher,
+    { refreshInterval: 86_400_000 }
+  );
   
+  const completed_comps = events
+    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === true).map(e => {
+      const ranking = rankings?.find(r => r.event.id === e.id);
+      return {
+        ...e,
+        ...(ranking)
+      };
+    })
+    : [];
 
-  // const { data: events, error: eventsError } = useSWR<{
-  //   id: number; name: string; start: string; end: string; awards_finalized: boolean;
-  // }[]>(
-  //   `https://www.robotevents.com/api/v2/teams/${slug}/events?season%5B%5D=${season_slug}`,
-  //   fetcher,
-  //   { refreshInterval: 60_000 }
-  // );
+  const uncompleted_comps = events && events.length > 0
+    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === false)
+    : [];
 
-  // const { data: rankings, error: rankingsError } = useSWR<{
-  //   event: { id: number };
-  //   wins: number;
-  //   losses: number;
-  //   ties: number;
-  //   wp: number;
-  //   ap: number;
-  //   sp: number;
-  //   rank: number;
-  // }[]>(
-  //   `https://www.robotevents.com/api/v2/teams/${slug}/rankings?season%5B%5D=${season_slug}`,
-  //   fetcher,
-  //   { refreshInterval: 60_000 }
-  // );
+  const comp_notes = ["Strong performance in our first competitive outing, demonstrating competitive drive across all categories.","Solid performance building momentum toward future competitions with improved strategy execution"];
 
-  // const completed_comps = events?.filter(event => event.awards_finalized).map(event => ({
-  //   ...event,
-  //   ...rankings?.find(r => r.event.id === event.id)
-  // }));
+  function formatDate(dateStr: string, keepYear = false) {
+    const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: keepYear ? 'numeric' : undefined, month: 'long', day: 'numeric' };
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, options);
+  }
 
-  // const uncompleted_comps = events?.filter(event => !event.awards_finalized);
-  
+  function addOrdinal (date: string){
+    const d = parseInt(date.split(" ")[1]);
+    const suffixIndex = (d % 100 > 3 && d % 100 < 21) ? 0 : (d % 10 > 3 ? 0 : d % 10);
+    const suffix = ['th', 'st', 'nd', 'rd'][suffixIndex];
+    return `${date.split(" ")[0]} ${d}${suffix}`;
+  }
+
+  function formatDateRange(startStr: string, endStr: string, keepYear = false) {
+    const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: keepYear ? 'numeric' : undefined, month: 'long', day: 'numeric' };
+    const startDate = new Date(startStr);
+    const endDate = new Date(endStr);
+    
+    const startFormatted = startDate.toLocaleDateString(undefined, options);
+    const endFormatted = endDate.toLocaleDateString(undefined, options);
+    
+    // Extract day and month/year from formatted dates
+    const [startMonth, startDay, startYear] = startFormatted.split(' ');
+    const [endMonth, endDay, endYear] = endFormatted.split(' ');
+    
+    // Add ordinal suffix to days
+    const addOrdinal = (day: string) => {
+      const d = parseInt(day);
+      const suffixIndex = (d % 100 > 3 && d % 100 < 21) ? 0 : (d % 10 > 3 ? 0 : d % 10);
+      const suffix = ['th', 'st', 'nd', 'rd'][suffixIndex];
+      return d + suffix;
+    };
+    
+    if (startMonth === endMonth && startYear === endYear) {
+      // Same month and year
+      return `${startMonth} ${addOrdinal(startDay)}-${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+    } else if (startYear === endYear) {
+      // Same year, different months
+      return `${startMonth} ${addOrdinal(startDay)}-${endMonth} ${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+    } else {
+      // Different years
+      return `${startMonth} ${addOrdinal(startDay)}, ${startYear}-${endMonth} ${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+    }
+  }
+
+
   const [activeTab, setActiveTab] = useState("current");
 
   return (
@@ -556,83 +619,49 @@ export default function CompetitionsPage() {
               Team 14142A Axiom's performance across VEX Robotics competitions this season
             </p>
           </div>
-
-          <div className="max-w-5xl mx-auto space-y-8">
-            {/* For the Love of Bots Tournament */}
-            <Card className="bg-white/10 text-white border-blue-500/30">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Trophy className="h-5 w-5 text-blue-300" />
-                  For the Love of Bots I - Lovejoy HS
-                </CardTitle>
-                <p className="text-blue-200/80 text-sm">August 25th, 2025</p>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">Rank</div>
-                    <div className="text-2xl font-bold">18th</div>
-                  </div>
+          {/*// Lovejoy: Strong performance in our first competitive outing, demonstrating competitive drive across all categories. Garland: Solid performance building momentum toward future competitions with improved strategy execution.
+          */}
+          <div className="max-w-5xl mx-auto space-y-8"> 
+            {completed_comps.map((comp, idx) => (
+              <Card key={comp.id} className="bg-white/10 text-white border-blue-500/30">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-300">
+                    <Trophy className="h-5 w-5 text-blue-300" />
+                    {comp.name}
+                    </a>
+                  </CardTitle>
+                  <p className="text-blue-200/80 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, false)}` : formatDate(comp.start, true)}</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+                    <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                      <div className="text-sm text-blue-200/60 mb-1">Rank</div>
+                      <div className="text-2xl font-bold">{comp.rank}</div>
+                    </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">Record</div>
-                    <div className="text-2xl font-bold">4W - 2L</div>
+                    <div className="text-2xl font-bold">{comp.wins}W - {comp.losses}L</div>
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">WP</div>
-                    <div className="text-2xl font-bold">8</div>
+                    <div className="text-2xl font-bold">{comp.wp}</div>
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">AP</div>
-                    <div className="text-2xl font-bold">25</div>
+                    <div className="text-2xl font-bold">{comp.ap}</div>
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">SP</div>
-                    <div className="text-2xl font-bold">105</div>
+                    <div className="text-2xl font-bold">{comp.sp}</div>
                   </div>
                 </div>
                 <p className="text-blue-200/80">
-                  Strong performance in our first competitive outing, demonstrating competitive drive across all categories.
+                  {comp_notes[idx]}
                 </p>
               </CardContent>
             </Card>
-
-            {/* Garland ISD Tournament */}
-            <Card className="bg-white/10 text-white border-blue-500/30">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Trophy className="h-5 w-5 text-blue-300" />
-                  Garland ISD Mixed Tournament - North Garland HS
-                </CardTitle>
-                <p className="text-blue-200/80 text-sm">August 20th, 2025</p>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">Rank</div>
-                    <div className="text-2xl font-bold">21st</div>
-                  </div>
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">Record</div>
-                    <div className="text-2xl font-bold">4W - 3L</div>
-                  </div>
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">WP</div>
-                    <div className="text-2xl font-bold">8</div>
-                  </div>
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">AP</div>
-                    <div className="text-2xl font-bold">20</div>
-                  </div>
-                  <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
-                    <div className="text-sm text-blue-200/60 mb-1">SP</div>
-                    <div className="text-2xl font-bold">71</div>
-                  </div>
-                </div>
-                <p className="text-blue-200/80">
-                  Solid performance building momentum toward future competitions with improved strategy execution.
-                </p>
-              </CardContent>
-            </Card>
+            ))}
 
             {/* Upcoming Events */}
             <Card className="bg-white/10 text-white border-blue-500/30">
@@ -644,18 +673,21 @@ export default function CompetitionsPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-blue-500/20">
-                    <span>Robot Rodeo Signature Event @ Las Colinas</span>
-                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">January 17-18</Badge>
-                  </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-blue-500/20">
-                    <span>CFBISD V5RC Push Back Winter Challenge</span>
-                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">TBD</Badge>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Texas Region Championship</span>
-                    <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">Spring 2026</Badge>
-                  </div>
+                  {uncompleted_comps.map((comp, idx) => (
+                    <div 
+                      key={comp.id}
+                      className={`flex justify-between items-center ${idx !== uncompleted_comps.length - 1 ? 'pb-4 border-b border-blue-500/20' : ''}`}
+                    >
+                      <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-300">
+                        <span>{comp.name}</span>
+                      </a>
+                      <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                        {formatDate(comp.start) !== formatDate(comp.end) 
+                          ? `${formatDateRange(comp.start, comp.end)}` 
+                          : addOrdinal(formatDate(comp.start))}
+                      </Badge>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
