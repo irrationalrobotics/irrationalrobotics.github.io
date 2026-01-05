@@ -64,7 +64,7 @@ export default function DonatePage() {
       icon: Star,
       color: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
       borderColor: "border-purple-500/20",
-      popular: true,
+      popular: false,
       donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=31400"
     },
     {
@@ -81,7 +81,7 @@ export default function DonatePage() {
       icon: Trophy,
       color: "bg-gradient-to-br from-amber-500/10 to-orange-500/10",
       borderColor: "border-amber-500/20",
-      popular: false,
+      popular: true,
       donationlink: "https://hcb.hackclub.com/donations/start/irrationalrobotics?amount=61000"
     },
     {
@@ -109,7 +109,7 @@ export default function DonatePage() {
       sponsors: ["EnLiSense"],
       imghrefs: ["images/sponsors/enlisense_logo_white.svg"],
       imglinks: ["https://enlisense.com/"],
-      imgwidth: "65vw",
+      imgheight: "30vh",
       txtsize: "md:text-4xl",
       color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
     },
@@ -118,7 +118,7 @@ export default function DonatePage() {
       sponsors: ["Contextra"],
       imghrefs: ["images/sponsors/contextra.svg"],
       imglinks: ["https://contextra.org/"],
-      imgwidth: "25vw",
+      imgheight: "20vh",
       txtsize: "md:text-3xl",
       color: "bg-amber-500/20 text-amber-400 border-amber-500/30"
     },
@@ -127,7 +127,7 @@ export default function DonatePage() {
     //   sponsors: [],
     //   imghrefs: [],
     //   imglinks: [],
-    //   imgwidth: "25vw",
+    //   imgheight: "5vh",
     //   txtsize: "md:text-2xl",
     //   color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     // },
@@ -328,14 +328,23 @@ export default function DonatePage() {
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
                         className="flex items-center justify-center"
                       >
-                        <a href={tier.imglinks && tier.imglinks[idx] ? tier.imglinks[idx] : "#"} target="_blank" rel="noopener noreferrer">
+                        {tier.imglinks && tier.imglinks[idx] ? (
+                          <a href={tier.imglinks[idx]} target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">
+                            <img
+                              src={img}
+                              alt={tier.sponsors[idx] || "Sponsor"}
+                              style={{ height: tier.imgheight, maxWidth: "100%" }}
+                              className="object-contain"
+                            />
+                          </a>
+                        ) : (
                           <img
                             src={img}
                             alt={tier.sponsors[idx] || "Sponsor"}
-                            style={{ width: tier.imgwidth, maxWidth: "100%" }}
-                            className={"object-contain " + (tier.imglinks && tier.imglinks[idx] ? "hover:scale-105 transition-transform duration-300" : "")}
+                            style={{ height: tier.imgheight, maxWidth: "100%" }}
+                            className="object-contain"
                           />
-                        </a>
+                        )}
                       </motion.div>
                     ))}
                     {tier.sponsors.length > tier.imghrefs.length &&
