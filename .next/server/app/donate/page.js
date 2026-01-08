@@ -1,16 +1,13 @@
-var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/donate/page.js")
-R.c("server/chunks/ssr/_f76359eb._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__0c1ef9cf._.js")
-R.c("server/chunks/ssr/_9053af2a._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__3ba03da5._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__655f8d11._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__709fb98b._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js")
-R.c("server/chunks/ssr/node_modules_@swc_helpers_cjs__interop_require_default_cjs_773264a0._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__564741cf._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js")
-R.c("server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js")
-R.c("server/chunks/ssr/_next-internal_server_app_donate_page_actions_539061cf.js")
-R.m(13154)
-module.exports=R.m(13154).exports
+const CHUNK_PUBLIC_PATH = "server/app/donate/page.js";
+const runtime = require("../../chunks/ssr/[turbopack]_runtime.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_a17f26a9._.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__50a7c09c._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_eabf60d9._.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__fea75a9d._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_c2f0b79c._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_forbidden-error_ea7ea172.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_unauthorized-error_c8949b27.js");
+runtime.loadChunk("server/chunks/ssr/_815da0a6._.js");
+runtime.getOrInstantiateRuntimeModule("[project]/.next-internal/server/app/donate/page/actions.js [app-rsc] (server actions loader, ecmascript)", CHUNK_PUBLIC_PATH);
+runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/donate/page { MODULE_0 => \"[project]/src/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/src/app/donate/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
+module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/donate/page { MODULE_0 => \"[project]/src/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/src/app/donate/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;

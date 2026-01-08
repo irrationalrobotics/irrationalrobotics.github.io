@@ -118,9 +118,18 @@ export default function DonatePage() {
       sponsors: ["Contextra"],
       imghrefs: ["images/sponsors/contextra.svg"],
       imglinks: ["https://contextra.org/"],
-      imgheight: "20vh",
+      imgheight: "30vh",
       txtsize: "md:text-3xl",
       color: "bg-amber-500/20 text-amber-400 border-amber-500/30"
+    },
+    {
+      title: "Pi Level Sponsor",
+      sponsors: ["Choyce"],
+      imghrefs: ["images/sponsors/chenghao.webp"],
+      imglinks: [""],
+      imgheight: "36vh",
+      txtsize: "md:text-2xl",
+      color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     },
     // {
     //   title: "Pi Level Sponsor",
@@ -326,7 +335,7 @@ export default function DonatePage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
-                        className="flex items-center justify-center"
+                        className="flex flex-col items-center justify-center"
                       >
                         {tier.imglinks && tier.imglinks[idx] ? (
                           <a href={tier.imglinks[idx]} target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">
@@ -345,6 +354,7 @@ export default function DonatePage() {
                             className="object-contain"
                           />
                         )}
+                        <div className="text-center text-base font-semibold mt-6">{tier.sponsors[idx]}</div>
                       </motion.div>
                     ))}
                     {tier.sponsors.length > tier.imghrefs.length &&
