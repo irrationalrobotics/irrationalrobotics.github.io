@@ -131,6 +131,15 @@ export default function DonatePage() {
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     },
+    {
+      title: "Pi Level Sponsor",
+      sponsors: ["Woofy Club"],
+      imghrefs: ["images/sponsors/woofyclub.png"],
+      imglinks: ["https://www.woofyclub.com/"],
+      imgheight: "36vh",
+      txtsize: "md:text-2xl",
+      color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+    },
     // {
     //   title: "Pi Level Sponsor",
     //   sponsors: [],
