@@ -34,7 +34,7 @@ export default function Home() {
       title: "Pi Level Sponsor",
       sponsors: ["Choyce"],
       imghrefs: ["images/sponsors/chenghao.jpg"],
-      imglinks: [""],
+      imglinks: ["https://www.instagram.com/chenghaohuang17/"],
       imgheight: "36vh",
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
