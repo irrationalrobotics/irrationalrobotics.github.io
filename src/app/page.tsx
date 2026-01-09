@@ -33,7 +33,7 @@ export default function Home() {
     {
       title: "Pi Level Sponsor",
       sponsors: ["Choyce"],
-      imghrefs: ["images/sponsors/chenghao.webp"],
+      imghrefs: ["images/sponsors/chenghao.jpg"],
       imglinks: [""],
       imgheight: "36vh",
       txtsize: "md:text-2xl",
