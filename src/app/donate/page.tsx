@@ -124,7 +124,7 @@ export default function DonatePage() {
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["Choyce"],
+      sponsors: ["Joyce"],
       imghrefs: ["images/sponsors/chenghao.jpg"],
       imglinks: ["https://www.instagram.com/chenghaohuang17/"],
       imgheight: "36vh",
