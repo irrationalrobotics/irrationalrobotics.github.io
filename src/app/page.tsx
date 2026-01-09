@@ -32,7 +32,7 @@ export default function Home() {
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam in Honor of Joyce"],
+      sponsors: ["The Cheng Fam"],
       imghrefs: ["images/sponsors/chenghao.jpg"],
       imglinks: ["https://www.instagram.com/chenghaohuang17/"],
       imgheight: "36vh",
