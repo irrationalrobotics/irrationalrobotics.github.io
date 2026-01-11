@@ -21,11 +21,29 @@ const fetcher = (url: string) => fetch(url).then(r => r.json());
 
 export default function DonatePage() {
   const slug = "org_dkupJZ";
-  const { data, error } = useSWR<{
-    amount_cents: number; amount: number 
-}[]>(
-    `https://hcb.hackclub.com/api/v3/organizations/${slug}/transactions`,
-    fetcher,
+  // fetch all paginated transaction pages and merge them
+  const fetchAllTransactions = async (slug: string) => {
+    const all: { amount_cents: number; amount: number }[] = [];
+    let page = 1;
+    const MAX_PAGES = 100; // safety cap
+
+    while (page <= MAX_PAGES) {
+      const res = await fetch(
+        `https://hcb.hackclub.com/api/v3/organizations/${slug}/transactions?page=${page}`
+      );
+      if (!res.ok) throw new Error("Failed to fetch transactions");
+      const pageData = await res.json();
+      if (pageData.length === 0) break;
+      all.push(...pageData);
+      page++;
+    }
+
+    return all;
+  };
+
+  const { data, error } = useSWR<{ amount_cents: number; amount: number }[]>(
+    ["all-transactions", slug],
+    () => fetchAllTransactions(slug),
     { refreshInterval: 60_000 }
   );
   console.log(data);
@@ -124,31 +142,13 @@ export default function DonatePage() {
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam"],
-      imghrefs: ["images/sponsors/chenghao.jpg"],
-      imglinks: ["https://www.instagram.com/chenghaohuang17/"],
-      imgheight: "36vh",
+      sponsors: ["The Cheng Fam","Woofy Club"],
+      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png"],
+      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/"],
+      imgheight: "15vh",
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     },
-    {
-      title: "Pi Level Sponsor",
-      sponsors: ["Woofy Club"],
-      imghrefs: ["images/sponsors/woofyclub.png"],
-      imglinks: ["https://www.woofyclub.com/"],
-      imgheight: "36vh",
-      txtsize: "md:text-2xl",
-      color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
-    },
-    // {
-    //   title: "Pi Level Sponsor",
-    //   sponsors: [],
-    //   imghrefs: [],
-    //   imglinks: [],
-    //   imgheight: "5vh",
-    //   txtsize: "md:text-2xl",
-    //   color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
-    // },
   ];
   const impactStats = [
     { label: "Competition Entries", value: "12+", icon: Target },
@@ -344,7 +344,7 @@ export default function DonatePage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
-                        className="flex flex-col items-center justify-center"
+                        className="flex flex-col items-center justify-center px-4"
                       >
                         {tier.imglinks && tier.imglinks[idx] ? (
                           <a href={tier.imglinks[idx]} target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">

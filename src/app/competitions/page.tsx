@@ -641,7 +641,7 @@ export default function CompetitionsPage() {
                     </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">Record</div>
-                    <div className="text-2xl font-bold">{comp.wins}W - {comp.losses}L</div>
+                    <div className="text-2xl font-bold">{comp.wins}W - {comp.ties && comp.ties > 0 ? `${comp.ties}T - ` : ""}{comp.losses}L</div>
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">WP</div>

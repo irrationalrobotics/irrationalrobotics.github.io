@@ -32,31 +32,13 @@ export default function Home() {
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam"],
-      imghrefs: ["images/sponsors/chenghao.jpg"],
-      imglinks: ["https://www.instagram.com/chenghaohuang17/"],
-      imgheight: "36vh",
+      sponsors: ["The Cheng Fam","Woofy Club"],
+      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png"],
+      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/"],
+      imgheight: "15vh",
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
     },
-        {
-      title: "Pi Level Sponsor",
-      sponsors: ["Woofy Club"],
-      imghrefs: ["images/sponsors/woofyclub.png"],
-      imglinks: ["https://www.woofyclub.com/"],
-      imgheight: "36vh",
-      txtsize: "md:text-2xl",
-      color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
-    },
-    // {
-    //   title: "Pi Level Sponsor",
-    //   sponsors: [],
-    //   imghrefs: [],
-    //   imglinks: [],
-    //   imgheight: "5vh",
-    //   txtsize: "md:text-2xl",
-    //   color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
-    // },
   ];
   useEffect(() => {
     const fadeElements = document.querySelectorAll(".fade-in");
@@ -291,7 +273,7 @@ export default function Home() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
-                        className="flex flex-col items-center justify-center"
+                        className="flex flex-col items-center justify-center px-6"
                       >
                         {tier.imglinks && tier.imglinks[idx] ? (
                           <a href={tier.imglinks[idx]} target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">

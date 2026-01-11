@@ -126,8 +126,8 @@ export default function AxiomPage() {
     },
     {
       name: "Chenghao Huang",
-      role: "Fabrication",
-      description: "Pneumatics & Design",
+      role: "Fabrication & Marketing",
+      description: "Tool Specialist & Design",
       image: "/images/theorem/cheng.webp",
       link: undefined
     },
@@ -141,7 +141,7 @@ export default function AxiomPage() {
     {
       name: "Alex Richards",
       role: "Fabrication",
-      description: "Build & Design",
+      description: "Build Specialist",
       image: "/images/axiom/alex.jpg",
       link: undefined
     },
@@ -340,7 +340,7 @@ export default function AxiomPage() {
                   </div>
                   <div>
                     <p className="text-white/50 text-xs mb-1">Record</p>
-                    <p className="text-blue-400 font-semibold">{comp.wins}W-{comp.losses}L</p>
+                    <p className="text-blue-400 font-semibold">{comp.wins}W - {comp.ties && comp.ties > 0 ? `${comp.ties}T - ` : ""}{comp.losses}L</p>
                   </div>
                   <div>
                     <p className="text-white/50 text-xs mb-1">WP</p>
