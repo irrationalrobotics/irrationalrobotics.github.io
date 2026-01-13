@@ -327,7 +327,7 @@ export default function AxiomPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
-                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}>
                     <h3 className="font-semibold text-lg">{comp.name}</h3>
                     </a>
                     <p className="text-white/50 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, true)}` : formatDate(comp.start, true)}</p>

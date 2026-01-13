@@ -626,7 +626,7 @@ export default function CompetitionsPage() {
               <Card key={comp.id} className="bg-white/10 text-white border-blue-500/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-300">
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}`}>
                     <Trophy className="h-5 w-5 text-blue-300" />
                     {comp.name}
                     </a>
@@ -678,7 +678,7 @@ export default function CompetitionsPage() {
                       key={comp.id}
                       className={`flex justify-between items-center ${idx !== uncompleted_comps.length - 1 ? 'pb-4 border-b border-blue-500/20' : ''}`}
                     >
-                      <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-300">
+                      <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}`}>
                         <span>{comp.name}</span>
                       </a>
                       <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
