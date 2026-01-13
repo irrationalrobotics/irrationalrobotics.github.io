@@ -106,7 +106,7 @@ export default function AxiomPage() {
     {
       name: "Abhirama Sonny",
       role: "Programming",
-      description: "Main Autonomous & Strategy",
+      description: "Main Autonomous",
       image: "/images/axiom/abhirama.png",
       link: "https://abhiramasonny.com"
     },
@@ -120,7 +120,7 @@ export default function AxiomPage() {
     {
       name: "Johnathan Luu",
       role: "Fabrication & Marketing",
-      description: "Pneumatics & Design",
+      description: "Pneumatics & Strategy",
       image: "/images/axiom/johnathan.jpeg",
       link: undefined
     },
@@ -134,14 +134,14 @@ export default function AxiomPage() {
     {
       name: "Aditya Sriram",
       role: "Fabrication & Programming & Marketing",
-      description: "Finance & Design",
+      description: "Finance & Strategy",
       image: "/images/axiom/adi.jpg",
       link: undefined
     },
     {
       name: "Alex Richards",
       role: "Fabrication",
-      description: "Build Specialist",
+      description: "Build",
       image: "/images/axiom/alex.jpg",
       link: undefined
     },
