@@ -142,9 +142,9 @@ export default function DonatePage() {
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam","Woofy Club"],
-      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png"],
-      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/"],
+      sponsors: ["The Cheng Fam","Woofy Club", "Aryan Paddarthi"],
+      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png", "images/sponsors/aryan.png"],
+      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/", "https://www.youtube.com/@AryanPadarthi"],
       imgheight: "15vh",
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30"

@@ -27,9 +27,11 @@ import {
   Gamepad2,
   Bot,
   CircuitBoard,
-  Rocket
+  Rocket,
+  Car
 } from "lucide-react";
 import { format } from "path";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious } from "@/components/ui/carousel";
 
 const token = process.env.NEXT_PUBLIC_ROBOTEVENTS_API_TOKEN || "";
 const headers = { Authorization: `Bearer ${token}` };
@@ -47,6 +49,7 @@ export default function CompetitionsPage() {
     awards_finalized: boolean;
     season: { id: number };
     sku: string;
+    level: string;
   }[]>( 
     `https://www.robotevents.com/api/v2/teams/${slug}/events`, 
     fetcher, 
@@ -69,21 +72,45 @@ export default function CompetitionsPage() {
     { refreshInterval: 86_400_000 }
   );
   
+    const { data: awards } = useSWR<{
+      event: { id: number };
+      title: string;
+    }[]>(
+    `https://www.robotevents.com/api/v2/teams/${slug}/awards`,
+    fetcher,
+    { refreshInterval: 86_400_000 }
+  );
+
   const completed_comps = events
-    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === true).map(e => {
-      const ranking = rankings?.find(r => r.event.id === e.id);
-      return {
-        ...e,
-        ...(ranking)
-      };
-    })
+    ? events
+        .filter((e) => e.season.id === season_slug)
+        .map((e) => {
+          const ranking = rankings?.find((r) => r.event.id === e.id);
+          return {
+            ...e,
+            ...(ranking && { rank: ranking.rank, wins: ranking.wins, losses: ranking.losses, ties: ranking.ties, wp: ranking.wp, ap: ranking.ap, sp: ranking.sp })
+          };
+        })
+        .filter((e) => rankings?.some((r) => r.event.id === e.id))
     : [];
 
   const uncompleted_comps = events && events.length > 0
-    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === false)
+    ? events.filter((e) => e.season.id === season_slug && !rankings?.some((r) => r.event.id === e.id))
     : [];
 
-  const comp_notes = ["Strong performance in our first competitive outing, demonstrating competitive drive across all categories.","Solid performance building momentum toward future competitions with improved strategy execution"];
+  const given_awards = awards && awards.length > 0
+    ? awards.map(a => {const event = events?.find(e => e.id === a.event.id); 
+      return { 
+        ...a, 
+        ...event
+      };})
+    : [];
+
+  const comp_notes = [
+    "Strong performance in our first competitive outing, demonstrating competitive drive across all categories.",
+    "Solid performance building momentum toward future competitions with improved strategy execution.",
+    "Excellent teamwork and robot reliability in the largest competition to date, growing our capabilities for late season.",
+  ];
 
   function formatDate(dateStr: string, keepYear = false) {
     const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: keepYear ? 'numeric' : undefined, month: 'long', day: 'numeric' };
@@ -120,13 +147,13 @@ export default function CompetitionsPage() {
     
     if (startMonth === endMonth && startYear === endYear) {
       // Same month and year
-      return `${startMonth} ${addOrdinal(startDay)}-${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${keepYear ? startDay.slice(0,-1) : addOrdinal(startDay)}-${keepYear ? endDay : addOrdinal(endDay)}${keepYear ? ` ${startYear}` : ''}`;
     } else if (startYear === endYear) {
       // Same year, different months
-      return `${startMonth} ${addOrdinal(startDay)}-${endMonth} ${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${keepYear ? startDay.slice(0,-1) : addOrdinal(startDay)}-${endMonth} ${keepYear ? endDay : addOrdinal(endDay)}${keepYear ? ` ${startYear}` : ''}`;
     } else {
       // Different years
-      return `${startMonth} ${addOrdinal(startDay)}, ${startYear}-${endMonth} ${addOrdinal(endDay)}${keepYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${keepYear ? startDay.slice(0,-1) : addOrdinal(startDay)}, ${startYear}-${endMonth} ${keepYear ? endDay : addOrdinal(endDay)}${keepYear ? ` ${startYear}` : ''}`;
     }
   }
 
@@ -619,19 +646,45 @@ export default function CompetitionsPage() {
               Team 14142A Axiom's performance across VEX Robotics competitions this season
             </p>
           </div>
-          {/*// Lovejoy: Strong performance in our first competitive outing, demonstrating competitive drive across all categories. Garland: Solid performance building momentum toward future competitions with improved strategy execution.
-          */}
           <div className="max-w-5xl mx-auto space-y-8"> 
+          {/* Awards */}
+          {/*
+            <Card className="bg-white/10 text-white border-blue-500/30">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Trophy className="h-5 w-5 text-blue-300" />
+                    Awards
+                  </CardTitle>
+                  </CardHeader>
+                <CardContent>
+                  <Carousel>
+                  <CarouselContent>
+                    {given_awards.map((award, idx) => (
+                      <CarouselItem key={idx} className="flex flex-col items-center justify-center space-y-2">
+                        <div className="grid grid-cols-1 gap-4 mb-6">
+                        <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                        <div className="text-sm text-blue-200/60 mb-1">{award.name?.split(":")[0]}</div>
+                        <div className="text-2xl font-bold">{award.title.slice(0,-"(VRC/VEXU/VAIRC)".length)}</div>
+                      </div>
+                      </div>
+                      </CarouselItem>
+                    ))}
+
+                  </CarouselContent>
+                  </Carousel>
+                </CardContent>
+                </Card> */}
+            {/* Completed Events */}
             {completed_comps.map((comp, idx) => (
               <Card key={comp.id} className="bg-white/10 text-white border-blue-500/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}`}>
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.level === "Signature" ? "hover:text-amber-300": "hover:text-blue-300"}`}>
                     <Trophy className="h-5 w-5 text-blue-300" />
-                    {comp.name}
+                    {comp.name?.split(":")[0]}
                     </a>
                   </CardTitle>
-                  <p className="text-blue-200/80 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, false)}` : formatDate(comp.start, true)}</p>
+                  <p className="text-blue-200/80 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, true)}` : formatDate(comp.start, true)}</p>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
@@ -679,7 +732,7 @@ export default function CompetitionsPage() {
                       className={`flex justify-between items-center ${idx !== uncompleted_comps.length - 1 ? 'pb-4 border-b border-blue-500/20' : ''}`}
                     >
                       <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}`}>
-                        <span>{comp.name}</span>
+                        <span>{comp.name?.split(":")[0]}</span>
                       </a>
                       <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
                         {formatDate(comp.start) !== formatDate(comp.end) 

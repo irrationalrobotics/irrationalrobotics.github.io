@@ -25,6 +25,7 @@ export default function AxiomPage() {
     awards_finalized: boolean;
     season: { id: number };
     sku: string;
+    level: string;
   }[]>(
     `https://www.robotevents.com/api/v2/teams/${slug}/events`,
     fetcher,
@@ -48,13 +49,16 @@ export default function AxiomPage() {
   );
   
   const completed_comps = events
-    ? events.filter((e) => e.season.id === season_slug && e.awards_finalized === true).map(e => {
-      const ranking = rankings?.find(r => r.event.id === e.id);
-      return {
-        ...e,
-        ...(ranking)
-      };
-    })
+    ? events
+        .filter((e) => e.season.id === season_slug)
+        .map((e) => {
+          const ranking = rankings?.find((r) => r.event.id === e.id);
+          return {
+            ...e,
+            ...(ranking && { rank: ranking.rank, wins: ranking.wins, losses: ranking.losses, ties: ranking.ties, wp: ranking.wp, ap: ranking.ap, sp: ranking.sp })
+          };
+        })
+        .filter((e) => rankings?.some((r) => r.event.id === e.id))
     : [];
   
   function formatDate(dateStr: string, removeYear = false) {
@@ -85,13 +89,13 @@ export default function AxiomPage() {
     
     if (startMonth === endMonth && startYear === endYear) {
       // Same month and year
-      return `${startMonth} ${addOrdinal(startDay)}-${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${removeYear ? startDay.slice(0,-1) : addOrdinal(startDay)}-${removeYear ? endDay : addOrdinal(endDay)}${removeYear ? ` ${startYear}` : ''}`;
     } else if (startYear === endYear) {
       // Same year, different months
-      return `${startMonth} ${addOrdinal(startDay)}-${endMonth} ${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${removeYear ? startDay.slice(0,-1) : addOrdinal(startDay)}-${endMonth} ${removeYear ? endDay : addOrdinal(endDay)}${removeYear ? ` ${startYear}` : ''}`;
     } else {
       // Different years
-      return `${startMonth} ${addOrdinal(startDay)}, ${startYear}-${endMonth} ${addOrdinal(endDay)}${removeYear ? `, ${startYear}` : ''}`;
+      return `${startMonth} ${removeYear ? startDay.slice(0,-1) : addOrdinal(startDay)}, ${startYear}-${endMonth} ${removeYear ? endDay : addOrdinal(endDay)}${removeYear ? ` ${startYear}` : ''}`;
     }
   }
 
@@ -291,12 +295,12 @@ export default function AxiomPage() {
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Full Team</h3>
             <Card className="bg-white/5 border-white/10 overflow-hidden max-w-3xl mx-auto">
-              <div className="w-full h-96 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center relative">
-                <img
-                  src="/teampic.png"
-                  alt="Team Axiom"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center relative aspect-video">
+          <img
+            src="/teampic2.png"
+            alt="Team Axiom"
+            className="w-full h-full object-cover"
+          />
 
               </div>
             </Card>
@@ -327,8 +331,8 @@ export default function AxiomPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
-                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}>
-                    <h3 className="font-semibold text-lg">{comp.name}</h3>
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={comp.level === "Signature" ? "hover:text-amber-300": "hover:text-blue-300"}>
+                    <h3 className="font-semibold text-lg">{comp.name?.split(":")[0]}</h3>
                     </a>
                     <p className="text-white/50 text-sm">{formatDate(comp.start)!=formatDate(comp.end) ? `${formatDateRange(comp.start, comp.end, true)}` : formatDate(comp.start, true)}</p>
                   </div>
