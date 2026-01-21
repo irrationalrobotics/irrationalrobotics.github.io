@@ -228,6 +228,14 @@ export default function AxiomPage() {
                 >
                   <Link href="/competitions">Results</Link>
                 </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                  asChild
+                >
+                  <Link href="/axiom/notebook">View Notebook</Link>
+                </Button>
               </motion.div>
             </motion.div>
           </div>
