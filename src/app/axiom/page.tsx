@@ -198,7 +198,7 @@ export default function AxiomPage() {
                   <p className="text-sm text-white/60">Team Members</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">2</div>
+                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">{completed_comps.length}</div>
                   <p className="text-sm text-white/60">Competitions</p>
                 </div>
                 <div className="text-center">
