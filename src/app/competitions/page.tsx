@@ -701,7 +701,7 @@ export default function CompetitionsPage() {
                     <div className="text-sm text-blue-200/60 mb-1">WP</div>
                     <HoverSwap 
                       defaultText={`${comp.wp}`}
-                      hoverText={`${comp.wins}W - ${comp.wp ?? 0 - (comp.wins ?? 0) * 2}AWP`}
+                      hoverText={`${comp.wins}W - ${(comp.wp ?? 0) - ((comp.wins ?? 0) * 2)}AWP`}
                       className="text-2xl font-bold"
                     />
                   </div>
