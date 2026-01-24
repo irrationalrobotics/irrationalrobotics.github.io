@@ -234,7 +234,7 @@ export default function AxiomPage() {
                   className="border-white/20 text-white hover:bg-white/10"
                   asChild
                 >
-                  <Link href="/axiom/notebook">View Notebook</Link>
+                  <Link href="https://pdf.irrationalrobotics.org/14142A-NOTEBOOK.pdf" target="_blank" rel="noopener noreferrer">View Notebook</Link>
                 </Button>
               </motion.div>
             </motion.div>

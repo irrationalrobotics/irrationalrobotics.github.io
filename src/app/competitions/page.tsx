@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { HeroSection } from "@/components/hero-section";
 import { FeatureSection } from "@/components/feature-section";
 import { HighlightText } from "@/components/highlight-text";
+import { HoverSwap } from "@/components/ui/hover-swap";
 
 import {
   CalendarDays,
@@ -698,7 +699,11 @@ export default function CompetitionsPage() {
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">WP</div>
-                    <div className="text-2xl font-bold">{comp.wp}</div>
+                    <HoverSwap 
+                      defaultText={`${comp.wp}`}
+                      hoverText={`${comp.wins}W - ${comp.wp ?? 0 - (comp.wins ?? 0) * 2}AWP`}
+                      className="text-2xl font-bold"
+                    />
                   </div>
                   <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                     <div className="text-sm text-blue-200/60 mb-1">AP</div>
