@@ -25,6 +25,10 @@ import { HighlightText } from "@/components/highlight-text";
 import {
   Instagram,
   Youtube,
+  Tiktok
+} from "@/components/ui/logos";
+
+import {
   Mail,
   Send,
   MessageCircle,
@@ -76,7 +80,17 @@ const contactMethods = [
     color: "from-red-500/10 to-rose-500/10",
     borderColor: "border-red-500/20",
     iconColor: "text-red-400"
-  }
+  },
+  // {
+  //   icon: Tiktok,
+  //   title: "See Our TikToks",
+  //   description: "Follow us for fun and informative TikTok videos",
+  //   action: "@irrationalrobotics",
+  //   href: "https://www.tiktok.com/@irrationalrobotics",
+  //   color: "from-gray-500/10 to-black/10",
+  //   borderColor: "border-gray-500/20",
+  //   iconColor: "text-gray-400"
+  // }
 ];
 
 const quickInfo = [

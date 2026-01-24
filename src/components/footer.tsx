@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import {
   Instagram,
   Youtube,
-  ExternalLink,
-} from "lucide-react";
+  Tiktok,
+} from "@/components/ui/logos";
 
 export function Footer() {
   return (
@@ -43,6 +44,14 @@ export function Footer() {
               <Youtube className="w-4 h-4" />
             </Link>
             <Link
+              href="https://www.tiktok.com/@irrationalrobotics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-gray-500 transition-colors"
+            >
+              <Tiktok className="w-4 h-4" />
+            </Link>
+            <Link
               href="https://www.robotevents.com/teams/V5RC/14142A"
               target="_blank"
               rel="noopener noreferrer"
@@ -50,11 +59,12 @@ export function Footer() {
             >
               RobotEvents
             </Link>
+            
           </div>
 
           {/* Copyright */}
           <div className="text-xs text-white/40">
-            © 2025 Irrational Robotics
+            &copy; {new Date().getFullYear()} Irrational Robotics
           </div>
         </div>
       </div>

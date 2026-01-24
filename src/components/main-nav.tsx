@@ -242,7 +242,7 @@ export function MainNav() {
                     href="https://instagram.com/irrationalrobotics"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm text-muted-foreground hover:text-primary"
+                    className="flex items-center text-sm text-muted-foreground hover:text-pink-300"
                   >
                     Instagram
                   </Link>
@@ -250,9 +250,17 @@ export function MainNav() {
                     href="https://youtube.com/@irrationalrobotics"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm text-muted-foreground hover:text-primary"
+                    className="flex items-center text-sm text-muted-foreground hover:text-red-400"
                   >
                     YouTube
+                  </Link>
+                  <Link
+                    href="https://www.tiktok.com/@irrationalrobotics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm text-muted-foreground hover:text-gray-500"
+                  >
+                    TikTok
                   </Link>
                 </div>
               </div>

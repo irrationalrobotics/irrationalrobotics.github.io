@@ -194,7 +194,7 @@ export default function AxiomPage() {
                 className="grid grid-cols-3 gap-4 md:gap-8 max-w-xl mx-auto mb-12"
               >
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">8</div>
+                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-1">{teamMembers.length}</div>
                   <p className="text-sm text-white/60">Team Members</p>
                 </div>
                 <div className="text-center">
