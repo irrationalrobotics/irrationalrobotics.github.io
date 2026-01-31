@@ -1,4 +1,6 @@
-  {/* All icons from https://simpleicons.org/ */}
+"use client"
+
+{/* All icons from https://simpleicons.org/ */}
 
 export const SocialIcons = ({ className }: { className: string }) => ({
   tiktok: (

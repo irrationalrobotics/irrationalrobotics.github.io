@@ -133,21 +133,23 @@ export default function DonatePage() {
     },
     {
       title: "Golden Level Sponsor",
-      sponsors: ["Contextra"],
-      imghrefs: ["images/sponsors/contextra.svg"],
-      imglinks: ["https://contextra.org/"],
+      sponsors: ["Contextra", "RTX", "AT&T"],
+      imghrefs: ["images/sponsors/contextra.svg", "images/sponsors/rtx.png", "images/sponsors/att.png"],
+      imglinks: ["https://contextra.org/", "https://www.rtx.com/", "https://www.att.com/"],
       imgheight: "30vh",
       txtsize: "md:text-3xl",
-      color: "bg-amber-500/20 text-amber-400 border-amber-500/30"
+      color: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+      spacing: "px-8"
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam","Woofy Club", "Aryan Paddarthi"],
-      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png", "images/sponsors/aryan.png"],
-      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/", "https://www.youtube.com/@AryanPadarthi"],
+      sponsors: ["The Cheng Fam","Woofy Club", "Aryan Paddarthi", "Siemens"],
+      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png", "images/sponsors/aryan.png", "images/sponsors/siemens.png"],
+      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/", "https://www.youtube.com/@AryanPadarthi", "https://www.siemens.com/"],
       imgheight: "15vh",
       txtsize: "md:text-2xl",
-      color: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+      color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+      spacing: "px-4"
     },
   ];
   const impactStats = [
@@ -344,7 +346,7 @@ export default function DonatePage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.05, duration: 0.4 }}
-                        className="flex flex-col items-center justify-center px-4"
+                        className={`flex flex-col items-center justify-center ${tier.spacing}`}
                       >
                         {tier.imglinks && tier.imglinks[idx] ? (
                           <a href={tier.imglinks[idx]} target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">
