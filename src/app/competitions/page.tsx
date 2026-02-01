@@ -76,6 +76,7 @@ export default function CompetitionsPage() {
     const { data: awards } = useSWR<{
       event: { id: number };
       title: string;
+      qualifications: [string][];
     }[]>(
     `https://www.robotevents.com/api/v2/teams/${slug}/awards`,
     fetcher,
@@ -111,6 +112,7 @@ export default function CompetitionsPage() {
     "Strong performance in our first competitive outing, demonstrating competitive drive across all categories.",
     "Solid performance building momentum toward future competitions with improved strategy execution.",
     "Excellent teamwork and robot reliability in the largest competition to date, growing our capabilities for late season.",
+    "Great event that showed team prowess, although with hiccups, it ultimately getting us qualified for state championships.",
   ];
 
   function formatDate(dateStr: string, keepYear = false) {
@@ -649,7 +651,7 @@ export default function CompetitionsPage() {
           </div>
           <div className="max-w-5xl mx-auto space-y-8"> 
           {/* Awards */}
-          {/*
+          
             <Card className="bg-white/10 text-white border-blue-500/30">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -658,14 +660,14 @@ export default function CompetitionsPage() {
                   </CardTitle>
                   </CardHeader>
                 <CardContent>
-                  <Carousel>
+                  <Carousel autoplay={true}>
                   <CarouselContent>
                     {given_awards.map((award, idx) => (
                       <CarouselItem key={idx} className="flex flex-col items-center justify-center space-y-2">
                         <div className="grid grid-cols-1 gap-4 mb-6">
                         <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
                         <div className="text-sm text-blue-200/60 mb-1">{award.name?.split(":")[0]}</div>
-                        <div className="text-2xl font-bold">{award.title.slice(0,-"(VRC/VEXU/VAIRC)".length)}</div>
+                        <div className={`text-2xl font-bold`}>{award.title.slice(0,-"(VRC/VEXU/VAIRC)".length)}</div>
                       </div>
                       </div>
                       </CarouselItem>
@@ -674,13 +676,13 @@ export default function CompetitionsPage() {
                   </CarouselContent>
                   </Carousel>
                 </CardContent>
-                </Card> */}
+                </Card>
             {/* Completed Events */}
             {completed_comps.map((comp, idx) => (
-              <Card key={comp.id} className="bg-white/10 text-white border-blue-500/30">
+              <Card key={comp.id} className={`bg-white/10 text-white ${comp.level !== "Other" ? "border-amber-500/30" : "border-blue-500/30"}`}>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.level === "Signature" ? "hover:text-amber-300": "hover:text-blue-300"}`}>
+                    <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.level !== "Other" ? "hover:text-amber-300": "hover:text-blue-300"}`}>
                     <Trophy className="h-5 w-5 text-blue-300" />
                     {comp.name?.split(":")[0]}
                     </a>
@@ -736,7 +738,7 @@ export default function CompetitionsPage() {
                       key={comp.id}
                       className={`flex justify-between items-center ${idx !== uncompleted_comps.length - 1 ? 'pb-4 border-b border-blue-500/20' : ''}`}
                     >
-                      <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.name.toLowerCase().includes("signature") ? "hover:text-amber-300": "hover:text-blue-300"}`}>
+                      <a href={`https://www.robotevents.com/robot-competitions/vex-robotics-competition/${comp.sku}.html`} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 ${comp.level !== "Other" ? "hover:text-amber-300": "hover:text-blue-300"}`}>
                         <span>{comp.name?.split(":")[0]}</span>
                       </a>
                       <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">

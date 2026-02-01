@@ -19,6 +19,8 @@ type CarouselProps = {
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
   autoplay?: boolean
+  autoplayInterval?: number
+  autoplayPauseDuration?: number
   setApi?: (api: CarouselApi) => void
 }
 
@@ -51,6 +53,8 @@ const Carousel = React.forwardRef<
     {
       orientation = "horizontal",
       autoplay,
+      autoplayInterval = 3000,
+      autoplayPauseDuration = 3000,
       opts,
       setApi,
       plugins,
@@ -69,6 +73,9 @@ const Carousel = React.forwardRef<
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
+    const [isAutoplayPaused, setIsAutoplayPaused] = React.useState(false)
+    const pauseTimeoutRef = React.useRef<number | null>(null)
+    const autoplayIntervalRef = React.useRef<number | null>(null)
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
@@ -118,20 +125,73 @@ const Carousel = React.forwardRef<
       api.on("select", onSelect)
 
       return () => {
-        api?.off("select", onSelect)
+        api.off("select", onSelect)
+        api.off("reInit", onSelect)
       }
     }, [api, onSelect])
 
     React.useEffect(() => {
       if (!api || !autoplay) return
-      if (api.scrollProgress() >= 1) {
-        api.scrollTo(0)
+
+      const pauseAutoplay = () => {
+        setIsAutoplayPaused(true)
+        if (pauseTimeoutRef.current) {
+          window.clearTimeout(pauseTimeoutRef.current)
+        }
+        pauseTimeoutRef.current = window.setTimeout(() => {
+          setIsAutoplayPaused(false)
+          pauseTimeoutRef.current = null
+        }, autoplayPauseDuration)
       }
-      const interval = setInterval(() => {
-        api.scrollNext()
-      }, 3000) // Change every 3 seconds
-      return () => clearInterval(interval)
-    }, [api, autoplay])
+
+      api.on("pointerDown", pauseAutoplay)
+
+      return () => {
+        api.off("pointerDown", pauseAutoplay)
+        if (pauseTimeoutRef.current) {
+          window.clearTimeout(pauseTimeoutRef.current)
+          pauseTimeoutRef.current = null
+        }
+      }
+    }, [api, autoplay, autoplayPauseDuration])
+
+    React.useEffect(() => {
+      if (!api || !autoplay) return
+
+      if (autoplayIntervalRef.current) {
+        window.clearInterval(autoplayIntervalRef.current)
+        autoplayIntervalRef.current = null
+      }
+
+      const tick = () => {
+        if (!api) return
+        if (opts?.loop) {
+          api.scrollNext()
+          return
+        }
+
+        if (api.canScrollNext()) {
+          api.scrollNext()
+        } else {
+          api.scrollTo(0)
+        }
+      }
+
+      if (!isAutoplayPaused) {
+        if (!opts?.loop && api.scrollProgress() >= 1) {
+          api.scrollTo(0)
+        }
+
+        autoplayIntervalRef.current = window.setInterval(tick, autoplayInterval)
+      }
+
+      return () => {
+        if (autoplayIntervalRef.current) {
+          window.clearInterval(autoplayIntervalRef.current)
+          autoplayIntervalRef.current = null
+        }
+      }
+    }, [api, autoplay, isAutoplayPaused, autoplayInterval, opts])
 
     return (
       <CarouselContext.Provider
@@ -145,6 +205,9 @@ const Carousel = React.forwardRef<
           scrollNext,
           canScrollPrev,
           canScrollNext,
+          autoplay,
+          autoplayInterval,
+          autoplayPauseDuration,
         }}
       >
         <div
