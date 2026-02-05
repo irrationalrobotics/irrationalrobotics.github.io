@@ -133,19 +133,19 @@ export default function DonatePage() {
     },
     {
       title: "Golden Level Sponsor",
-      sponsors: ["Contextra", "RTX", "AT&T"],
-      imghrefs: ["images/sponsors/contextra.svg", "images/sponsors/rtx.png", "images/sponsors/att.png"],
-      imglinks: ["https://contextra.org/", "https://www.rtx.com/", "https://www.att.com/"],
-      imgheight: "30vh",
+      sponsors: ["Contextra", "RTX", "AT&T","The Cheng Fam", "Siemens", ],
+      imghrefs: ["images/sponsors/contextra.svg", "images/sponsors/rtx.png", "images/sponsors/att.png", "images/sponsors/chenghao.jpg",  "images/sponsors/siemens.png"],
+      imglinks: ["https://contextra.org/", "https://www.rtx.com/", "https://www.att.com/",  "https://www.instagram.com/chenghaohuang17/", "https://www.siemens.com/",],
+      imgheight: "20vh",
       txtsize: "md:text-3xl",
       color: "bg-amber-500/20 text-amber-400 border-amber-500/30",
       spacing: "px-8"
     },
     {
       title: "Pi Level Sponsor",
-      sponsors: ["The Cheng Fam","Woofy Club", "Aryan Paddarthi", "Siemens"],
-      imghrefs: ["images/sponsors/chenghao.jpg","images/sponsors/woofyclub.png", "images/sponsors/aryan.png", "images/sponsors/siemens.png"],
-      imglinks: ["https://www.instagram.com/chenghaohuang17/","https://www.woofyclub.com/", "https://www.youtube.com/@AryanPadarthi", "https://www.siemens.com/"],
+      sponsors: ["Woofy Club", "Aryan Paddarthi"],
+      imghrefs: ["images/sponsors/woofyclub.png", "images/sponsors/aryan.png"],
+      imglinks: ["https://www.woofyclub.com/", "https://www.youtube.com/@AryanPadarthi"],
       imgheight: "15vh",
       txtsize: "md:text-2xl",
       color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
@@ -329,6 +329,7 @@ export default function DonatePage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: tierIdx * 0.1, duration: 0.6 }}
+                // className="text-center"
               >
                 <div className="text-center mb-8">
                   <div className="inline-block">
@@ -339,7 +340,8 @@ export default function DonatePage() {
                 </div>
 
                 {tier.imghrefs.length > 0 || tier.sponsors.length > 0 ? (
-                  <div className="flex items-center justify-center max-w-6xl mx-auto">
+                  <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
+                    {/* <div className="flex flex-wrap justify-center gap-6"> */}
                     {tier.imghrefs.map((img, idx) => (
                       <motion.div
                         key={img}
