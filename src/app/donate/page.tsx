@@ -124,9 +124,9 @@ export default function DonatePage() {
   const Sponsors = [
     {
       title: "Pythagoras Level Sponsor",
-      sponsors: ["EnLiSense"],
-      imghrefs: ["images/sponsors/enlisense_logo_white.svg"],
-      imglinks: ["https://enlisense.com/"],
+      sponsors: ["EnLiSense", "King Buffet"],
+      imghrefs: ["images/sponsors/enlisense_logo_white.svg", "images/sponsors/jesus.png"],
+      imglinks: ["https://enlisense.com/", "https://www.kingbuffetplano.com/"],
       imgheight: "30vh",
       txtsize: "md:text-4xl",
       color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
