@@ -117,7 +117,7 @@ export default function AxiomPage() {
     {
       name: "Shyam Devanathan",
       role: "Fabrication & Programming",
-      description: "Design & Prototyping",
+      description: "Robot Designer & Programming Architect",
       image: "/images/axiom/shyam.jpg",
       link: undefined
     },
