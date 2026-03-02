@@ -464,7 +464,7 @@ export default function AxiomPage() {
       <section className="mt-64 border-t border-black/10 dark:border-white/10 pt-32 text-center">
         <div className="mx-auto max-w-lg space-y-8">
           <h3 className="text-5xl font-black tracking-tighter md:text-7xl uppercase">VEX WORLD CHAMPIONSHIP</h3>
-          <p className="text-sm font-medium uppercase tracking-widest text-neutral-400 italic">Dallas, Texas • April 2026</p>
+          <p className="text-sm font-medium uppercase tracking-widest text-neutral-400 italic">St Louis • April 2026</p>
           <div className="inline-block border border-black/10 dark:border-white/10 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.2em]">
             Deployment Pending
           </div>
