@@ -435,14 +435,14 @@ export default function AxiomPage() {
                         <tr key={match.id} className="group transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-950">
                           <td className={`py-4 pr-8 text-[11px] font-black ${(match.red.includes('14142A') || match.blue.includes('14142A')) ? (match.result === 'W' ? 'text-[#86efac]' : match.result === 'L' ? 'text-red-500' : '') : ''}`}>{match.id}</td>
                           <td className="py-4 pr-8">
-                            <div className="inline-flex items-center rounded-md border border-red-500/30 bg-red-500/10 px-2.5 py-1.5 text-[11px] font-medium text-red-800 dark:text-red-200">
-                              <span className="text-neutral-700 dark:text-neutral-100">{match.red.replaceAll(',', '')}</span>
-                            </div>
+                            <span className="text-[11px] font-medium text-red-700 dark:text-red-300">
+                              {match.red.replaceAll(',', '')}
+                            </span>
                           </td>
                           <td className="py-4 pr-8">
-                            <div className="inline-flex items-center rounded-md border border-blue-500/30 bg-blue-500/10 px-2.5 py-1.5 text-[11px] font-medium text-blue-800 dark:text-blue-200">
-                              <span className="text-neutral-700 dark:text-neutral-100">{match.blue.replaceAll(',', '')}</span>
-                            </div>
+                            <span className="text-[11px] font-medium text-blue-700 dark:text-blue-300">
+                              {match.blue.replaceAll(',', '')}
+                            </span>
                           </td>
                           <td className="py-4 text-right text-[11px] font-black italic tracking-tighter">{match.score}</td>
                           <td className={`py-4 text-right text-[11px] font-black italic ${match.result === 'W' ? 'text-black dark:text-white' : 'text-neutral-200 dark:text-neutral-800'}`}>
