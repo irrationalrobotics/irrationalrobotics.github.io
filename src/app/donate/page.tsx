@@ -56,6 +56,15 @@ const partnerLogos: Record<string, { light: string; dark?: string }> = {
   'Woofy Club': { light: '/sponsors/woofyclub.png' }
 };
 
+const partnerLinks: Record<string, string> = {
+  EnLiSense: 'https://www.enlisense.com/',
+  'Woofy Club': 'https://www.woofyclub.com/',
+  'King Buffet': 'https://www.kingbuffetplano.com/',
+  Siemens: 'https://www.siemens.com',
+  'AT&T': 'https://www.att.com/',
+  RTX: 'https://www.rtx.com/'
+};
+
 export default function DonatePage() {
   const slug = 'org_dkupJZ';
   const cacheKey = `hcb-total-raised-${slug}`;
@@ -291,8 +300,11 @@ export default function DonatePage() {
 
                 <div className={`grid gap-4 ${sectionGridClass}`}>
                   {group.names.map((name) => (
-                    <div
+                    <a
                       key={`${group.level}-${name}`}
+                      href={partnerLinks[name] ?? '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`group flex flex-col justify-between bg-white text-center transition-all hover:bg-neutral-50 dark:bg-black dark:hover:bg-neutral-950 ${tileSizeClass} ${isSinglePi ? 'w-full max-w-[440px] lg:col-start-2' : ''}`}
                     >
                       <div className={`flex items-center justify-center ${logoHeightClass}`}>
@@ -325,7 +337,7 @@ export default function DonatePage() {
                       <p className={`mt-5 font-black uppercase tracking-[0.22em] text-neutral-700 dark:text-neutral-200 ${nameSizeClass}`}>
                         {name}
                       </p>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
