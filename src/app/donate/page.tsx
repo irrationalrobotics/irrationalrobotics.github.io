@@ -228,7 +228,7 @@ export default function DonatePage() {
                 </div>
               </div>
               <a 
-                href="https://hcb.hackclub.com/donations/start/irrational-robotics" 
+                href="https://hcb.hackclub.com/donations/start/irrationalrobotics" 
                 target="_blank"
                 className="group flex items-center justify-between border border-black dark:border-white p-4 text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black mt-12"
               >

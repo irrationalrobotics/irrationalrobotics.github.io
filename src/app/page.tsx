@@ -35,7 +35,7 @@ export default function Home() {
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/donate"
+                href="https://hcb.hackclub.com/donations/start/irrationalrobotics" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center border border-black/10 dark:border-white/10 px-10 py-5 text-sm font-bold uppercase tracking-widest text-black dark:text-white transition-all hover:border-black dark:hover:border-white"
               >
                 Support Us
