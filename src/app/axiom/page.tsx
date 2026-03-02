@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Users, X } from 'lucide-react';
+import { Award, ChevronDown, Users, X } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -126,7 +126,7 @@ const events = [
     ]
   },
   {
-    name: 'For the Love of Bots I V5RC Push Back',
+    name: 'For the Love of Bots I',
     date: 'Nov 1, 2025',
     rank: 18,
     stats: '8 / 25 / 105',
@@ -144,6 +144,15 @@ const events = [
 
 export default function AxiomPage() {
   const [selectedMember, setSelectedMember] = useState<typeof team[0] | null>(null);
+  const [openEvents, setOpenEvents] = useState<string[]>([]);
+
+  const toggleEvent = (eventName: string) => {
+    setOpenEvents((current) =>
+      current.includes(eventName)
+        ? current.filter((name) => name !== eventName)
+        : [...current, eventName]
+    );
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-6 pt-32 pb-24 md:pt-48 md:pb-48">
@@ -373,14 +382,31 @@ export default function AxiomPage() {
         </div>
 
         <div className="space-y-48">
-          {events.map((event) => (
+          {events.map((event, index) => {
+            const isOpen = openEvents.includes(event.name);
+            const detailsId = `event-records-${index}`;
+
+            return (
             <div key={event.name} className="relative">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-4 space-y-6">
-                  <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">{event.date}</p>
-                    <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">{event.name}</h3>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleEvent(event.name)}
+                    aria-expanded={isOpen}
+                    aria-controls={detailsId}
+                    className="w-full text-left lg:cursor-default"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <div className="space-y-2">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">{event.date}</p>
+                        <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">{event.name}</h3>
+                      </div>
+                      <ChevronDown
+                        className={`mt-1 h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200 lg:hidden ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                    </div>
+                  </button>
                   <div className="flex gap-12">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Final Rank</p>
@@ -393,7 +419,7 @@ export default function AxiomPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-8 overflow-x-auto">
+                <div id={detailsId} className={`overflow-x-auto lg:col-span-8 ${isOpen ? 'block' : 'hidden lg:block'}`}>
                   <table className="w-full text-left">
                     <thead className="border-b border-black/10 dark:border-white/10">
                       <tr className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">
@@ -429,7 +455,8 @@ export default function AxiomPage() {
                 </div>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </section>
 
