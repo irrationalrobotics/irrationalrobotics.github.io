@@ -167,7 +167,7 @@ export default function AxiomPage() {
               <span className="text-neutral-200 dark:text-neutral-800 uppercase">Axiom</span>
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-neutral-500 italic">
-              Axiom is the flagship team of Irrational Robotics. Founded in 2025, Axiom has quickly established itself as a powerhouse in the VEX Robotics Competition, achieving Tournament Champions in Reigon-5 Texas, arguably the most competitive reigon in Texas.
+              Axiom is the pinnacle of Irrational Robotics. The team is committed to establishing a tradition of excellence through their work.
             </p>
           </motion.div>
         </div>
