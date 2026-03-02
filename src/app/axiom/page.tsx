@@ -408,8 +408,8 @@ export default function AxiomPage() {
                       {event.matches.map((match) => (
                         <tr key={match.id} className="group transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-950">
                           <td className="py-4 pr-8 text-[11px] font-black">{match.id}</td>
-                          <td className="py-4 pr-8 text-[11px] font-medium text-neutral-500">{match.red}</td>
-                          <td className="py-4 pr-8 text-[11px] font-medium text-neutral-500">{match.blue}</td>
+                          <td className="py-4 pr-8 text-[11px] font-medium text-neutral-500">{match.red.replaceAll(',', '')}</td>
+                          <td className="py-4 pr-8 text-[11px] font-medium text-neutral-500">{match.blue.replaceAll(',', '')}</td>
                           <td className="py-4 text-right text-[11px] font-black italic tracking-tighter">{match.score}</td>
                           <td className={`py-4 text-right text-[11px] font-black italic ${match.result === 'W' ? 'text-black dark:text-white' : 'text-neutral-200 dark:text-neutral-800'}`}>
                             {match.result}
