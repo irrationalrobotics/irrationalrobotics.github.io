@@ -407,7 +407,7 @@ export default function AxiomPage() {
                     <tbody className="divide-y divide-black/5 dark:divide-white/5">
                       {event.matches.map((match) => (
                         <tr key={match.id} className="group transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-950">
-                          <td className="py-4 pr-8 text-[11px] font-black">{match.id}</td>
+                          <td className={`py-4 pr-8 text-[11px] font-black ${(match.red.includes('14142A') || match.blue.includes('14142A')) ? (match.result === 'W' ? 'text-[#86efac]' : match.result === 'L' ? 'text-red-500' : '') : ''}`}>{match.id}</td>
                           <td className="py-4 pr-8">
                             <div className="inline-flex items-center rounded-md border border-red-500/30 bg-red-500/10 px-2.5 py-1.5 text-[11px] font-medium text-red-800 dark:text-red-200">
                               <span className="text-neutral-700 dark:text-neutral-100">{match.red.replaceAll(',', '')}</span>
