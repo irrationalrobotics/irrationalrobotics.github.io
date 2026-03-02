@@ -422,7 +422,7 @@ export default function AxiomPage() {
                 <div id={detailsId} className={`overflow-x-auto lg:col-span-8 ${isOpen ? 'block' : 'hidden lg:block'}`}>
                   <table className="w-full text-left">
                     <thead className="border-b border-black/10 dark:border-white/10">
-                      <tr className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+                      <tr className="text-xs font-bold uppercase tracking-widest text-neutral-400">
                         <th className="pb-4 pr-8">Match</th>
                         <th className="pb-4 pr-8 text-red-500/50">Red</th>
                         <th className="pb-4 pr-8 text-blue-500/50">Blue</th>
@@ -433,19 +433,19 @@ export default function AxiomPage() {
                     <tbody className="divide-y divide-black/5 dark:divide-white/5">
                       {event.matches.map((match) => (
                         <tr key={match.id} className="group transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-950">
-                          <td className={`py-4 pr-8 text-[11px] font-black ${(match.red.includes('14142A') || match.blue.includes('14142A')) ? (match.result === 'W' ? 'text-[#86efac]' : match.result === 'L' ? 'text-red-500' : '') : ''}`}>{match.id}</td>
+                          <td className={`py-4 pr-8 text-sm font-black ${(match.red.includes('14142A') || match.blue.includes('14142A')) ? (match.result === 'W' ? 'text-[#86efac]' : match.result === 'L' ? 'text-red-500' : '') : ''}`}>{match.id}</td>
                           <td className="py-4 pr-8">
-                            <span className="text-[11px] font-medium text-red-700 dark:text-red-300">
+                            <span className="text-sm font-medium text-red-700 dark:text-red-300">
                               {match.red.replaceAll(',', '')}
                             </span>
                           </td>
                           <td className="py-4 pr-8">
-                            <span className="text-[11px] font-medium text-blue-700 dark:text-blue-300">
+                            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
                               {match.blue.replaceAll(',', '')}
                             </span>
                           </td>
-                          <td className="py-4 text-right text-[11px] font-black italic tracking-tighter">{match.score}</td>
-                          <td className={`py-4 text-right text-[11px] font-black italic ${match.result === 'W' ? 'text-black dark:text-white' : 'text-neutral-200 dark:text-neutral-800'}`}>
+                          <td className="py-4 text-right text-sm font-black italic tracking-tighter">{match.score}</td>
+                          <td className={`py-4 text-right text-sm font-black italic ${match.result === 'W' ? 'text-black dark:text-white' : 'text-neutral-200 dark:text-neutral-800'}`}>
                             {match.result}
                           </td>
                         </tr>
