@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 
