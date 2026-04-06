@@ -358,6 +358,7 @@ export default function AxiomPage() {
               <div className="lg:col-span-7 grid grid-cols-2 gap-px bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
                 {[
                   { id: '1082E', name: 'Carbonated Potato' },
+                  {id: '9189X', name: 'Aurex'},
                   { id: '75409A', name: 'Axiom' },
                   { id: '76058A', name: 'WhyNot' },
                   { id: '28006B', name: 'Robots R Us' },
